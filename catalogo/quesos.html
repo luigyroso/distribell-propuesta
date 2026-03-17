@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat&aacute;logo de Quesos &mdash; Distribell &middot; Quesos y Quesos</title>
+    <meta name="description" content="Cat&aacute;logo completo de quesos: artesanales, Alpina, Colanta, Pampanini, Del Vecchio y m&aacute;s. Distribuci&oacute;n en Bogot&aacute;.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red-900:#7f1d1d;--red-800:#991b1b;--red-700:#b91c1c;
+            --red-600:#C62828;--red-500:#ef4444;
+            --gold-600:#F9A825;--gold-500:#FBC02D;--gold-400:#FFD54F;--gold-100:#FFF8E1;
+            --dark:#1a1a1a;--dark-warm:#2d1a1a;--dark-surface:#252525;
+            --warm-white:#FFF8F0;--cream:#FFFDF7;
+            --text:#1a1a1a;--text-mid:#4a4a4a;--text-muted:#888;
+            --white:#fff;--border:#e5e0db;--border-light:#f0ebe6;
+            --shadow-sm:0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md:0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg:0 12px 40px rgba(0,0,0,0.12);
+            --shadow-xl:0 24px 64px rgba(0,0,0,0.16);
+            --radius:14px;--radius-lg:22px;--radius-xl:30px;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overscroll-behavior:none;}
+        body{font-family:'DM Sans',-apple-system,sans-serif;color:var(--text);background:var(--white);line-height:1.6;overflow-x:hidden;}
+        img{max-width:100%;height:auto;display:block;}
+        .container{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,48px);width:100%;}
+
+        /* REVEALS */
+        .rv{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1);}
+        .rv.v{opacity:1;transform:translateY(0);}
+        .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
+
+        /* TYPOGRAPHY */
+        .display{font-family:'Cormorant Garamond',serif;font-weight:700;line-height:1.05;letter-spacing:-.02em;}
+        .eyebrow{font-size:.68rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-600);display:inline-flex;align-items:center;gap:12px;margin-bottom:14px;}
+        .eyebrow::before{content:'';width:24px;height:1.5px;background:var(--gold-600);}
+        .s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.6rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;}
+        .s-desc{font-size:1.05rem;color:var(--text-mid);max-width:540px;line-height:1.75;margin-top:14px;}
+
+        /* BUTTONS */
+        .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:60px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:all .35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;}
+        .btn::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,.12) 50%,transparent 60%);transform:translateX(-100%);transition:transform .6s;}
+        .btn:hover::after{transform:translateX(100%);}
+        .btn-red{background:var(--red-600);color:#fff;box-shadow:0 4px 20px rgba(198,40,40,.25);}
+        .btn-red:hover{background:var(--red-700);transform:translateY(-2px);box-shadow:0 8px 28px rgba(198,40,40,.35);}
+        .btn-gold{background:var(--gold-600);color:var(--dark);box-shadow:0 4px 20px rgba(249,168,37,.2);}
+        .btn-gold:hover{background:var(--gold-500);transform:translateY(-2px);}
+        .btn-outline{background:transparent;color:var(--red-600);border:1.5px solid var(--red-600);}
+        .btn-outline:hover{background:var(--red-600);color:#fff;transform:translateY(-2px);}
+        .btn-white{background:rgba(255,255,255,.95);color:var(--dark);backdrop-filter:blur(8px);box-shadow:var(--shadow-md);}
+        .btn-white:hover{background:#fff;transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+        .btn-wa{background:#25D366;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.25);}
+        .btn-wa:hover{background:#1eba59;transform:translateY(-2px);}
+        .btn-sm{padding:10px 22px;font-size:.82rem;}
+        .btn-lg{padding:18px 40px;font-size:1rem;}
+
+        /* NAV */
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:transform .4s cubic-bezier(.16,1,.3,1),background .4s,box-shadow .4s,padding .4s;padding:10px 0;}
+        nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);box-shadow:0 1px 0 rgba(0,0,0,.06);padding:0;}
+        nav.nav-hidden{transform:translateY(-100%);}
+        nav.nav-big{padding:14px 0;}
+        nav.nav-big .nav-logo img{height:72px;}
+        nav.nav-big .nav-inner{height:90px;}
+        nav:not(.scrolled) .nav-links a{color:rgba(255,255,255,.8);}
+        nav:not(.scrolled) .nav-links a:hover{color:#fff;}
+        nav:not(.scrolled) .nav-cta{background:var(--red-600);color:#fff!important;}
+        nav:not(.scrolled) .menu-toggle span{background:#fff;}
+        .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px;transition:height .4s cubic-bezier(.16,1,.3,1);}
+        .nav-logo{display:flex;align-items:center;text-decoration:none;}
+        .nav-logo img{height:56px;width:auto;transition:height .4s cubic-bezier(.16,1,.3,1);}
+        .nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+        .nav-links a{text-decoration:none;color:var(--text-mid);font-size:.85rem;font-weight:500;transition:color .2s;}
+        .nav-links a:hover{color:var(--red-600);}
+        .nav-cta{padding:10px 24px!important;font-size:.82rem!important;border-radius:60px;background:var(--red-600);color:#fff!important;font-weight:600!important;transition:all .3s!important;}
+        .nav-cta:hover{background:var(--red-700)!important;transform:translateY(-1px);}
+        .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+        .menu-toggle span{display:block;width:22px;height:1.5px;background:var(--text);margin:6px 0;transition:all .3s;border-radius:2px;}
+
+        /* MOBILE MENU */
+        .mob-menu{display:none;position:fixed;inset:0;background:rgba(255,255,255,.98);backdrop-filter:blur(24px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:20px;}
+        .mob-menu.active{display:flex;}
+        .mob-menu a{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--dark);text-decoration:none;}
+        .mob-menu a:hover{color:var(--red-600);}
+        .mob-menu .close-m{position:absolute;top:20px;right:24px;background:none;border:none;font-size:2rem;cursor:pointer;color:var(--text);}
+
+        /* PAGE HERO */
+        .page-hero{position:relative;min-height:40vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--dark);}
+        .page-hero-bg{position:absolute;inset:0;z-index:0;}
+        .page-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.5;}
+        .page-hero-bg::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(26,26,26,.8) 0%,rgba(45,26,26,.55) 40%,rgba(127,29,29,.25) 100%);}
+        .page-hero-content{position:relative;z-index:2;text-align:center;padding:120px 20px 60px;color:#fff;}
+        .page-hero-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;margin-bottom:12px;}
+        .page-hero-content p{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:500px;margin:0 auto;}
+
+        /* CATALOG SECTION */
+        .catalog-section{padding:clamp(48px,8vw,96px) 0;background:var(--warm-white);}
+
+        /* SEARCH & FILTER */
+        .search-bar{max-width:600px;margin:0 auto 48px;position:relative;}
+        .search-bar input{width:100%;padding:16px 24px 16px 52px;border:1.5px solid var(--border);border-radius:60px;font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--text);background:var(--white);outline:none;transition:all .3s;}
+        .search-bar input:focus{border-color:var(--red-600);box-shadow:0 0 0 4px rgba(198,40,40,.08);}
+        .search-bar input::placeholder{color:var(--text-muted);}
+        .search-bar .search-icon{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none;}
+
+        /* BRAND FILTER PILLS */
+        .brand-filters{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:40px;}
+        .brand-pill{padding:8px 20px;border-radius:60px;font-size:.8rem;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--text-mid);cursor:pointer;transition:all .25s;font-family:'DM Sans',sans-serif;}
+        .brand-pill:hover{border-color:var(--red-600);color:var(--red-600);}
+        .brand-pill.active{background:var(--red-600);color:#fff;border-color:var(--red-600);}
+
+        /* PRODUCT COUNT */
+        .product-count{text-align:center;font-size:.85rem;color:var(--text-muted);margin-bottom:32px;}
+        .product-count strong{color:var(--text);font-weight:700;}
+
+        /* BRAND GROUP */
+        .brand-group{margin-bottom:48px;}
+        .brand-group-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--dark);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--red-600);display:inline-block;}
+
+        /* PRODUCT TABLE */
+        .product-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:8px;}
+        .product-table thead th{background:var(--dark);color:rgba(255,255,255,.85);font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 20px;text-align:left;position:sticky;top:0;}
+        .product-table thead th:last-child{text-align:center;}
+        .product-table thead th:nth-child(3){text-align:right;}
+        .product-table tbody tr{transition:background .2s;}
+        .product-table tbody tr:hover{background:var(--gold-100);}
+        .product-table tbody tr:not(:last-child) td{border-bottom:1px solid var(--border-light);}
+        .product-table tbody td{padding:12px 20px;font-size:.88rem;color:var(--text-mid);}
+        .product-table tbody td:first-child{font-size:.78rem;color:var(--text-muted);font-family:monospace;letter-spacing:.5px;}
+        .product-table tbody td:nth-child(2){font-weight:500;color:var(--text);}
+        .product-table tbody td:nth-child(3){text-align:right;font-weight:700;color:var(--red-700);white-space:nowrap;}
+        .product-table tbody td:last-child{text-align:center;}
+        .pres-badge{display:inline-block;padding:3px 12px;border-radius:50px;font-size:.68rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
+        .pres-kilo{background:#e8f5e9;color:#2e7d32;}
+        .pres-unidad{background:#e3f2fd;color:#1565c0;}
+        .pres-libra{background:#fff3e0;color:#e65100;}
+        .pres-bloque{background:#f3e5f5;color:#7b1fa2;}
+
+        /* NO RESULTS */
+        .no-results{text-align:center;padding:60px 20px;display:none;}
+        .no-results h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--text-mid);margin-bottom:8px;}
+        .no-results p{font-size:.9rem;color:var(--text-muted);}
+
+        /* CTA */
+        .cta-section{padding:clamp(80px,12vw,140px) 0;background:var(--red-600);position:relative;overflow:hidden;text-align:center;}
+        .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 80%,rgba(249,168,37,.15) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(127,29,29,.4) 0%,transparent 50%);}
+        .cta-content{position:relative;z-index:2;}
+        .cta-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:700;color:#fff;margin-bottom:16px;line-height:1.1;}
+        .cta-section p{font-size:1.05rem;color:rgba(255,255,255,.7);max-width:460px;margin:0 auto 32px;line-height:1.7;}
+        .cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+        /* FOOTER */
+        footer{background:#0f0f0f;color:rgba(255,255,255,.45);padding:64px 0 28px;}
+        .ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+        .ft-brand img{height:56px;margin-bottom:14px;}
+        .ft-brand p{font-size:.85rem;line-height:1.7;}
+        .ft-col h4{color:rgba(255,255,255,.7);font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+        .ft-col a{display:block;color:rgba(255,255,255,.35);text-decoration:none;font-size:.85rem;margin-bottom:10px;transition:color .2s;}
+        .ft-col a:hover{color:rgba(255,255,255,.7);}
+        .ft-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:rgba(255,255,255,.2);}
+
+        /* WA FLOAT */
+        .wa-float{position:fixed;bottom:24px;right:24px;z-index:900;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:all .3s;text-decoration:none;}
+        .wa-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.45);}
+        .wa-float svg{width:28px;height:28px;}
+        .wa-float::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,.3);animation:wa-p 2s ease-out infinite;}
+        @keyframes wa-p{0%{transform:scale(1);opacity:1;}100%{transform:scale(1.4);opacity:0;}}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .ft-grid{grid-template-columns:1fr 1fr;}
+        }
+        @media(max-width:768px){
+            .nav-links{display:none;}.menu-toggle{display:block;}
+            .product-table{font-size:.82rem;}
+            .product-table thead th{padding:10px 12px;font-size:.65rem;}
+            .product-table tbody td{padding:10px 12px;font-size:.82rem;}
+            .product-table tbody td:first-child{display:none;}
+            .product-table thead th:first-child{display:none;}
+            .ft-grid{grid-template-columns:1fr;gap:28px;}
+            .ft-bottom{flex-direction:column;gap:8px;text-align:center;}
+        }
+        @media(max-width:480px){
+            .cta-buttons{flex-direction:column;align-items:stretch;}
+            .btn{justify-content:center;}
+            .product-table tbody td:last-child{display:none;}
+            .product-table thead th:last-child{display:none;}
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="container nav-inner">
+        <a href="../index.html" class="nav-logo">
+            <img src="../logo-distribell.png" alt="Distribell Quesos y Quesos" onerror="this.style.display='none';this.parentElement.innerHTML+='<span style=&quot;font-family:Cormorant Garamond,serif;font-size:1.4rem;font-weight:700;color:var(--red-600)&quot;>DISTRIBELL</span>';">
+        </a>
+        <ul class="nav-links">
+            <li><a href="../nosotros.html">Nosotros</a></li>
+            <li><a href="../productos.html">Productos</a></li>
+            <li><a href="../sucursales.html">Sucursales</a></li>
+            <li><a href="../recetas.html">Recetas</a></li>
+            <li><a href="../contacto.html" class="nav-cta">Contacto</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+    <button class="close-m" id="closeMenu">&times;</button>
+    <a href="../nosotros.html" onclick="closeM()">Nosotros</a>
+    <a href="../productos.html" onclick="closeM()">Productos</a>
+    <a href="../sucursales.html" onclick="closeM()">Sucursales</a>
+    <a href="../recetas.html" onclick="closeM()">Recetas</a>
+    <a href="../contacto.html" class="btn btn-red" onclick="closeM()">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="page-hero-bg">
+        <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=1600&q=80" alt="Quesos artesanales">
+    </div>
+    <div class="page-hero-content">
+        <div class="eyebrow rv" style="justify-content:center;color:var(--gold-400);">Cat&aacute;logo</div>
+        <h1 class="rv rv-d1">Cat&aacute;logo de Quesos</h1>
+        <p class="rv rv-d2">M&aacute;s de 80 referencias de quesos artesanales, industriales y especiales para tu negocio o tu mesa.</p>
+    </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog-section">
+    <div class="container">
+
+        <!-- Search -->
+        <div class="search-bar rv">
+            <span class="search-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+            <input type="text" id="searchInput" placeholder="Buscar por nombre, c&oacute;digo o marca...">
+        </div>
+
+        <!-- Brand Filters -->
+        <div class="brand-filters rv rv-d1">
+            <button class="brand-pill active" data-brand="all">Todos</button>
+            <button class="brand-pill" data-brand="artesanales">Artesanales</button>
+            <button class="brand-pill" data-brand="pampanini">Pampanini</button>
+            <button class="brand-pill" data-brand="delvecchio">Del Vecchio</button>
+            <button class="brand-pill" data-brand="alpina">Alpina</button>
+            <button class="brand-pill" data-brand="colanta">Colanta</button>
+            <button class="brand-pill" data-brand="otros">Otros</button>
+        </div>
+
+        <!-- Product Count -->
+        <div class="product-count rv rv-d2">
+            Mostrando <strong id="visibleCount">80</strong> de <strong>80</strong> productos
+        </div>
+
+        <!-- ARTESANALES -->
+        <div class="brand-group rv" data-group="artesanales">
+            <div class="brand-group-title">Quesos Artesanales</div>
+            <table class="product-table">
+                <thead>
+                    <tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Presentaci&oacute;n</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>101055</td><td>Qso Campesino Cocido Kilo</td><td>$16,200</td><td><span class="pres-badge pres-kilo">Kilo</span></td></tr>
+                    <tr><td>101555</td><td>Qso Pasteurizado Campes Kilo</td><td>$29,000</td><td><span class="pres-badge pres-kilo">Kilo</span></td></tr>
+                    <tr><td>102055</td><td>Cuajada Bloque Kilo</td><td>$16,200</td><td><span class="pres-badge pres-kilo">Kilo</span></td></tr>
+                    <tr><td>102055.1</td><td>Cuajada con Melao</td><td>$3,300</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>102653</td><td>Qso Coste&ntilde;o Cu&ntilde;a Libra</td><td>$13,900</td><td><span class="pres-badge pres-libra">Libra</span></td></tr>
+                    <tr><td>102654</td><td>Qso Coste&ntilde;o Molido Libra</td><td>$13,900</td><td><span class="pres-badge pres-libra">Libra</span></td></tr>
+                    <tr><td>103555</td><td>Qso Doble Crema Kilo</td><td>$24,000</td><td><span class="pres-badge pres-kilo">Kilo</span></td></tr>
+                    <tr><td>1035551</td><td>Qso Doble Crema Bloque 2.5 Kl</td><td>$59,500</td><td><span class="pres-badge pres-bloque">Bloque</span></td></tr>
+                    <tr><td>103595</td><td>Qso Doble Crema Tajado Kilo</td><td>$24,000</td><td><span class="pres-badge pres-kilo">Kilo</span></td></tr>
+                    <tr><td>103599</td><td>Qso Doble Crema Tajado Bloque 2.5 Kl</td><td>$59,500</td><td><span class="pres-badge pres-bloque">Bloque</span></td></tr>
+                    <tr><td>103951</td><td>Qso Paipita Peq Und Factory</td><td>$19,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>103955</td><td>Qso Paipa Factory Rueda Kilo</td><td>$38,000</td><td><span class="pres-badge pres-kilo">Kilo</span></td></tr>
+                    <tr><td>104055</td><td>Qso Pera Mozarela Kilo</td><td>$29,000</td><td><span class="pres-badge pres-kilo">Kilo</span></td></tr>
+                    <tr><td>1040551</td><td>Qso Pera Mozarela Bq 2.5 Kl</td><td>$71,500</td><td><span class="pres-badge pres-bloque">Bloque</span></td></tr>
+                    <tr><td>104350</td><td>Qso Pera Slim 500 Gr Do&ntilde;a Leche</td><td>$23,300</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>104550</td><td>Qso Pera Slim 500 Gr Tajado Do&ntilde;a Leche</td><td>$24,300</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- PAMPANINI -->
+        <div class="brand-group rv" data-group="pampanini">
+            <div class="brand-group-title">Pampanini</div>
+            <table class="product-table">
+                <thead>
+                    <tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Presentaci&oacute;n</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>105648</td><td>Qso Mozzarella 12 Und 480 Gr Pampanini</td><td>$18,600</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>105650</td><td>Qso Combinado 12 Und 480 Gr Pampanini</td><td>$18,900</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>106402</td><td>Quesadillo 70 Gr Arequipe Pampanini</td><td>$2,800</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>106404</td><td>Quesadillo 70 Gr Guayaba Pampanini</td><td>$2,800</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>106406</td><td>Quesadillo 50 Gr Pera Pampanini</td><td>$2,800</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>106630</td><td>Qso Pera Bola 330 Gr Pampanini</td><td>$17,500</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>106645</td><td>Qso Pera Bola 450 Gr Pampanini</td><td>$18,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- DEL VECCHIO -->
+        <div class="brand-group rv" data-group="delvecchio">
+            <div class="brand-group-title">Del Vecchio / Di Bufala</div>
+            <table class="product-table">
+                <thead>
+                    <tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Presentaci&oacute;n</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>107350</td><td>Bocconcini 500 Gr Del Vecchio</td><td>$26,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>107351</td><td>Mozzarella Di Bufala Snack 3 Und 15 Gr</td><td>$3,500</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>107352</td><td>Mozzarella Di Bufala Bocconcini 17 Und 250 Gr</td><td>$15,800</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>107355</td><td>Mozzarella Di Bufala Bocconcini 34 Und 500 Gr</td><td>$28,800</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>107370</td><td>Qso Sandwich Tipo Cheddar Kilo FLR</td><td>$43,800</td><td><span class="pres-badge pres-kilo">Kilo</span></td></tr>
+                    <tr><td>107430</td><td>Qso Ricotta 300 Gr Del Vecchio</td><td>$8,300</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ESPECIALES -->
+        <div class="brand-group rv" data-group="artesanales">
+            <div class="brand-group-title">Quesos Especiales</div>
+            <table class="product-table">
+                <thead>
+                    <tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Presentaci&oacute;n</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>107515</td><td>Qso Tilsit Finas Hierbas</td><td>$110,000</td><td><span class="pres-badge pres-kilo">Kilo</span></td></tr>
+                    <tr><td>107529.1</td><td>Qso Tofu Natural 450 Gr</td><td>$22,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>108425</td><td>Qso 7 Cueros 250 Gr Llano</td><td>$9,600</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>108725</td><td>Suero Sin&uacute; Frasco 250 cc</td><td>$12,500</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>108750</td><td>Suero Sin&uacute; Frasco 500 cc</td><td>$16,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>108761</td><td>Qso Mascarpone Tr 200 Gr</td><td>$28,900</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>108790</td><td>Qso Cabra con Ceniza 240 Gr</td><td>$36,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>108795</td><td>Queso Feta Fresco Kilo Cent/Past</td><td>$80,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>108799</td><td>Queso Feta Cabra Del Pastor Fco 537 Gr</td><td>$36,400</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ALPINA -->
+        <div class="brand-group rv" data-group="alpina">
+            <div class="brand-group-title">Alpina</div>
+            <table class="product-table">
+                <thead>
+                    <tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Presentaci&oacute;n</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>162389</td><td>Quesito Alpina Tarro 185 Gr</td><td>$5,600</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>162391</td><td>Quesito Alpina Tarro 375 Gr</td><td>$10,500</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>162491</td><td>Qso Sabana 91 Gr 7 Taj Alpina</td><td>$6,700</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>162905</td><td>Qso Finesse 105 Gr 7 Taj Alpina</td><td>$7,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>162925</td><td>Qso Campesino 250 Gr Alpina</td><td>$11,300</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>163520</td><td>Qso Crema Untar 200 Gr Alpina</td><td>$5,900</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>163538</td><td>Qso Crema Untar 380 Gr Alpina</td><td>$10,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>164123</td><td>Qso Finesse 239 Gr 15 Taj Alpina</td><td>$14,900</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>164324</td><td>Qso Mozarella 240 15 Taj Alpina</td><td>$12,600</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>164325</td><td>Qso Mozarella 250 Gr Blq Alpina</td><td>$11,600</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>164340</td><td>Qso Mozarella 400 25 Taj Alpina</td><td>$24,800</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>164424</td><td>Qso Sabana 240 15 Taj Alpina</td><td>$16,500</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>164753</td><td>Qso Finesse 300 Gr Alpina</td><td>$14,200</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>166240</td><td>Qso Sabana 400 Gr 25 Taj Alpina</td><td>$22,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>179304</td><td>Qso Parmesano 40 Gr Alpina</td><td>$4,700</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>179310</td><td>Qso Parmesano 100 Gr Alpina</td><td>$11,500</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>179325</td><td>Qso Parmesano 250 Gr Alpina</td><td>$26,800</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>179350</td><td>Qso Parmesano 500 Gr Alpina</td><td>$50,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- COLANTA -->
+        <div class="brand-group rv" data-group="colanta">
+            <div class="brand-group-title">Colanta</div>
+            <table class="product-table">
+                <thead>
+                    <tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Presentaci&oacute;n</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>183215</td><td>Qso Blanco 125 Gr Colanta</td><td>$4,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>183315</td><td>Qso Campesino 125 Gr Colanta</td><td>$3,400</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>183425</td><td>Quesito 250 Gr Colanta</td><td>$5,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>183525</td><td>Qso Blanco 250 Gr Colanta</td><td>$7,700</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>183625</td><td>Qso Campesino 250 Gr Colanta</td><td>$7,700</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>183635</td><td>Qso Para Asar 250 Gr Colanta</td><td>$9,200</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>183645</td><td>Qso Campesino 500 Gr Colanta</td><td>$15,200</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>183650</td><td>Qso Blanco 500 Gr Colanta</td><td>$15,800</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>183653</td><td>Qso Para Asar 500 Gr Colanta</td><td>$18,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>184523</td><td>Qso Crema Untar 230 Colanta</td><td>$5,700</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>184740</td><td>Qso Crema Untar 400 Colanta</td><td>$9,500</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>184845</td><td>Qso Crema Untar 4000 Gr Colanta</td><td>$85,200</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>188255</td><td>Qso Mozarella Blq Kilo Colanta</td><td>$38,000</td><td><span class="pres-badge pres-kilo">Kilo</span></td></tr>
+                    <tr><td>197204</td><td>Qso Parmesano 40 Gr Colanta</td><td>$4,700</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>197210</td><td>Qso Parmesano 100 Gr Colanta</td><td>$10,400</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>197225</td><td>Qso Parmesano 250 Gr Colanta</td><td>$23,400</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>197250</td><td>Qso Parmesano 500 Gr Colanta</td><td>$46,500</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>197252</td><td>Qso Parmesano 1000 Gr Colanta</td><td>$92,000</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- OTROS -->
+        <div class="brand-group rv" data-group="otros">
+            <div class="brand-group-title">Otros</div>
+            <table class="product-table">
+                <thead>
+                    <tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Presentaci&oacute;n</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>142040</td><td>Qso Holand&eacute;s 400 Gr Do&ntilde;a Leche</td><td>$28,500</td><td><span class="pres-badge pres-unidad">Unidad</span></td></tr>
+                    <tr><td>142655</td><td>Qso Holand&eacute;s Kilo Castilac</td><td>$52,000</td><td><span class="pres-badge pres-kilo">Kilo</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- No results message -->
+        <div class="no-results" id="noResults">
+            <h3>No se encontraron productos</h3>
+            <p>Intenta con otro t&eacute;rmino de b&uacute;squeda o selecciona otra categor&iacute;a.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="rv">&iquest;Quieres cotizar<br>quesos al por mayor?</h2>
+            <p class="rv rv-d1">Precios especiales para restaurantes, hoteles y negocios. Escr&iacute;benos por WhatsApp.</p>
+            <div class="cta-buttons rv rv-d2">
+                <a href="https://wa.me/573157921625?text=Hola%2C%20quiero%20cotizar%20quesos%20Distribell" class="btn btn-wa btn-lg" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp: 315 792 1625
+                </a>
+                <a href="../contacto.html" class="btn btn-white btn-lg">Contacto</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="ft-grid">
+            <div class="ft-brand">
+                <img src="../logo-distribell.png" alt="Distribell" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=&quot;font-family:Cormorant Garamond,serif;font-size:1.3rem;font-weight:700;color:rgba(255,255,255,.6)&quot;>DISTRIBELL</span><br>'+this.parentElement.innerHTML.split('<br>').slice(1).join('<br>');">
+                <p>Distribuci&oacute;n de productos alimenticios desde 1987. Quesos, l&aacute;cteos, c&aacute;rnicos, panader&iacute;a. Bogot&aacute;, Colombia.</p>
+            </div>
+            <div class="ft-col">
+                <h4>Canales</h4>
+                <a href="../nosotros.html">Nosotros</a>
+                <a href="../recetas.html">Recetas</a>
+                <a href="../contacto.html">Contacto</a>
+            </div>
+            <div class="ft-col">
+                <h4>Productos</h4>
+                <a href="../productos.html">Quesos</a>
+                <a href="../productos.html">L&aacute;cteos y Huevos</a>
+                <a href="../productos.html">C&aacute;rnicos</a>
+                <a href="../productos.html">Panader&iacute;a</a>
+            </div>
+            <div class="ft-col">
+                <h4>Contacto</h4>
+                <a href="https://wa.me/573157921625" target="_blank">WhatsApp: 315 792 1625</a>
+                <a href="../sucursales.html">Sede Calle 134</a>
+                <a href="../sucursales.html">Sede Calle 47</a>
+                <a href="#">Bogot&aacute;, Colombia</a>
+            </div>
+        </div>
+        <div class="ft-bottom">
+            <span>&copy; 2026 Distribell &mdash; Quesos y Quesos. Desde 1987.</span>
+            <span>Desarrollado por Luigy Roso</span>
+        </div>
+    </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/573157921625?text=Hola%2C%20quiero%20cotizar%20quesos" class="wa-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Nav scroll behavior
+const nb=document.getElementById('navbar');
+let lastY=0,ticking=false;
+window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{const y=window.scrollY;const down=y>lastY&&y>100;
+nb.classList.toggle('scrolled',y>50);
+if(down){nb.classList.add('nav-hidden');nb.classList.remove('nav-big');}
+else{nb.classList.remove('nav-hidden');if(y>80)nb.classList.add('nav-big');else nb.classList.remove('nav-big');}
+lastY=y;ticking=false;});}});
+
+// Mobile menu
+const mt=document.getElementById('menuToggle'),mm=document.getElementById('mobMenu');
+document.getElementById('closeMenu').addEventListener('click',closeM);
+mt.addEventListener('click',()=>{mm.classList.add('active');});
+function closeM(){mm.classList.remove('active');}
+
+// Scroll reveal
+const rvEls=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:0.01});
+    rvEls.forEach(el=>obs.observe(el));
+    setTimeout(()=>{rvEls.forEach(el=>{if(!el.classList.contains('v')){const r=el.getBoundingClientRect();if(r.top<window.innerHeight+50)el.classList.add('v');}});},400);
+}else{rvEls.forEach(el=>el.classList.add('v'));}
+let sTick=false;
+window.addEventListener('scroll',()=>{if(!sTick){sTick=true;requestAnimationFrame(()=>{rvEls.forEach(el=>{if(!el.classList.contains('v')&&el.getBoundingClientRect().top<window.innerHeight+50)el.classList.add('v');});sTick=false;});}});
+
+// Search & Filter
+const searchInput=document.getElementById('searchInput');
+const brandPills=document.querySelectorAll('.brand-pill');
+const brandGroups=document.querySelectorAll('.brand-group');
+const noResults=document.getElementById('noResults');
+const visibleCount=document.getElementById('visibleCount');
+let activeBrand='all';
+
+function normalize(str){return str.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
+
+function filterProducts(){
+    const q=normalize(searchInput.value.trim());
+    let total=0;
+
+    brandGroups.forEach(group=>{
+        const groupBrand=group.dataset.group;
+        const rows=group.querySelectorAll('tbody tr');
+        let groupVisible=0;
+
+        // Brand filter
+        if(activeBrand!=='all'&&groupBrand!==activeBrand){
+            group.style.display='none';
+            return;
+        }
+
+        rows.forEach(row=>{
+            const text=normalize(row.textContent);
+            if(q&&!text.includes(q)){
+                row.style.display='none';
+            }else{
+                row.style.display='';
+                groupVisible++;
+                total++;
+            }
+        });
+
+        group.style.display=groupVisible>0?'':'none';
+    });
+
+    visibleCount.textContent=total;
+    noResults.style.display=total===0?'block':'none';
+}
+
+searchInput.addEventListener('input',filterProducts);
+
+brandPills.forEach(pill=>{
+    pill.addEventListener('click',()=>{
+        brandPills.forEach(p=>p.classList.remove('active'));
+        pill.classList.add('active');
+        activeBrand=pill.dataset.brand;
+        filterProducts();
+    });
+});
+
+// Smooth anchor scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+</script>
+</body>
+</html>

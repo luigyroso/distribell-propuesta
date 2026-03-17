@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C&aacute;rnicos &mdash; Distribell &middot; Quesos y Quesos</title>
+    <meta name="description" content="Cat&aacute;logo de c&aacute;rnicos Distribell: jamones, salchichas, chorizos, tocineta, hamburguesas y embutidos. Precios al por mayor en Bogot&aacute;.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red-900:#7f1d1d;--red-800:#991b1b;--red-700:#b91c1c;
+            --red-600:#C62828;--red-500:#ef4444;
+            --gold-600:#F9A825;--gold-500:#FBC02D;--gold-400:#FFD54F;--gold-100:#FFF8E1;
+            --dark:#1a1a1a;--dark-warm:#2d1a1a;--dark-surface:#252525;
+            --warm-white:#FFF8F0;--cream:#FFFDF7;
+            --text:#1a1a1a;--text-mid:#4a4a4a;--text-muted:#888;
+            --white:#fff;--border:#e5e0db;--border-light:#f0ebe6;
+            --shadow-sm:0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md:0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg:0 12px 40px rgba(0,0,0,0.12);
+            --shadow-xl:0 24px 64px rgba(0,0,0,0.16);
+            --radius:14px;--radius-lg:22px;--radius-xl:30px;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overscroll-behavior:none;}
+        body{font-family:'DM Sans',-apple-system,sans-serif;color:var(--text);background:var(--white);line-height:1.6;overflow-x:hidden;}
+        img{max-width:100%;height:auto;display:block;}
+        .container{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,48px);width:100%;}
+
+        /* REVEALS */
+        .rv{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1);}
+        .rv.v{opacity:1;transform:translateY(0);}
+        .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
+
+        /* TYPOGRAPHY */
+        .display{font-family:'Cormorant Garamond',serif;font-weight:700;line-height:1.05;letter-spacing:-.02em;}
+        .eyebrow{font-size:.68rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-600);display:inline-flex;align-items:center;gap:12px;margin-bottom:14px;}
+        .eyebrow::before{content:'';width:24px;height:1.5px;background:var(--gold-600);}
+        .s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.6rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;}
+        .s-desc{font-size:1.05rem;color:var(--text-mid);max-width:540px;line-height:1.75;margin-top:14px;}
+
+        /* BUTTONS */
+        .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:60px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:all .35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;}
+        .btn::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,.12) 50%,transparent 60%);transform:translateX(-100%);transition:transform .6s;}
+        .btn:hover::after{transform:translateX(100%);}
+        .btn-red{background:var(--red-600);color:#fff;box-shadow:0 4px 20px rgba(198,40,40,.25);}
+        .btn-red:hover{background:var(--red-700);transform:translateY(-2px);box-shadow:0 8px 28px rgba(198,40,40,.35);}
+        .btn-gold{background:var(--gold-600);color:var(--dark);box-shadow:0 4px 20px rgba(249,168,37,.2);}
+        .btn-gold:hover{background:var(--gold-500);transform:translateY(-2px);}
+        .btn-outline{background:transparent;color:var(--red-600);border:1.5px solid var(--red-600);}
+        .btn-outline:hover{background:var(--red-600);color:#fff;transform:translateY(-2px);}
+        .btn-white{background:rgba(255,255,255,.95);color:var(--dark);backdrop-filter:blur(8px);box-shadow:var(--shadow-md);}
+        .btn-white:hover{background:#fff;transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+        .btn-wa{background:#25D366;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.25);}
+        .btn-wa:hover{background:#1eba59;transform:translateY(-2px);}
+        .btn-sm{padding:10px 22px;font-size:.82rem;}
+        .btn-lg{padding:18px 40px;font-size:1rem;}
+
+        /* NAV */
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:transform .4s cubic-bezier(.16,1,.3,1),background .4s,box-shadow .4s,padding .4s;padding:10px 0;}
+        nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);box-shadow:0 1px 0 rgba(0,0,0,.06);padding:0;}
+        nav.nav-hidden{transform:translateY(-100%);}
+        nav.nav-big{padding:14px 0;}
+        nav.nav-big .nav-logo img{height:72px;}
+        nav.nav-big .nav-inner{height:90px;}
+        nav:not(.scrolled) .nav-links a{color:rgba(255,255,255,.8);}
+        nav:not(.scrolled) .nav-links a:hover{color:#fff;}
+        nav:not(.scrolled) .nav-cta{background:var(--red-600);color:#fff!important;}
+        nav:not(.scrolled) .menu-toggle span{background:#fff;}
+        .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px;transition:height .4s cubic-bezier(.16,1,.3,1);}
+        .nav-logo{display:flex;align-items:center;text-decoration:none;}
+        .nav-logo img{height:56px;width:auto;transition:height .4s cubic-bezier(.16,1,.3,1);}
+        .nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+        .nav-links a{text-decoration:none;color:var(--text-mid);font-size:.85rem;font-weight:500;transition:color .2s;}
+        .nav-links a:hover{color:var(--red-600);}
+        .nav-links a.active{color:var(--red-600);font-weight:700;}
+        .nav-cta{padding:10px 24px!important;font-size:.82rem!important;border-radius:60px;background:var(--red-600);color:#fff!important;font-weight:600!important;transition:all .3s!important;}
+        .nav-cta:hover{background:var(--red-700)!important;transform:translateY(-1px);}
+        .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+        .menu-toggle span{display:block;width:22px;height:1.5px;background:var(--text);margin:6px 0;transition:all .3s;border-radius:2px;}
+
+        /* MOBILE MENU */
+        .mob-menu{display:none;position:fixed;inset:0;background:rgba(255,255,255,.98);backdrop-filter:blur(24px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:20px;}
+        .mob-menu.active{display:flex;}
+        .mob-menu a{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--dark);text-decoration:none;}
+        .mob-menu a:hover{color:var(--red-600);}
+        .mob-menu .close-m{position:absolute;top:20px;right:24px;background:none;border:none;font-size:2rem;cursor:pointer;color:var(--text);}
+
+        /* PAGE HERO */
+        .page-hero{position:relative;min-height:40vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--dark);text-align:center;}
+        .page-hero-bg{position:absolute;inset:0;z-index:0;}
+        .page-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.3;}
+        .page-hero-bg::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(26,26,26,.95) 0%,rgba(45,26,26,.85) 40%,rgba(127,29,29,.5) 100%);}
+        .page-hero-content{position:relative;z-index:2;color:#fff;padding:120px 0 60px;}
+        .page-hero-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:700;line-height:1.05;color:#fff;margin-bottom:16px;letter-spacing:-.03em;}
+        .page-hero-content p{font-size:clamp(1rem,1.4vw,1.1rem);color:rgba(255,255,255,.65);max-width:520px;margin:0 auto;line-height:1.7;font-weight:300;}
+
+        /* BREADCRUMB */
+        .breadcrumb{padding:20px 0;font-size:.82rem;color:var(--text-muted);}
+        .breadcrumb a{color:var(--text-muted);text-decoration:none;transition:color .2s;}
+        .breadcrumb a:hover{color:var(--red-600);}
+        .breadcrumb span{margin:0 8px;opacity:.5;}
+
+        /* SEARCH & FILTERS */
+        .catalog-controls{padding:40px 0 10px;background:var(--warm-white);}
+        .search-bar{display:flex;align-items:center;gap:12px;max-width:500px;margin:0 auto 24px;background:var(--white);border:1.5px solid var(--border);border-radius:60px;padding:6px 6px 6px 24px;transition:border-color .3s,box-shadow .3s;}
+        .search-bar:focus-within{border-color:var(--red-600);box-shadow:0 0 0 3px rgba(198,40,40,.08);}
+        .search-bar input{flex:1;border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:.92rem;color:var(--text);background:transparent;}
+        .search-bar input::placeholder{color:var(--text-muted);}
+        .search-bar .search-icon{color:var(--text-muted);flex-shrink:0;}
+        .search-bar .clear-btn{background:none;border:none;cursor:pointer;color:var(--text-muted);padding:8px;display:none;font-size:1.1rem;}
+        .search-bar .clear-btn.show{display:block;}
+
+        .filter-tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:10px;}
+        .filter-tab{padding:8px 20px;border-radius:50px;font-size:.78rem;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--text-mid);cursor:pointer;transition:all .25s;white-space:nowrap;}
+        .filter-tab:hover{border-color:var(--red-600);color:var(--red-600);}
+        .filter-tab.active{background:var(--red-600);color:#fff;border-color:var(--red-600);}
+
+        .results-count{text-align:center;font-size:.82rem;color:var(--text-muted);padding:16px 0 0;}
+
+        /* CATALOG TABLE */
+        .catalog-section{padding:clamp(40px,6vw,80px) 0;background:var(--warm-white);}
+
+        .cat-group{margin-bottom:48px;}
+        .cat-group-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;color:var(--dark);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--red-600);display:flex;align-items:center;gap:12px;}
+        .cat-group-title .count-badge{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;background:var(--red-600);color:#fff;padding:3px 10px;border-radius:50px;}
+
+        .cat-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--border-light);}
+        .cat-table thead th{background:var(--dark);color:rgba(255,255,255,.85);font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:14px 18px;text-align:left;}
+        .cat-table thead th:last-child{text-align:center;}
+        .cat-table tbody tr{transition:background .2s;}
+        .cat-table tbody tr:hover{background:var(--gold-100);}
+        .cat-table tbody tr:not(:last-child) td{border-bottom:1px solid var(--border-light);}
+        .cat-table tbody td{padding:14px 18px;font-size:.88rem;color:var(--text);}
+        .cat-table .col-code{font-family:monospace;font-size:.8rem;color:var(--text-muted);width:90px;}
+        .cat-table .col-name{font-weight:500;}
+        .cat-table .col-price{font-weight:700;color:var(--red-700);white-space:nowrap;}
+        .cat-table .col-pres{text-align:center;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);}
+        .cat-table .col-pres .badge-kilo{background:var(--gold-100);color:var(--gold-600);padding:3px 10px;border-radius:50px;font-size:.68rem;}
+        .cat-table .col-pres .badge-und{background:var(--warm-white);color:var(--text-muted);padding:3px 10px;border-radius:50px;font-size:.68rem;}
+
+        .no-results{text-align:center;padding:60px 20px;color:var(--text-muted);font-size:1rem;display:none;}
+        .no-results.show{display:block;}
+
+        /* CTA */
+        .cta-section{padding:clamp(80px,12vw,140px) 0;background:var(--red-600);position:relative;overflow:hidden;text-align:center;}
+        .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 80%,rgba(249,168,37,.15) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(127,29,29,.4) 0%,transparent 50%);}
+        .cta-content{position:relative;z-index:2;}
+        .cta-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:700;color:#fff;margin-bottom:16px;line-height:1.1;}
+        .cta-section p{font-size:1.05rem;color:rgba(255,255,255,.7);max-width:460px;margin:0 auto 32px;line-height:1.7;}
+        .cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+        /* FOOTER */
+        footer{background:#0f0f0f;color:rgba(255,255,255,.45);padding:64px 0 28px;}
+        .ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+        .ft-brand img{height:56px;margin-bottom:14px;}
+        .ft-brand p{font-size:.85rem;line-height:1.7;}
+        .ft-col h4{color:rgba(255,255,255,.7);font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+        .ft-col a{display:block;color:rgba(255,255,255,.35);text-decoration:none;font-size:.85rem;margin-bottom:10px;transition:color .2s;}
+        .ft-col a:hover{color:rgba(255,255,255,.7);}
+        .ft-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:rgba(255,255,255,.2);}
+
+        /* WA FLOAT */
+        .wa-float{position:fixed;bottom:24px;right:24px;z-index:900;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:all .3s;text-decoration:none;}
+        .wa-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.45);}
+        .wa-float svg{width:28px;height:28px;}
+        .wa-float::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,.3);animation:wa-p 2s ease-out infinite;}
+        @keyframes wa-p{0%{transform:scale(1);opacity:1;}100%{transform:scale(1.4);opacity:0;}}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .ft-grid{grid-template-columns:1fr 1fr;}
+        }
+        @media(max-width:768px){
+            .nav-links{display:none;}.menu-toggle{display:block;}
+            .cat-table{font-size:.82rem;}
+            .cat-table thead th{padding:10px 12px;font-size:.65rem;}
+            .cat-table tbody td{padding:10px 12px;font-size:.82rem;}
+            .cat-table .col-code{display:none;}
+            .cat-table thead th:first-child{display:none;}
+            .ft-grid{grid-template-columns:1fr;gap:28px;}
+            .ft-bottom{flex-direction:column;gap:8px;text-align:center;}
+            .filter-tabs{gap:6px;}
+            .filter-tab{padding:6px 14px;font-size:.72rem;}
+        }
+        @media(max-width:480px){
+            .cta-buttons{flex-direction:column;align-items:stretch;}
+            .btn{justify-content:center;}
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="container nav-inner">
+        <a href="../index.html" class="nav-logo">
+            <img src="../logo-distribell.png" alt="Distribell Quesos y Quesos" onerror="this.style.display='none';this.parentElement.innerHTML+='<span style=&quot;font-family:Cormorant Garamond,serif;font-size:1.4rem;font-weight:700;color:var(--red-600)&quot;>DISTRIBELL</span>';">
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../nosotros.html">Nosotros</a></li>
+            <li><a href="../productos.html" class="active">Productos</a></li>
+            <li><a href="../sucursales.html">Sucursales</a></li>
+            <li><a href="../recetas.html">Recetas</a></li>
+            <li><a href="../contacto.html" class="nav-cta">Contacto</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+    <button class="close-m" id="closeMenu">&times;</button>
+    <a href="../index.html" onclick="closeM()">Inicio</a>
+    <a href="../nosotros.html" onclick="closeM()">Nosotros</a>
+    <a href="../productos.html" onclick="closeM()">Productos</a>
+    <a href="../sucursales.html" onclick="closeM()">Sucursales</a>
+    <a href="../recetas.html" onclick="closeM()">Recetas</a>
+    <a href="../contacto.html" class="btn btn-red" onclick="closeM()">Contacto</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="page-hero-bg">
+        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=1600&q=80" alt="C&aacute;rnicos y embutidos">
+    </div>
+    <div class="container">
+        <div class="page-hero-content">
+            <h1 class="rv">Cat&aacute;logo de C&aacute;rnicos</h1>
+            <p class="rv rv-d1">Jamones, salchichas, chorizos, hamburguesas, tocineta y m&aacute;s. Las mejores marcas al mejor precio.</p>
+        </div>
+    </div>
+</section>
+
+<!-- BREADCRUMB -->
+<div style="background:var(--warm-white);border-bottom:1px solid var(--border-light);">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Inicio</a><span>/</span>
+            <a href="../productos.html">Productos</a><span>/</span>
+            <strong style="color:var(--text);">C&aacute;rnicos</strong>
+        </div>
+    </div>
+</div>
+
+<!-- SEARCH & FILTERS -->
+<section class="catalog-controls">
+    <div class="container">
+        <div class="search-bar">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="searchInput" placeholder="Buscar producto, c&oacute;digo o marca...">
+            <button class="clear-btn" id="clearSearch">&times;</button>
+        </div>
+        <div class="filter-tabs" id="filterTabs">
+            <button class="filter-tab active" data-filter="all">Todos</button>
+            <button class="filter-tab" data-filter="hamburguesas">Hamburguesas</button>
+            <button class="filter-tab" data-filter="jamones">Jamones</button>
+            <button class="filter-tab" data-filter="salchichas">Salchichas</button>
+            <button class="filter-tab" data-filter="salchichones">Salchichones</button>
+            <button class="filter-tab" data-filter="mortadelas">Mortadelas</button>
+            <button class="filter-tab" data-filter="chorizos">Chorizos / Morcillas</button>
+            <button class="filter-tab" data-filter="tocineta">Tocineta</button>
+            <button class="filter-tab" data-filter="otros">Otros</button>
+        </div>
+        <div class="results-count" id="resultsCount"></div>
+    </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog-section">
+    <div class="container" id="catalogContainer">
+
+        <!-- HAMBURGUESAS -->
+        <div class="cat-group rv" data-category="hamburguesas">
+            <h3 class="cat-group-title">Hamburguesas <span class="count-badge">8</span></h3>
+            <table class="cat-table">
+                <thead><tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Pres.</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-code">201545</td><td class="col-name">HAMBURG PLL 450 GR 5UND ESPERANZA</td><td class="col-price">$9,500</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">201645</td><td class="col-name">HAMBURG RES 450 GR 5UND ESPERANZA</td><td class="col-price">$9,500</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">220813</td><td class="col-name">HAMBURG RANCH 130GR ZENU</td><td class="col-price">$4,900</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">220940</td><td class="col-name">HAMBURG RANCH 400GR 4 UND ZENU</td><td class="col-price">$13,300</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">221055</td><td class="col-name">HAMBURG CONGEL 10 UN 1000 GR RICA</td><td class="col-price">$17,200</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">221126</td><td class="col-name">HAMBURG POLLO APANADA KK Cj 3000 Gr 24 Un</td><td class="col-price">$79,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">221128</td><td class="col-name">HAMBURG POLLO APANADA KK Cj 4000 Gr 32 Un</td><td class="col-price">$99,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">221133</td><td class="col-name">HAMBURG 3KL = 30 UN ZENU</td><td class="col-price">$70,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">251996</td><td class="col-name">HAMBURG POLLO 1000 GR 8 UND AVIDESA</td><td class="col-price">$30,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- JAMONES -->
+        <div class="cat-group rv" data-category="jamones">
+            <h3 class="cat-group-title">Jamones <span class="count-badge">23</span></h3>
+            <table class="cat-table">
+                <thead><tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Pres.</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-code">202555</td><td class="col-name">JAMON CASER/CORDE KILO BRASILE&Ntilde;A</td><td class="col-price">$24,400</td><td class="col-pres"><span class="badge-kilo">KILO</span></td></tr>
+                    <tr><td class="col-code">202755</td><td class="col-name">JAMON CUBANO BLQ KILO BRASILE&Ntilde;A</td><td class="col-price">$22,000</td><td class="col-pres"><span class="badge-kilo">KILO</span></td></tr>
+                    <tr><td class="col-code">203055</td><td class="col-name">JAMON PAVO AHUM BLQ KILO BRASILE&Ntilde;A</td><td class="col-price">$30,000</td><td class="col-pres"><span class="badge-kilo">KILO</span></td></tr>
+                    <tr><td class="col-code">203355</td><td class="col-name">JAMON POLLO BLQ KILO BRASILE&Ntilde;A</td><td class="col-price">$28,000</td><td class="col-pres"><span class="badge-kilo">KILO</span></td></tr>
+                    <tr><td class="col-code">203755</td><td class="col-name">JAMON YORK BLQ KILO BRASILE&Ntilde;A</td><td class="col-price">$18,000</td><td class="col-pres"><span class="badge-kilo">KILO</span></td></tr>
+                    <tr><td class="col-code">203825</td><td class="col-name">JAMON YORK PQ 250 GR BRASILE&Ntilde;A</td><td class="col-price">$5,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">203950</td><td class="col-name">JAMON YORK PQ 500 GR BRASILE&Ntilde;A</td><td class="col-price">$9,500</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">221310</td><td class="col-name">JAMON PIETRAN 100 GR ZENU</td><td class="col-price">$4,600</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">221314</td><td class="col-name">JAMON SANDWICH 111 GR ZENU</td><td class="col-price">$4,200</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">221625</td><td class="col-name">JAMON PIETRAN PAVO 225 GR ZENU</td><td class="col-price">$17,800</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">221923</td><td class="col-name">JAMON PIETRAN POLLO 230 GR ZENU</td><td class="col-price">$11,600</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">222323</td><td class="col-name">JAMON PIETRAN EST 230 GR ZENU</td><td class="col-price">$10,400</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">222523</td><td class="col-name">JAMON SANDWICH 230 GR ZENU</td><td class="col-price">$8,500</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">222623</td><td class="col-name">JAMON IDEAL RICA 230 GR 12 TAJ</td><td class="col-price">$7,600</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">222840</td><td class="col-name">JAMON IDEAL RICA 400 GR 21 TAJ</td><td class="col-price">$10,800</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">222945</td><td class="col-name">JAMON SANDWICH 450 GR ZENU</td><td class="col-price">$14,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">223150</td><td class="col-name">JAMON PIETRAN 500 GR ZENU</td><td class="col-price">$17,900</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">223350</td><td class="col-name">JAMON RICACHEF CERDO 500 GR RICA</td><td class="col-price">$13,600</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">252255</td><td class="col-name">JAMON AHUMADO ESP KILO NORTE&Ntilde;A</td><td class="col-price">$28,600</td><td class="col-pres"><span class="badge-kilo">KILO</span></td></tr>
+                    <tr><td class="col-code">252655</td><td class="col-name">JAMON CORDERO AHUM BLQ KILO SANJUAN</td><td class="col-price">$29,000</td><td class="col-pres"><span class="badge-kilo">KILO</span></td></tr>
+                    <tr><td class="col-code">254550</td><td class="col-name">JAMON ROMANO TP 500 GR SANJUAN</td><td class="col-price">$8,300</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SALCHICHAS -->
+        <div class="cat-group rv" data-category="salchichas">
+            <h3 class="cat-group-title">Salchichas <span class="count-badge">18</span></h3>
+            <table class="cat-table">
+                <thead><tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Pres.</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-code">224675</td><td class="col-name">SALCHA RANCH 75 GR TRIPACK ZENU</td><td class="col-price">$3,500</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">224792</td><td class="col-name">SALCHA TRADIC 102 GR 3Un ZENU</td><td class="col-price">$2,500</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">224812</td><td class="col-name">SALCHA PERRO CLNTE 120GR 3UN ZENU</td><td class="col-price">$3,500</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">224912</td><td class="col-name">SALCHA RANCH 115 GR PENTA ZENU</td><td class="col-price">$4,600</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">225016</td><td class="col-name">SALCHA SPRPERRO 160 GR B.P ZENU</td><td class="col-price">$4,400</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">225122</td><td class="col-name">SALCHA TRADIC 225 GR 9 UN ZENU</td><td class="col-price">$5,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">225225</td><td class="col-name">SALCHA POLLO 250 GR ZENU</td><td class="col-price">$6,200</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">225648</td><td class="col-name">SALCHA PERRO CLNTE 480 GR 12 UN ZENU</td><td class="col-price">$13,400</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">225750</td><td class="col-name">SALCHA RANCH 480/500 GR 14 UN ZENU</td><td class="col-price">$19,200</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">225850</td><td class="col-name">SALCHA RANCH 500 GR 16 UN ZENU</td><td class="col-price">$22,200</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">226050</td><td class="col-name">SALCHA LLANERA 500 GR RICA</td><td class="col-price">$14,500</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">226090</td><td class="col-name">SALCHA RICACHEF 540 GR 10UND RICA</td><td class="col-price">$10,900</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">226155</td><td class="col-name">SALCHA LONG 550 G 10UN ZENU</td><td class="col-price">$11,800</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">226364</td><td class="col-name">SALCHA SPR PERRO 640 GR 8UN ZENU</td><td class="col-price">$21,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">226411</td><td class="col-name">SALCHA LONG 1100 G 20UN ZENU</td><td class="col-price">$23,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">226612</td><td class="col-name">SALCHA IDEAL 611 GR RICA</td><td class="col-price">$11,200</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">228850</td><td class="col-name">SALCHA MANGUE UND</td><td class="col-price">$2,800</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SALCHICHONES -->
+        <div class="cat-group rv" data-category="salchichones">
+            <h3 class="cat-group-title">Salchichones <span class="count-badge">4</span></h3>
+            <table class="cat-table">
+                <thead><tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Pres.</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-code">228250</td><td class="col-name">SALCHON 50 GR CERVEC PORCN ZENU</td><td class="col-price">$2,200</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">228510</td><td class="col-name">SALCHON 100 CERVE COLLARIN RICA</td><td class="col-price">$2,300</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">228710</td><td class="col-name">SALCHON 100 TRADI COLLARIN ZENU</td><td class="col-price">$2,300</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">229512</td><td class="col-name">SALCHON KILO CERVERONI ZENU</td><td class="col-price">$26,000</td><td class="col-pres"><span class="badge-kilo">KILO</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- MORTADELAS -->
+        <div class="cat-group rv" data-category="mortadelas">
+            <h3 class="cat-group-title">Mortadelas <span class="count-badge">3</span></h3>
+            <table class="cat-table">
+                <thead><tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Pres.</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-code">223610</td><td class="col-name">MORTADELA 100 GR TRADIC ZENU</td><td class="col-price">$3,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">223825</td><td class="col-name">MORTADELA 250 GR POLLO ZENU</td><td class="col-price">$6,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">224025</td><td class="col-name">MORTADELA 250 GR TRADIC ZENU</td><td class="col-price">$6,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- CHORIZOS / MORCILLAS -->
+        <div class="cat-group rv" data-category="chorizos">
+            <h3 class="cat-group-title">Chorizos / Morcillas <span class="count-badge">9</span></h3>
+            <table class="cat-table">
+                <thead><tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Pres.</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-code">220165</td><td class="col-name">CHORIZO RANCH UND PCK 60GR ZENU</td><td class="col-price">$2,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">220310</td><td class="col-name">CHORIZO TERNE PARPK 110 GR ZENU</td><td class="col-price">$4,200</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">251525</td><td class="col-name">CHORIZO COCTEL 250GR SANJUAN</td><td class="col-price">$6,500</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">194010</td><td class="col-name">CHORIZO SANTARROSANO 100 GR DUO COLANTA</td><td class="col-price">$3,900</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">194310</td><td class="col-name">CHORIZO TERNERA 100 GR DUO COLANTA</td><td class="col-price">$3,900</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">194330</td><td class="col-name">CHORIZO TERNERA COCTEL 300 GR 18 UN COLANTA</td><td class="col-price">$10,900</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">194350</td><td class="col-name">CHORIZO TERNERA 450=8 UN COLANTA</td><td class="col-price">$16,700</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">194550</td><td class="col-name">CHORIZO SANTARROSANO 500=8 UN COLANTA</td><td class="col-price">$16,700</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">194725</td><td class="col-name">MORCILLA MNTEFRIO 250=4UN COLANTA</td><td class="col-price">$5,800</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">194750</td><td class="col-name">MORCILLA MNTEFRIO 450=8UN COLANTA</td><td class="col-price">$8,600</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">194785</td><td class="col-name">MORCILLA MNTEFRIO BROCH 500=20UN COLANTA</td><td class="col-price">$10,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- TOCINETA -->
+        <div class="cat-group rv" data-category="tocineta">
+            <h3 class="cat-group-title">Tocineta <span class="count-badge">3</span></h3>
+            <table class="cat-table">
+                <thead><tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Pres.</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-code">204715</td><td class="col-name">TOCINETA AHUMADA 125 GR BRASILE&Ntilde;A</td><td class="col-price">$6,200</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">204725</td><td class="col-name">TOCINETA AHUMADA 250 GR BRASILE&Ntilde;A</td><td class="col-price">$13,600</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">204850</td><td class="col-name">TOCINETA AHUMADA 500 GR BRASILE&Ntilde;A</td><td class="col-price">$26,400</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- OTROS -->
+        <div class="cat-group rv" data-category="otros">
+            <h3 class="cat-group-title">Otros <span class="count-badge">8</span></h3>
+            <table class="cat-table">
+                <thead><tr><th>C&oacute;digo</th><th>Producto</th><th>Precio</th><th>Pres.</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-code">204355</td><td class="col-name">QUESO CABEZA BLQ KILO BRASILE&Ntilde;A</td><td class="col-price">$27,000</td><td class="col-pres"><span class="badge-kilo">KILO</span></td></tr>
+                    <tr><td class="col-code">250298</td><td class="col-name">ALITAS ADOBADAS TERIYAKI PQ 900 GR AVIDESA</td><td class="col-price">$17,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">250362</td><td class="col-name">ALITAS POLLO RELLENAS 5 UNID 625 Gr</td><td class="col-price">$40,000</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">250518</td><td class="col-name">CABANO BAKANO CROC UND</td><td class="col-price">$1,700</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">255153</td><td class="col-name">MOLIPOLLO UND AVIDESA</td><td class="col-price">$5,500</td><td class="col-pres"><span class="badge-und">UNIDAD</span></td></tr>
+                    <tr><td class="col-code">256555</td><td class="col-name">PAVO NAVIDE&Ntilde;O KILO</td><td class="col-price">$52,000</td><td class="col-pres"><span class="badge-kilo">KILO</span></td></tr>
+                    <tr><td class="col-code">257255</td><td class="col-name">PERNIL CERDO KILO</td><td class="col-price">$48,000</td><td class="col-pres"><span class="badge-kilo">KILO</span></td></tr>
+                    <tr><td class="col-code">257555</td><td class="col-name">PERNIL CORDERO KILO</td><td class="col-price">$48,000</td><td class="col-pres"><span class="badge-kilo">KILO</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="no-results" id="noResults">
+            No se encontraron productos con esa b&uacute;squeda. Intenta con otro t&eacute;rmino.
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="rv">&iquest;Listo para hacer tu pedido?</h2>
+            <p class="rv rv-d1">Escr&iacute;benos por WhatsApp y recibe tu pedido de c&aacute;rnicos en Bogot&aacute;. Atenci&oacute;n directa y precios especiales por volumen.</p>
+            <div class="cta-buttons rv rv-d2">
+                <a href="https://wa.me/573157921625?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20c%C3%A1rnicos" class="btn btn-wa btn-lg" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Pedir por WhatsApp
+                </a>
+                <a href="../productos.html" class="btn btn-white btn-lg">Ver todas las categor&iacute;as</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="ft-grid">
+            <div class="ft-brand">
+                <img src="../logo-distribell.png" alt="Distribell" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=&quot;font-family:Cormorant Garamond,serif;font-size:1.3rem;font-weight:700;color:rgba(255,255,255,.6)&quot;>DISTRIBELL</span><br>'+this.parentElement.innerHTML.split('<br>').slice(1).join('<br>');">
+                <p>Distribuci&oacute;n de productos alimenticios desde 1987. Quesos, l&aacute;cteos, c&aacute;rnicos, panader&iacute;a. Bogot&aacute;, Colombia.</p>
+            </div>
+            <div class="ft-col">
+                <h4>P&aacute;ginas</h4>
+                <a href="../index.html">Inicio</a>
+                <a href="../nosotros.html">Nosotros</a>
+                <a href="../productos.html">Productos</a>
+                <a href="../sucursales.html">Sucursales</a>
+                <a href="../recetas.html">Recetas</a>
+            </div>
+            <div class="ft-col">
+                <h4>Productos</h4>
+                <a href="https://quesosdistribell.com/wp-content/uploads/2022/12/CATALOGO-QUESOS.pdf" target="_blank">Quesos</a>
+                <a href="https://quesosdistribell.com/wp-content/uploads/2022/12/CATALOGOLECHE-HUEVOS-POLLO.pdf" target="_blank">L&aacute;cteos y Huevos</a>
+                <a href="https://quesosdistribell.com/wp-content/uploads/2022/12/CATALOGO-CARNICOS.pdf" target="_blank">C&aacute;rnicos</a>
+                <a href="https://quesosdistribell.com/wp-content/uploads/2022/12/CATALOGO-PANADERIA-HARINAS-CEREALES.pdf" target="_blank">Panader&iacute;a</a>
+            </div>
+            <div class="ft-col">
+                <h4>Contacto</h4>
+                <a href="https://wa.me/573157921625" target="_blank">WhatsApp: 315 792 1625</a>
+                <a href="../sucursales.html">Sede Calle 134</a>
+                <a href="../sucursales.html">Sede Calle 47</a>
+                <a href="../contacto.html">Bogot&aacute;, Colombia</a>
+            </div>
+        </div>
+        <div class="ft-bottom">
+            <span>&copy; 2026 Distribell &mdash; Quesos y Quesos. Desde 1987.</span>
+            <span>Desarrollado por Luigy Roso</span>
+        </div>
+    </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/573157921625?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20c%C3%A1rnicos" class="wa-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Nav scroll behavior
+const nb=document.getElementById('navbar');
+let lastY=0,ticking=false;
+window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{const y=window.scrollY;const down=y>lastY&&y>100;
+nb.classList.toggle('scrolled',y>50);
+if(down){nb.classList.add('nav-hidden');nb.classList.remove('nav-big');}
+else{nb.classList.remove('nav-hidden');if(y>80)nb.classList.add('nav-big');else nb.classList.remove('nav-big');}
+lastY=y;ticking=false;});}});
+// Mobile menu
+const mt=document.getElementById('menuToggle'),mm=document.getElementById('mobMenu');
+document.getElementById('closeMenu').addEventListener('click',closeM);
+mt.addEventListener('click',()=>{mm.classList.add('active');});
+function closeM(){mm.classList.remove('active');}
+// Scroll reveal
+const rvEls=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:0.01});
+    rvEls.forEach(el=>obs.observe(el));
+    setTimeout(()=>{rvEls.forEach(el=>{if(!el.classList.contains('v')){const r=el.getBoundingClientRect();if(r.top<window.innerHeight+50)el.classList.add('v');}});},400);
+}else{rvEls.forEach(el=>el.classList.add('v'));}
+let sTick=false;
+window.addEventListener('scroll',()=>{if(!sTick){sTick=true;requestAnimationFrame(()=>{rvEls.forEach(el=>{if(!el.classList.contains('v')&&el.getBoundingClientRect().top<window.innerHeight+50)el.classList.add('v');});sTick=false;});}});
+
+// Search & Filter
+const searchInput=document.getElementById('searchInput');
+const clearBtn=document.getElementById('clearSearch');
+const filterTabs=document.querySelectorAll('.filter-tab');
+const catGroups=document.querySelectorAll('.cat-group');
+const noResults=document.getElementById('noResults');
+const resultsCount=document.getElementById('resultsCount');
+let activeFilter='all';
+
+function filterAndSearch(){
+    const q=searchInput.value.toLowerCase().trim();
+    clearBtn.classList.toggle('show',q.length>0);
+    let totalVisible=0;
+    let groupsVisible=0;
+
+    catGroups.forEach(group=>{
+        const cat=group.dataset.category;
+        const rows=group.querySelectorAll('tbody tr');
+        let groupMatch=0;
+
+        if(activeFilter!=='all'&&activeFilter!==cat){
+            group.style.display='none';
+            return;
+        }
+
+        rows.forEach(row=>{
+            const text=row.textContent.toLowerCase();
+            if(!q||text.includes(q)){
+                row.style.display='';
+                groupMatch++;
+            }else{
+                row.style.display='none';
+            }
+        });
+
+        if(groupMatch>0){
+            group.style.display='';
+            groupsVisible++;
+            totalVisible+=groupMatch;
+        }else{
+            group.style.display='none';
+        }
+    });
+
+    noResults.classList.toggle('show',totalVisible===0);
+    if(q||activeFilter!=='all'){
+        resultsCount.textContent=totalVisible+' producto'+(totalVisible!==1?'s':'')+' encontrado'+(totalVisible!==1?'s':'');
+    }else{
+        resultsCount.textContent='';
+    }
+}
+
+searchInput.addEventListener('input',filterAndSearch);
+clearBtn.addEventListener('click',()=>{searchInput.value='';filterAndSearch();searchInput.focus();});
+
+filterTabs.forEach(tab=>{
+    tab.addEventListener('click',()=>{
+        filterTabs.forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');
+        activeFilter=tab.dataset.filter;
+        filterAndSearch();
+    });
+});
+</script>
+</body>
+</html>
