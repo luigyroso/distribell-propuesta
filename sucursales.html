@@ -123,18 +123,13 @@
         .btn-maps svg{width:16px;height:16px;}
         .btn-call{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:60px;font-size:.82rem;font-weight:600;text-decoration:none;background:transparent;color:var(--red-600);border:1.5px solid var(--red-600);transition:all .3s;}
         .btn-call:hover{background:var(--red-600);color:#fff;transform:translateY(-2px);}
-        /* COVERAGE BAR */
-        .cov-bar{margin-top:16px;padding:14px 16px;background:var(--warm-white);border-radius:var(--radius);border:1px solid var(--border-light);}
-        .cov-bar-label{font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;}
-        .cov-bar-track{height:8px;background:var(--border-light);border-radius:4px;overflow:hidden;position:relative;}
-        .cov-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--red-600),var(--gold-600));position:relative;}
-        .cov-bar-markers{display:flex;justify-content:space-between;margin-top:6px;font-size:.65rem;color:var(--text-muted);}
-        .cov-bar-range{display:flex;justify-content:space-between;align-items:center;margin-top:4px;}
-        .cov-bar-range span{font-size:.75rem;font-weight:700;color:var(--red-600);}
-        .cov-bar-range .cov-dir{font-size:.6rem;color:var(--text-muted);font-weight:500;text-transform:uppercase;letter-spacing:1px;}
-        /* BRANCH MAP EMBED */
-        .branch-map{margin-top:16px;border-radius:var(--radius);overflow:hidden;height:180px;border:1px solid var(--border-light);}
-        .branch-map iframe{width:100%;height:100%;border:0;}
+        /* COVERAGE MAP per branch */
+        .branch-coverage{margin-top:16px;border-radius:var(--radius);overflow:hidden;height:220px;border:1px solid var(--border-light);position:relative;}
+        .branch-coverage iframe{width:100%;height:100%;border:0;filter:saturate(.8);}
+        .branch-coverage .cov-overlay{position:absolute;inset:0;pointer-events:none;z-index:2;}
+        .branch-coverage .cov-zone-label{position:absolute;bottom:8px;left:8px;background:rgba(198,40,40,.9);color:#fff;font-size:.65rem;font-weight:700;padding:4px 10px;border-radius:20px;z-index:3;letter-spacing:.5px;}
+        .branch-coverage .cov-legend{position:absolute;top:8px;right:8px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:6px 10px;border-radius:8px;z-index:3;font-size:.6rem;color:var(--text-mid);display:flex;align-items:center;gap:6px;}
+        .branch-coverage .cov-legend .cov-swatch{width:12px;height:12px;border-radius:3px;background:rgba(198,40,40,.25);border:1.5px solid rgba(198,40,40,.6);}
 
         /* PAYMENT METHODS */
         .payments{padding:clamp(60px,10vw,100px) 0;background:var(--white);}
@@ -293,14 +288,11 @@
                         <div class="bd-value">Pedidos y recogida en punto &middot; Lun-S&aacute;b 7am-6pm</div>
                     </div>
                 </div>
-                <div class="cov-bar">
-                    <div class="cov-bar-label">Zona de cobertura (norte-sur)</div>
-                    <div class="cov-bar-track"><div class="cov-bar-fill" style="width:50%;margin-left:50%;"></div></div>
-                    <div class="cov-bar-markers"><span>Cll 1</span><span>Cll 50</span><span>Cll 100</span><span>Cll 150</span><span>Cll 200</span></div>
-                    <div class="cov-bar-range"><span>Calle 93</span><span class="cov-dir">Cra 5 &harr; Autopista Norte</span><span>Calle 185</span></div>
-                </div>
-                <div class="branch-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.2!2d-74.03!3d4.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwNDMnMTIuMCJOIDc0wrAwMSc0OC4wIlc!5e0!3m2!1ses!2sco!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="branch-coverage">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31800!2d-74.04!3d4.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco" loading="lazy"></iframe>
+                    <svg class="cov-overlay" viewBox="0 0 100 100" preserveAspectRatio="none"><rect x="25" y="5" width="50" height="55" rx="4" fill="rgba(198,40,40,.18)" stroke="rgba(198,40,40,.5)" stroke-width=".5" stroke-dasharray="2,1"/></svg>
+                    <div class="cov-zone-label">Calles 93-185 &middot; Cra 5 a Autopista Norte</div>
+                    <div class="cov-legend"><div class="cov-swatch"></div>Zona de cobertura</div>
                 </div>
                 <div class="branch-actions">
                     <a href="https://www.google.com/maps/dir/?api=1&destination=Carrera+10+No+134-23+Bogota+Colombia" target="_blank" class="btn-maps">
@@ -330,14 +322,11 @@
                         <div class="bd-value">Pedidos y recogida en punto &middot; Lun-S&aacute;b 7am-6pm</div>
                     </div>
                 </div>
-                <div class="cov-bar">
-                    <div class="cov-bar-label">Zona de cobertura (norte-sur)</div>
-                    <div class="cov-bar-track"><div class="cov-bar-fill" style="width:54%;margin-left:10%;"></div></div>
-                    <div class="cov-bar-markers"><span>Cll 1</span><span>Cll 50</span><span>Cll 100</span><span>Cll 150</span><span>Cll 200</span></div>
-                    <div class="cov-bar-range"><span>Calle 19</span><span class="cov-dir">Cra 2 &harr; Cra 30 (Av. Suba)</span><span>Calle 127</span></div>
-                </div>
-                <div class="branch-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5!2d-74.06!3d4.64!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMzgnMjQuMCJOIDc0wrAwMyczNi4wIlc!5e0!3m2!1ses!2sco!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="branch-coverage">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d63600!2d-74.07!3d4.66!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco" loading="lazy"></iframe>
+                    <svg class="cov-overlay" viewBox="0 0 100 100" preserveAspectRatio="none"><rect x="20" y="10" width="55" height="75" rx="4" fill="rgba(198,40,40,.18)" stroke="rgba(198,40,40,.5)" stroke-width=".5" stroke-dasharray="2,1"/></svg>
+                    <div class="cov-zone-label">Calles 19-127 &middot; Cra 2 a Cra 30</div>
+                    <div class="cov-legend"><div class="cov-swatch"></div>Zona de cobertura</div>
                 </div>
                 <div class="branch-actions">
                     <a href="https://www.google.com/maps/dir/?api=1&destination=Calle+63+No+7-54+Bogota+Colombia" target="_blank" class="btn-maps">
@@ -368,14 +357,11 @@
                         <div class="bd-value">Pedidos, recogida y centro de distribuci&oacute;n &middot; Lun-S&aacute;b 7am-6pm</div>
                     </div>
                 </div>
-                <div class="cov-bar">
-                    <div class="cov-bar-label">Zona de cobertura (norte-sur)</div>
-                    <div class="cov-bar-track"><div class="cov-bar-fill" style="width:28%;margin-left:22%;"></div></div>
-                    <div class="cov-bar-markers"><span>Cll 1</span><span>Cll 50</span><span>Cll 100</span><span>Cll 150</span><span>Cll 200</span></div>
-                    <div class="cov-bar-range"><span>Calle 45</span><span class="cov-dir">Cra 9A &harr; Cra 30</span><span>Calle 100</span></div>
-                </div>
-                <div class="branch-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5!2d-74.07!3d4.64!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMzgnMjQuMCJOIDc0wrAwNCcxMi4wIlc!5e0!3m2!1ses!2sco!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="branch-coverage">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31800!2d-74.07!3d4.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco" loading="lazy"></iframe>
+                    <svg class="cov-overlay" viewBox="0 0 100 100" preserveAspectRatio="none"><rect x="25" y="20" width="45" height="50" rx="4" fill="rgba(198,40,40,.18)" stroke="rgba(198,40,40,.5)" stroke-width=".5" stroke-dasharray="2,1"/></svg>
+                    <div class="cov-zone-label">Calles 45-100 &middot; Cra 9A a Cra 30</div>
+                    <div class="cov-legend"><div class="cov-swatch"></div>Zona de cobertura</div>
                 </div>
                 <div class="branch-actions">
                     <a href="https://www.google.com/maps/dir/?api=1&destination=Calle+63+No+16A-30+Bogota+Colombia" target="_blank" class="btn-maps">
@@ -405,14 +391,11 @@
                         <div class="bd-value">Pedidos y recogida en punto &middot; Lun-S&aacute;b 7am-6pm</div>
                     </div>
                 </div>
-                <div class="cov-bar">
-                    <div class="cov-bar-label">Zona de cobertura (norte-sur)</div>
-                    <div class="cov-bar-track"><div class="cov-bar-fill" style="width:17%;margin-left:10%;"></div></div>
-                    <div class="cov-bar-markers"><span>Cll 1</span><span>Cll 50</span><span>Cll 100</span><span>Cll 150</span><span>Cll 200</span></div>
-                    <div class="cov-bar-range"><span>Calle 19</span><span class="cov-dir">Cra 2 &harr; Cra 30</span><span>Calle 53</span></div>
-                </div>
-                <div class="branch-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6!2d-74.07!3d4.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMzcnNDguMCJOIDc0wrAwNCcxMi4wIlc!5e0!3m2!1ses!2sco!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="branch-coverage">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15900!2d-74.07!3d4.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco" loading="lazy"></iframe>
+                    <svg class="cov-overlay" viewBox="0 0 100 100" preserveAspectRatio="none"><rect x="22" y="15" width="50" height="60" rx="4" fill="rgba(198,40,40,.18)" stroke="rgba(198,40,40,.5)" stroke-width=".5" stroke-dasharray="2,1"/></svg>
+                    <div class="cov-zone-label">Calles 19-53 &middot; Cra 2 a Cra 30</div>
+                    <div class="cov-legend"><div class="cov-swatch"></div>Zona de cobertura</div>
                 </div>
                 <div class="branch-actions">
                     <a href="https://www.google.com/maps/dir/?api=1&destination=Calle+47+No+8-51+Bogota+Colombia" target="_blank" class="btn-maps">
