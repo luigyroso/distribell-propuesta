@@ -3,3 +3,4 @@ NOTE.md
 *.swp
 *~
 .env
+node_modules/
