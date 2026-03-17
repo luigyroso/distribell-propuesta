@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribell &mdash; Retail &middot; M&aacute;s margen para tu tienda</title>
+    <meta name="description" content="Quesos artesanales, l&aacute;cteos y c&aacute;rnicos con alta rotaci&oacute;n para tiendas de barrio, minimercados y autoservicios en Bogot&aacute;. Pedido m&iacute;nimo desde $50.000.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red:#C62828;--red-hover:#a82222;
+            --gold:#C8973E;--gold-light:#d4ab5e;--gold-100:#FBF5EA;
+            --dark:#111;--dark-warm:#1c1612;
+            --bg:#FAFAF8;--bg-warm:#F5F3F0;--white:#fff;
+            --text:#1a1a1a;--text-mid:#6b6b6b;--text-muted:#999;
+            --border:rgba(0,0,0,.06);
+            --r-card:16px;--r-btn:12px;--r-lg:24px;
+            --green:#25D366;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overscroll-behavior:none;}
+        body{font-family:'DM Sans',-apple-system,sans-serif;color:var(--text);background:var(--white);line-height:1.6;overflow-x:hidden;}
+        img{max-width:100%;height:auto;display:block;}
+        .container{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px);width:100%;}
+
+        /* REVEALS */
+        .rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+        .rv.v{opacity:1;transform:translateY(0);}
+        .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}.rv-d5{transition-delay:.5s}
+
+        /* TYPOGRAPHY */
+        h1,h2,h3,.s-title{font-family:'Outfit',sans-serif;}
+        .eyebrow{font-size:.7rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:10px;margin-bottom:14px;}
+        .s-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.12;letter-spacing:-.02em;color:var(--text);}
+        .s-desc{font-size:1rem;color:var(--text-mid);max-width:520px;line-height:1.8;margin-top:12px;}
+        .section-header{text-align:center;margin-bottom:clamp(48px,6vw,72px);}
+        .section-header .s-desc{margin:12px auto 0;}
+        .gold-line{width:40px;height:2px;background:var(--gold);margin:0 auto 16px;border-radius:2px;}
+
+        /* BUTTONS */
+        .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:60px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:all .3s ease;}
+        .btn-red{background:var(--red);color:#fff;}
+        .btn-red:hover{background:var(--red-hover);transform:translateY(-2px);}
+        .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border);}
+        .btn-outline:hover{border-color:var(--text);transform:translateY(-2px);}
+        .btn-white{background:rgba(255,255,255,.9);color:var(--dark);backdrop-filter:blur(12px);}
+        .btn-white:hover{background:#fff;transform:translateY(-2px);}
+        .btn-wa{background:#25D366;color:#fff;}
+        .btn-wa:hover{background:#1eba59;transform:translateY(-2px);}
+        .btn-sm{padding:10px 22px;font-size:.82rem;}
+        .btn-lg{padding:16px 36px;font-size:.95rem;}
+        .btn-dark{background:var(--dark-warm);color:#fff;}
+        .btn-dark:hover{background:#2a2018;transform:translateY(-2px);}
+
+        /* NAV */
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:transform .4s cubic-bezier(.16,1,.3,1),background .3s,border-color .3s,padding .4s;padding:8px 0;background:transparent;border-bottom:1px solid transparent;}
+        nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom-color:var(--border);}
+        nav.nav-hidden{transform:translateY(-100%);}
+        nav.nav-big .nav-logo img{height:60px;}
+        nav.nav-big .nav-inner{height:84px;}
+        nav:not(.scrolled) .nav-links a{color:rgba(255,255,255,.75);}
+        nav:not(.scrolled) .nav-links a:hover{color:#fff;}
+        nav:not(.scrolled) .nav-cta{background:rgba(255,255,255,.15);color:#fff!important;border-color:rgba(255,255,255,.2)!important;}
+        nav:not(.scrolled) .nav-cta:hover{background:rgba(255,255,255,.25)!important;}
+        nav:not(.scrolled) .menu-toggle span{background:#fff;}
+        .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;transition:height .4s cubic-bezier(.16,1,.3,1);}
+        .nav-logo{display:flex;align-items:center;text-decoration:none;}
+        .nav-logo img{height:48px;width:auto;transition:height .4s cubic-bezier(.16,1,.3,1);}
+        .nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+        .nav-links a{text-decoration:none;color:var(--text-mid);font-size:.85rem;font-weight:500;transition:color .2s;letter-spacing:.2px;}
+        .nav-links a:hover{color:var(--text);}
+        .nav-cta{padding:9px 22px!important;font-size:.82rem!important;border-radius:60px;background:var(--text);color:#fff!important;font-weight:600!important;transition:all .3s!important;border:1px solid transparent!important;}
+        .nav-cta:hover{opacity:.85!important;}
+        .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+        .menu-toggle span{display:block;width:20px;height:1.5px;background:var(--text);margin:5px 0;transition:all .3s;border-radius:2px;}
+
+        /* MOBILE MENU */
+        .mob-menu{display:none;position:fixed;inset:0;background:rgba(255,255,255,.98);backdrop-filter:blur(24px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:24px;}
+        .mob-menu.active{display:flex;}
+        .mob-menu a{font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:600;color:var(--dark);text-decoration:none;transition:color .2s;}
+        .mob-menu a:hover{color:var(--red);}
+        .mob-menu .close-m{position:absolute;top:20px;right:24px;background:none;border:none;font-size:2rem;cursor:pointer;color:var(--text);line-height:1;}
+
+        /* HERO */
+        .hero{position:relative;min-height:50vh;display:flex;align-items:center;overflow:hidden;}
+        .hero-bg{position:absolute;inset:0;z-index:0;}
+        .hero-bg img{width:100%;height:100%;object-fit:cover;}
+        .hero-bg::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(20,18,14,.7) 0%,rgba(28,22,18,.5) 50%,rgba(40,30,20,.4) 100%);}
+        .hero-content{position:relative;z-index:2;color:#fff;padding:120px 0 60px;}
+        .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(16px);border-radius:60px;padding:8px 20px 8px 12px;font-size:.72rem;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:28px;letter-spacing:.3px;}
+        .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse-d 2s ease infinite;}
+        @keyframes pulse-d{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.4);}}
+        .hero h1{font-family:'Outfit',sans-serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;line-height:1.08;color:#fff;margin-bottom:22px;letter-spacing:-.03em;max-width:700px;text-shadow:0 2px 40px rgba(0,0,0,.3);}
+        .hero h1 em{color:var(--gold-light);font-style:italic;font-weight:700;}
+        .hero-sub{font-size:clamp(1rem,1.5vw,1.1rem);color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:36px;max-width:520px;font-weight:300;text-shadow:0 1px 20px rgba(0,0,0,.2);}
+        .hero-buttons{display:flex;gap:12px;flex-wrap:wrap;}
+
+        /* BENEFICIOS */
+        .beneficios{padding:clamp(80px,12vw,140px) 0;background:var(--white);}
+        .ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+        .ben-card{padding:32px 28px;border-radius:var(--r-card);background:var(--bg);border:1px solid var(--border);transition:all .3s;}
+        .ben-card:hover{border-color:rgba(200,151,62,.3);background:var(--gold-100);transform:translateY(-3px);}
+        .ben-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:16px;}
+        .ben-icon.i1{background:#e8f5e9;}.ben-icon.i2{background:var(--gold-100);}.ben-icon.i3{background:#fce4ec;}.ben-icon.i4{background:#e3f2fd;}.ben-icon.i5{background:#fff3e0;}.ben-icon.i6{background:#f3e5f5;}
+        .ben-card h3{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:6px;line-height:1.3;}
+        .ben-card p{font-size:.85rem;color:var(--text-muted);line-height:1.65;}
+
+        /* PRODUCTOS ESTRELLA */
+        .productos{padding:clamp(80px,12vw,140px) 0;background:var(--bg);}
+        .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+        .prod-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-card);padding:28px;transition:all .35s cubic-bezier(.16,1,.3,1);}
+        .prod-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.06);border-color:transparent;}
+        .prod-emoji{font-size:2.2rem;margin-bottom:14px;}
+        .prod-card h4{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:6px;}
+        .prod-card .prod-desc{font-size:.82rem;color:var(--text-muted);line-height:1.6;margin-bottom:14px;}
+        .prod-meta{display:flex;gap:8px;flex-wrap:wrap;}
+        .prod-tag{padding:5px 12px;border-radius:60px;font-size:.7rem;font-weight:600;letter-spacing:.3px;}
+        .prod-tag.price{background:var(--gold-100);color:var(--gold);}
+        .prod-tag.margin{background:#e8f5e9;color:#2e7d32;}
+
+        /* DIFERENCIADORES */
+        .diferenciadores{padding:clamp(80px,12vw,140px) 0;background:var(--white);}
+        .dif-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+        .dif-list{display:flex;flex-direction:column;gap:16px;margin-top:28px;}
+        .dif-item{display:flex;gap:16px;align-items:flex-start;padding:20px 24px;border-radius:var(--r-card);background:var(--bg);border:1px solid var(--border);transition:all .3s;}
+        .dif-item:hover{border-color:rgba(200,151,62,.3);background:var(--gold-100);}
+        .dif-num{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:700;color:var(--gold);line-height:1;flex-shrink:0;width:32px;}
+        .dif-item h4{font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:700;color:var(--dark);margin-bottom:2px;}
+        .dif-item p{font-size:.82rem;color:var(--text-muted);line-height:1.55;}
+        .dif-visual{position:relative;}
+        .dif-visual img{width:100%;height:480px;object-fit:cover;border-radius:var(--r-lg);border:1px solid var(--border);}
+        .dif-float{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:2;}
+        .dif-chip{background:var(--white);border-radius:var(--r-btn);padding:14px 18px;text-align:center;border:1px solid var(--border);min-width:100px;box-shadow:0 4px 20px rgba(0,0,0,.06);}
+        .dif-chip .dc-v{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:700;color:var(--red);line-height:1;}
+        .dif-chip .dc-l{font-size:.62rem;color:var(--text-muted);font-weight:500;margin-top:2px;}
+
+        /* COBERTURA */
+        .cobertura{padding:clamp(80px,12vw,140px) 0;background:var(--dark-warm);color:#fff;}
+        .cobertura .eyebrow{color:var(--gold-light);}
+        .cobertura .s-title{color:#fff;}
+        .cobertura .s-desc{color:rgba(255,255,255,.5);}
+        .cobertura .gold-line{background:var(--gold-light);opacity:.4;}
+        .cob-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px;}
+        .cob-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:var(--r-card);padding:28px;transition:all .3s;text-align:center;}
+        .cob-card:hover{background:rgba(255,255,255,.07);transform:translateY(-3px);}
+        .cob-card .cob-icon{font-size:1.8rem;margin-bottom:12px;opacity:.7;}
+        .cob-card h4{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;margin-bottom:6px;}
+        .cob-card p{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.6;}
+        .cob-link{display:inline-flex;align-items:center;gap:6px;margin-top:32px;color:var(--gold-light);font-size:.88rem;font-weight:600;text-decoration:none;transition:gap .3s;}
+        .cob-link:hover{gap:10px;}
+
+        /* CTA */
+        .cta-section{padding:clamp(80px,12vw,120px) 0;background:var(--bg);text-align:center;}
+        .cta-section h2{font-family:'Outfit',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.12;}
+        .cta-section p{font-size:1rem;color:var(--text-mid);max-width:480px;margin:0 auto 32px;line-height:1.75;}
+        .cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+        /* FOOTER */
+        footer{background:var(--dark);color:rgba(255,255,255,.4);padding:72px 0 32px;}
+        .ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+        .ft-brand img{height:48px;margin-bottom:14px;}
+        .ft-brand p{font-size:.85rem;line-height:1.7;}
+        .ft-col h4{color:rgba(255,255,255,.6);font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;font-family:'Outfit',sans-serif;}
+        .ft-col a{display:block;color:rgba(255,255,255,.3);text-decoration:none;font-size:.85rem;margin-bottom:10px;transition:color .2s;}
+        .ft-col a:hover{color:rgba(255,255,255,.6);}
+        .ft-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:rgba(255,255,255,.18);}
+
+        /* WA FLOAT */
+        .wa-float{position:fixed;bottom:28px;right:28px;z-index:900;width:54px;height:54px;border-radius:14px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;transition:all .3s;text-decoration:none;}
+        .wa-float:hover{transform:translateY(-2px);border-radius:18px;}
+        .wa-float svg{width:26px;height:26px;}
+        .wa-float::before{content:'';position:absolute;inset:-4px;border-radius:18px;border:1.5px solid rgba(37,211,102,.2);animation:wa-p 2.5s ease-out infinite;pointer-events:none;}
+        @keyframes wa-p{0%{transform:scale(1);opacity:1;}100%{transform:scale(1.4);opacity:0;}}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .ben-grid{grid-template-columns:repeat(2,1fr);}
+            .prod-grid{grid-template-columns:repeat(2,1fr);}
+            .dif-grid{grid-template-columns:1fr;gap:40px;}
+            .cob-grid{grid-template-columns:repeat(2,1fr);}
+            .ft-grid{grid-template-columns:1fr 1fr;}
+        }
+        @media(max-width:768px){
+            .nav-links{display:none;}.menu-toggle{display:block;}
+            .hero{min-height:50svh;}
+            .hero h1{font-size:2rem;}
+            .ben-grid{grid-template-columns:1fr;}
+            .prod-grid{grid-template-columns:1fr;}
+            .dif-visual img{height:300px;}
+            .cob-grid{grid-template-columns:1fr;}
+            .ft-grid{grid-template-columns:1fr;gap:28px;}
+            .ft-bottom{flex-direction:column;gap:8px;text-align:center;}
+            .dif-float{flex-wrap:wrap;justify-content:center;width:90%;}
+        }
+        @media(max-width:480px){
+            .hero h1{font-size:1.8rem;}
+            .hero-buttons,.cta-buttons{flex-direction:column;align-items:stretch;}
+            .btn{justify-content:center;}
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="container nav-inner">
+        <a href="index.html" class="nav-logo">
+            <img src="logo-distribell.png" alt="Distribell Quesos y Quesos" onerror="this.style.display='none';this.parentElement.innerHTML+='<span style=&quot;font-family:Outfit,sans-serif;font-size:1.3rem;font-weight:700;color:var(--red)&quot;>DISTRIBELL</span>';">
+        </a>
+        <ul class="nav-links">
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="sucursales.html">Sucursales</a></li>
+            <li><a href="recetas.html">Recetas</a></li>
+            <li><a href="contacto.html" class="nav-cta">Contacto</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+    <button class="close-m" id="closeMenu">&times;</button>
+    <a href="nosotros.html" onclick="closeM()">Nosotros</a>
+    <a href="productos.html" onclick="closeM()">Productos</a>
+    <a href="sucursales.html" onclick="closeM()">Sucursales</a>
+    <a href="recetas.html" onclick="closeM()">Recetas</a>
+    <a href="contacto.html" class="btn btn-red" onclick="closeM()">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=1600&q=80" alt="Tienda de barrio">
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge rv"><span class="dot"></span>Canal Retail &middot; Tiendas &middot; Minimercados &middot; Autoservicios</div>
+            <h1 class="rv rv-d1">M&aacute;s margen para tu tienda con productos que <em>rotan</em></h1>
+            <p class="hero-sub rv rv-d2">Quesos artesanales, l&aacute;cteos y c&aacute;rnicos con alta rotaci&oacute;n. Sin pedido m&iacute;nimo alto. Entrega en tu tienda.</p>
+            <div class="hero-buttons rv rv-d3">
+                <a href="https://wa.me/573157921625?text=Hola%2C%20tengo%20una%20tienda%20y%20quiero%20que%20me%20visiten%20para%20conocer%20los%20productos%20Distribell" class="btn btn-wa btn-lg" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Quiero que me visiten
+                </a>
+                <a href="#beneficios" class="btn btn-white btn-lg">Ver beneficios</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BENEFICIOS PARA TENDEROS -->
+<section class="beneficios" id="beneficios">
+    <div class="container">
+        <div class="section-header rv">
+            <div class="gold-line"></div>
+            <div class="eyebrow" style="justify-content:center;">Beneficios para Tenderos</div>
+            <h2 class="s-title">&iquest;Por qu&eacute; surtirte con Distribell?</h2>
+            <p class="s-desc">Todo lo que necesitas para que tu tienda venda m&aacute;s, con menos riesgo y m&aacute;s margen.</p>
+        </div>
+        <div class="ben-grid">
+            <div class="ben-card rv">
+                <div class="ben-icon i1">&#128200;</div>
+                <h3>Margen atractivo: hasta 30% en quesos artesanales</h3>
+                <p>Productos con precios de distribuidor que te dejan un margen real en cada venta.</p>
+            </div>
+            <div class="ben-card rv rv-d1">
+                <div class="ben-icon i2">&#128176;</div>
+                <h3>Pedido m&iacute;nimo desde $50.000</h3>
+                <p>Accesible para cualquier tienda. No necesitas hacer pedidos grandes para empezar.</p>
+            </div>
+            <div class="ben-card rv rv-d2">
+                <div class="ben-icon i3">&#128293;</div>
+                <h3>Productos frescos que rotan r&aacute;pido</h3>
+                <p>No duran en el estante &mdash; tus clientes los buscan y se venden solos.</p>
+            </div>
+            <div class="ben-card rv rv-d3">
+                <div class="ben-icon i4">&#129309;</div>
+                <h3>Pago contra entrega</h3>
+                <p>No necesitas capital por adelantado. Pagas cuando recibes la mercanc&iacute;a.</p>
+            </div>
+            <div class="ben-card rv rv-d4">
+                <div class="ben-icon i5">&#128666;</div>
+                <h3>Entrega en tu tienda 2 veces por semana</h3>
+                <p>Te llevamos el pedido directo. Sin filas, sin desplazamientos, sin perder tiempo.</p>
+            </div>
+            <div class="ben-card rv rv-d5">
+                <div class="ben-icon i6">&#127991;</div>
+                <h3>Material POP y exhibidores gratis</h3>
+                <p>Te damos material para tu punto de venta. Que tus clientes vean lo que vendes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCTOS ESTRELLA -->
+<section class="productos" id="productos">
+    <div class="container">
+        <div class="section-header rv">
+            <div class="gold-line"></div>
+            <div class="eyebrow" style="justify-content:center;">Productos Estrella para Tiendas</div>
+            <h2 class="s-title">Lo que m&aacute;s venden los tenderos</h2>
+            <p class="s-desc">Productos con alta rotaci&oacute;n comprobada en tiendas de barrio, minimercados y autoservicios.</p>
+        </div>
+        <div class="prod-grid">
+            <div class="prod-card rv">
+                <div class="prod-emoji">&#129472;</div>
+                <h4>Queso campesino por libra</h4>
+                <p class="prod-desc">El cl&aacute;sico del campo colombiano. Alta rotaci&oacute;n en cualquier barrio. Se vende solo.</p>
+                <div class="prod-meta">
+                    <span class="prod-tag price">~$8.500/lb</span>
+                    <span class="prod-tag margin">Margen ~28%</span>
+                </div>
+            </div>
+            <div class="prod-card rv rv-d1">
+                <div class="prod-emoji">&#129472;</div>
+                <h4>Queso doble crema tajado</h4>
+                <p class="prod-desc">Listo para s&aacute;ndwich y arepas. Pr&aacute;ctico para el cliente que compra al menudeo.</p>
+                <div class="prod-meta">
+                    <span class="prod-tag price">~$9.200/lb</span>
+                    <span class="prod-tag margin">Margen ~25%</span>
+                </div>
+            </div>
+            <div class="prod-card rv rv-d2">
+                <div class="prod-emoji">&#129472;</div>
+                <h4>Quesito (venta individual)</h4>
+                <p class="prod-desc">Marcas reconocidas como Alpina y Colanta. Venta unitaria ideal para el d&iacute;a a d&iacute;a.</p>
+                <div class="prod-meta">
+                    <span class="prod-tag price">~$2.800/und</span>
+                    <span class="prod-tag margin">Margen ~22%</span>
+                </div>
+            </div>
+            <div class="prod-card rv rv-d3">
+                <div class="prod-emoji">&#129371;</div>
+                <h4>Yogurt y kumis en vaso</h4>
+                <p class="prod-desc">Venta unitaria. Los clientes lo llevan con el pan o las onces. Rotaci&oacute;n diaria.</p>
+                <div class="prod-meta">
+                    <span class="prod-tag price">~$2.500/vaso</span>
+                    <span class="prod-tag margin">Margen ~20%</span>
+                </div>
+            </div>
+            <div class="prod-card rv rv-d4">
+                <div class="prod-emoji">&#129385;</div>
+                <h4>Jam&oacute;n y salchich&oacute;n por porci&oacute;n</h4>
+                <p class="prod-desc">Porciones listas para venta individual. Ideales para s&aacute;ndwiches y onces.</p>
+                <div class="prod-meta">
+                    <span class="prod-tag price">~$4.500/porci&oacute;n</span>
+                    <span class="prod-tag margin">Margen ~24%</span>
+                </div>
+            </div>
+            <div class="prod-card rv rv-d5">
+                <div class="prod-emoji">&#129370;</div>
+                <h4>Huevos por bandeja</h4>
+                <p class="prod-desc">Producto b&aacute;sico de canasta familiar. Rotaci&oacute;n garantizada en cualquier punto.</p>
+                <div class="prod-meta">
+                    <span class="prod-tag price">~$16.500/bandeja</span>
+                    <span class="prod-tag margin">Margen ~18%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DIFERENCIADORES -->
+<section class="diferenciadores">
+    <div class="container">
+        <div class="dif-grid">
+            <div class="rv">
+                <div class="eyebrow">Por qu&eacute; Distribell</div>
+                <h2 class="s-title">&iquest;Qu&eacute; nos hace diferentes?</h2>
+                <div class="dif-list">
+                    <div class="dif-item">
+                        <div class="dif-num">01</div>
+                        <div>
+                            <h4>37 a&ntilde;os surtiendo tiendas en Bogot&aacute;</h4>
+                            <p>Experiencia desde 1987. Conocemos el negocio del tendero.</p>
+                        </div>
+                    </div>
+                    <div class="dif-item">
+                        <div class="dif-num">02</div>
+                        <div>
+                            <h4>Te visitamos &mdash; no tienes que ir a buscarnos</h4>
+                            <p>Nuestro vendedor llega a tu tienda con el cat&aacute;logo completo.</p>
+                        </div>
+                    </div>
+                    <div class="dif-item">
+                        <div class="dif-num">03</div>
+                        <div>
+                            <h4>Cambio de producto si no rota &mdash; cero riesgo</h4>
+                            <p>Si algo no se vende, lo cambiamos. Tu inversi&oacute;n est&aacute; protegida.</p>
+                        </div>
+                    </div>
+                    <div class="dif-item">
+                        <div class="dif-num">04</div>
+                        <div>
+                            <h4>4 bodegas = siempre tenemos stock</h4>
+                            <p>Nunca te quedas sin producto. Capacidad de respuesta inmediata.</p>
+                        </div>
+                    </div>
+                    <div class="dif-item">
+                        <div class="dif-num">05</div>
+                        <div>
+                            <h4>WhatsApp directo con tu vendedor</h4>
+                            <p>Nada de call centers. Hablas directo con quien te conoce y te atiende.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dif-visual rv rv-d2">
+                <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=800&q=80" alt="Quesos artesanales colombianos" loading="lazy">
+                <div class="dif-float">
+                    <div class="dif-chip"><div class="dc-v">1987</div><div class="dc-l">Fundaci&oacute;n</div></div>
+                    <div class="dif-chip"><div class="dc-v">4</div><div class="dc-l">Bodegas</div></div>
+                    <div class="dif-chip"><div class="dc-v">0</div><div class="dc-l">Riesgo</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ZONA DE COBERTURA -->
+<section class="cobertura">
+    <div class="container">
+        <div class="section-header rv">
+            <div class="gold-line"></div>
+            <div class="eyebrow" style="justify-content:center;">Zona de Cobertura</div>
+            <h2 class="s-title" style="color:#fff;">4 sedes, cobertura total en Bogot&aacute;</h2>
+            <p class="s-desc" style="color:rgba(255,255,255,.45);margin:12px auto 0;">Nuestras bodegas est&aacute;n ubicadas estrat&eacute;gicamente para llegar a tu tienda r&aacute;pido y con stock siempre disponible.</p>
+        </div>
+        <div class="cob-grid">
+            <div class="cob-card rv">
+                <div class="cob-icon">&#128205;</div>
+                <h4>Sede Norte</h4>
+                <p>Calle 134. Cobertura zona norte, Usaqu&eacute;n, Suba.</p>
+            </div>
+            <div class="cob-card rv rv-d1">
+                <div class="cob-icon">&#128205;</div>
+                <h4>Sede Centro</h4>
+                <p>Calle 47. Cobertura Chapinero, Teusaquillo, centro.</p>
+            </div>
+            <div class="cob-card rv rv-d2">
+                <div class="cob-icon">&#128205;</div>
+                <h4>Sede Sur</h4>
+                <p>Cobertura Kennedy, Bosa, Ciudad Bol&iacute;var, Tunjuelito.</p>
+            </div>
+            <div class="cob-card rv rv-d3">
+                <div class="cob-icon">&#128205;</div>
+                <h4>Sede Occidente</h4>
+                <p>Cobertura Fontib&oacute;n, Engativ&aacute;, Barrios Unidos.</p>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:40px;" class="rv rv-d4">
+            <a href="sucursales.html" class="cob-link">Ver todas las sucursales y horarios &rarr;</a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <div class="rv">
+            <h2>&iquest;Tienes una tienda?<br>Quiero que me visiten</h2>
+        </div>
+        <p class="rv rv-d1">Escr&iacute;benos por WhatsApp y un vendedor te visita en tu tienda para mostrarte el cat&aacute;logo completo. Sin compromiso.</p>
+        <div class="cta-buttons rv rv-d2">
+            <a href="https://wa.me/573157921625?text=Hola%2C%20tengo%20una%20tienda%20y%20quiero%20que%20me%20visiten%20para%20conocer%20los%20productos%20Distribell" class="btn btn-wa btn-lg" target="_blank">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Quiero que me visiten
+            </a>
+            <a href="productos.html" class="btn btn-outline btn-lg">Ver cat&aacute;logo completo</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="ft-grid">
+            <div class="ft-brand">
+                <img src="logo-distribell.png" alt="Distribell" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=&quot;font-family:Outfit,sans-serif;font-size:1.2rem;font-weight:700;color:rgba(255,255,255,.5)&quot;>DISTRIBELL</span><br>'+this.parentElement.innerHTML.split('<br>').slice(1).join('<br>');">
+                <p>Distribuci&oacute;n de productos alimenticios desde 1987. Quesos, l&aacute;cteos, c&aacute;rnicos, panader&iacute;a. Bogot&aacute;, Colombia.</p>
+            </div>
+            <div class="ft-col">
+                <h4>Canales</h4>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="recetas.html">Recetas</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <div class="ft-col">
+                <h4>Productos</h4>
+                <a href="productos.html">Quesos</a>
+                <a href="productos.html">L&aacute;cteos y Huevos</a>
+                <a href="productos.html">C&aacute;rnicos</a>
+                <a href="productos.html">Panader&iacute;a</a>
+            </div>
+            <div class="ft-col">
+                <h4>Contacto</h4>
+                <a href="https://wa.me/573157921625" target="_blank">WhatsApp: 315 792 1625</a>
+                <a href="sucursales.html">Sucursales</a>
+                <a href="#">Bogot&aacute;, Colombia</a>
+            </div>
+        </div>
+        <div class="ft-bottom">
+            <span>&copy; 2026 Distribell &mdash; Quesos y Quesos. Desde 1987.</span>
+            <span>Desarrollado por Luigy Roso</span>
+        </div>
+    </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/573157921625?text=Hola%2C%20tengo%20una%20tienda%20y%20quiero%20que%20me%20visiten" class="wa-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Nav scroll
+const nb=document.getElementById('navbar');
+let lastY=0,ticking=false;
+window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{const y=window.scrollY;const down=y>lastY&&y>100;
+nb.classList.toggle('scrolled',y>50);
+if(down){nb.classList.add('nav-hidden');nb.classList.remove('nav-big');}
+else{nb.classList.remove('nav-hidden');if(y>80)nb.classList.add('nav-big');else nb.classList.remove('nav-big');}
+lastY=y;ticking=false;});}});
+// Mobile menu
+const mt=document.getElementById('menuToggle'),mm=document.getElementById('mobMenu');
+document.getElementById('closeMenu').addEventListener('click',closeM);
+mt.addEventListener('click',()=>{mm.classList.add('active');});
+function closeM(){mm.classList.remove('active');}
+// Scroll reveal
+const rvEls=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:0.01});
+    rvEls.forEach(el=>obs.observe(el));
+    setTimeout(()=>{rvEls.forEach(el=>{if(!el.classList.contains('v')){const r=el.getBoundingClientRect();if(r.top<window.innerHeight+50)el.classList.add('v');}});},400);
+}else{rvEls.forEach(el=>el.classList.add('v'));}
+let sTick=false;
+window.addEventListener('scroll',()=>{if(!sTick){sTick=true;requestAnimationFrame(()=>{rvEls.forEach(el=>{if(!el.classList.contains('v')&&el.getBoundingClientRect().top<window.innerHeight+50)el.classList.add('v');});sTick=false;});}});
+// Smooth anchor scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+</script>
+</body>
+</html>
