@@ -1,0 +1,5 @@
+NOTE.md
+.DS_Store
+*.swp
+*~
+.env
