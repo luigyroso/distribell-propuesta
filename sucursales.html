@@ -117,6 +117,24 @@
         .branch-detail .bd-info{flex:1;}
         .branch-detail .bd-label{font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:2px;}
         .branch-detail .bd-value{font-size:.88rem;color:var(--text);line-height:1.5;}
+        .branch-actions{display:flex;gap:10px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border-light);}
+        .btn-maps{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:60px;font-size:.82rem;font-weight:600;text-decoration:none;background:var(--red-600);color:#fff;transition:all .3s;border:none;cursor:pointer;}
+        .btn-maps:hover{background:var(--red-700);transform:translateY(-2px);box-shadow:0 4px 16px rgba(198,40,40,.25);}
+        .btn-maps svg{width:16px;height:16px;}
+        .btn-call{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:60px;font-size:.82rem;font-weight:600;text-decoration:none;background:transparent;color:var(--red-600);border:1.5px solid var(--red-600);transition:all .3s;}
+        .btn-call:hover{background:var(--red-600);color:#fff;transform:translateY(-2px);}
+        /* COVERAGE BAR */
+        .cov-bar{margin-top:16px;padding:14px 16px;background:var(--warm-white);border-radius:var(--radius);border:1px solid var(--border-light);}
+        .cov-bar-label{font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;}
+        .cov-bar-track{height:8px;background:var(--border-light);border-radius:4px;overflow:hidden;position:relative;}
+        .cov-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--red-600),var(--gold-600));position:relative;}
+        .cov-bar-markers{display:flex;justify-content:space-between;margin-top:6px;font-size:.65rem;color:var(--text-muted);}
+        .cov-bar-range{display:flex;justify-content:space-between;align-items:center;margin-top:4px;}
+        .cov-bar-range span{font-size:.75rem;font-weight:700;color:var(--red-600);}
+        .cov-bar-range .cov-dir{font-size:.6rem;color:var(--text-muted);font-weight:500;text-transform:uppercase;letter-spacing:1px;}
+        /* BRANCH MAP EMBED */
+        .branch-map{margin-top:16px;border-radius:var(--radius);overflow:hidden;height:180px;border:1px solid var(--border-light);}
+        .branch-map iframe{width:100%;height:100%;border:0;}
 
         /* PAYMENT METHODS */
         .payments{padding:clamp(60px,10vw,100px) 0;background:var(--white);}
@@ -260,7 +278,7 @@
             <div class="branch-card rv">
                 <div class="branch-icon">&#128205;</div>
                 <h3>Sede Cra 10 No. 134-23</h3>
-                <div class="branch-address">Zona Norte</div>
+                <div class="branch-address">Zona Norte &mdash; Bogot&aacute;</div>
                 <div class="branch-detail">
                     <div class="bd-icon phone">&#128222;</div>
                     <div class="bd-info">
@@ -269,18 +287,27 @@
                     </div>
                 </div>
                 <div class="branch-detail">
-                    <div class="bd-icon coverage">&#127759;</div>
-                    <div class="bd-info">
-                        <div class="bd-label">Cobertura</div>
-                        <div class="bd-value">Calles 93&ndash;185, entre Carrera 5 y Autopista Norte</div>
-                    </div>
-                </div>
-                <div class="branch-detail">
                     <div class="bd-icon service">&#9989;</div>
                     <div class="bd-info">
                         <div class="bd-label">Servicio</div>
-                        <div class="bd-value">Pedidos y recogida en punto</div>
+                        <div class="bd-value">Pedidos y recogida en punto &middot; Lun-S&aacute;b 7am-6pm</div>
                     </div>
+                </div>
+                <div class="cov-bar">
+                    <div class="cov-bar-label">Zona de cobertura (norte-sur)</div>
+                    <div class="cov-bar-track"><div class="cov-bar-fill" style="width:50%;margin-left:50%;"></div></div>
+                    <div class="cov-bar-markers"><span>Cll 1</span><span>Cll 50</span><span>Cll 100</span><span>Cll 150</span><span>Cll 200</span></div>
+                    <div class="cov-bar-range"><span>Calle 93</span><span class="cov-dir">Cra 5 &harr; Autopista Norte</span><span>Calle 185</span></div>
+                </div>
+                <div class="branch-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.2!2d-74.03!3d4.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwNDMnMTIuMCJOIDc0wrAwMSc0OC4wIlc!5e0!3m2!1ses!2sco!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="branch-actions">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Carrera+10+No+134-23+Bogota+Colombia" target="_blank" class="btn-maps">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        C&oacute;mo llegar
+                    </a>
+                    <a href="tel:6016142039" class="btn-call">&#128222; Llamar</a>
                 </div>
             </div>
 
@@ -288,7 +315,7 @@
             <div class="branch-card rv rv-d1">
                 <div class="branch-icon">&#128205;</div>
                 <h3>Sede Calle 63 No. 7-54</h3>
-                <div class="branch-address">Chapinero</div>
+                <div class="branch-address">Chapinero &mdash; Bogot&aacute;</div>
                 <div class="branch-detail">
                     <div class="bd-icon phone">&#128222;</div>
                     <div class="bd-info">
@@ -297,18 +324,27 @@
                     </div>
                 </div>
                 <div class="branch-detail">
-                    <div class="bd-icon coverage">&#127759;</div>
-                    <div class="bd-info">
-                        <div class="bd-label">Cobertura</div>
-                        <div class="bd-value">Calles 19&ndash;127, entre Carrera 2 y Carrera 30 (Av. Suba)</div>
-                    </div>
-                </div>
-                <div class="branch-detail">
                     <div class="bd-icon service">&#9989;</div>
                     <div class="bd-info">
                         <div class="bd-label">Servicio</div>
-                        <div class="bd-value">Pedidos y recogida en punto</div>
+                        <div class="bd-value">Pedidos y recogida en punto &middot; Lun-S&aacute;b 7am-6pm</div>
                     </div>
+                </div>
+                <div class="cov-bar">
+                    <div class="cov-bar-label">Zona de cobertura (norte-sur)</div>
+                    <div class="cov-bar-track"><div class="cov-bar-fill" style="width:54%;margin-left:10%;"></div></div>
+                    <div class="cov-bar-markers"><span>Cll 1</span><span>Cll 50</span><span>Cll 100</span><span>Cll 150</span><span>Cll 200</span></div>
+                    <div class="cov-bar-range"><span>Calle 19</span><span class="cov-dir">Cra 2 &harr; Cra 30 (Av. Suba)</span><span>Calle 127</span></div>
+                </div>
+                <div class="branch-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5!2d-74.06!3d4.64!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMzgnMjQuMCJOIDc0wrAwMyczNi4wIlc!5e0!3m2!1ses!2sco!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="branch-actions">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Calle+63+No+7-54+Bogota+Colombia" target="_blank" class="btn-maps">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        C&oacute;mo llegar
+                    </a>
+                    <a href="tel:6012481573" class="btn-call">&#128222; Llamar</a>
                 </div>
             </div>
 
@@ -317,7 +353,7 @@
                 <div class="branch-badge">Sede Principal</div>
                 <div class="branch-icon">&#127961;</div>
                 <h3>Sede Calle 63 No. 16A-30</h3>
-                <div class="branch-address">Sede Principal</div>
+                <div class="branch-address">Sede Principal &mdash; Bogot&aacute;</div>
                 <div class="branch-detail">
                     <div class="bd-icon phone">&#128222;</div>
                     <div class="bd-info">
@@ -326,18 +362,27 @@
                     </div>
                 </div>
                 <div class="branch-detail">
-                    <div class="bd-icon coverage">&#127759;</div>
-                    <div class="bd-info">
-                        <div class="bd-label">Cobertura</div>
-                        <div class="bd-value">Calles 45&ndash;100, entre Carrera 9A y Carrera 30</div>
-                    </div>
-                </div>
-                <div class="branch-detail">
                     <div class="bd-icon service">&#9989;</div>
                     <div class="bd-info">
                         <div class="bd-label">Servicio</div>
-                        <div class="bd-value">Pedidos y recogida en punto</div>
+                        <div class="bd-value">Pedidos, recogida y centro de distribuci&oacute;n &middot; Lun-S&aacute;b 7am-6pm</div>
                     </div>
+                </div>
+                <div class="cov-bar">
+                    <div class="cov-bar-label">Zona de cobertura (norte-sur)</div>
+                    <div class="cov-bar-track"><div class="cov-bar-fill" style="width:28%;margin-left:22%;"></div></div>
+                    <div class="cov-bar-markers"><span>Cll 1</span><span>Cll 50</span><span>Cll 100</span><span>Cll 150</span><span>Cll 200</span></div>
+                    <div class="cov-bar-range"><span>Calle 45</span><span class="cov-dir">Cra 9A &harr; Cra 30</span><span>Calle 100</span></div>
+                </div>
+                <div class="branch-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5!2d-74.07!3d4.64!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMzgnMjQuMCJOIDc0wrAwNCcxMi4wIlc!5e0!3m2!1ses!2sco!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="branch-actions">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Calle+63+No+16A-30+Bogota+Colombia" target="_blank" class="btn-maps">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        C&oacute;mo llegar
+                    </a>
+                    <a href="tel:6012125041" class="btn-call">&#128222; Llamar</a>
                 </div>
             </div>
 
@@ -345,7 +390,7 @@
             <div class="branch-card rv rv-d3">
                 <div class="branch-icon">&#128205;</div>
                 <h3>Sede Calle 47 No. 8-51</h3>
-                <div class="branch-address">Centro</div>
+                <div class="branch-address">Centro &mdash; Bogot&aacute;</div>
                 <div class="branch-detail">
                     <div class="bd-icon phone">&#128222;</div>
                     <div class="bd-info">
@@ -354,18 +399,27 @@
                     </div>
                 </div>
                 <div class="branch-detail">
-                    <div class="bd-icon coverage">&#127759;</div>
-                    <div class="bd-info">
-                        <div class="bd-label">Cobertura</div>
-                        <div class="bd-value">Calles 53&ndash;19, entre Carrera 2 y Carrera 30</div>
-                    </div>
-                </div>
-                <div class="branch-detail">
                     <div class="bd-icon service">&#9989;</div>
                     <div class="bd-info">
                         <div class="bd-label">Servicio</div>
-                        <div class="bd-value">Pedidos y recogida en punto</div>
+                        <div class="bd-value">Pedidos y recogida en punto &middot; Lun-S&aacute;b 7am-6pm</div>
                     </div>
+                </div>
+                <div class="cov-bar">
+                    <div class="cov-bar-label">Zona de cobertura (norte-sur)</div>
+                    <div class="cov-bar-track"><div class="cov-bar-fill" style="width:17%;margin-left:10%;"></div></div>
+                    <div class="cov-bar-markers"><span>Cll 1</span><span>Cll 50</span><span>Cll 100</span><span>Cll 150</span><span>Cll 200</span></div>
+                    <div class="cov-bar-range"><span>Calle 19</span><span class="cov-dir">Cra 2 &harr; Cra 30</span><span>Calle 53</span></div>
+                </div>
+                <div class="branch-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6!2d-74.07!3d4.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMzcnNDguMCJOIDc0wrAwNCcxMi4wIlc!5e0!3m2!1ses!2sco!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="branch-actions">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Calle+47+No+8-51+Bogota+Colombia" target="_blank" class="btn-maps">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        C&oacute;mo llegar
+                    </a>
+                    <a href="tel:6012877418" class="btn-call">&#128222; Llamar</a>
                 </div>
             </div>
 
