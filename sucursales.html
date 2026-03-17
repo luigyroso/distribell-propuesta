@@ -7,6 +7,8 @@
     <meta name="description" content="4 puntos de venta en Bogot&aacute; con entrega a domicilio. Quesos, l&aacute;cteos, c&aacute;rnicos. Distribell - Quesos y Quesos.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -123,12 +125,11 @@
         .btn-maps svg{width:16px;height:16px;}
         .btn-call{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:60px;font-size:.82rem;font-weight:600;text-decoration:none;background:transparent;color:var(--red-600);border:1.5px solid var(--red-600);transition:all .3s;}
         .btn-call:hover{background:var(--red-600);color:#fff;transform:translateY(-2px);}
-        /* COVERAGE MAP per branch */
-        .branch-coverage{margin-top:16px;border-radius:var(--radius);overflow:hidden;height:220px;border:1px solid var(--border-light);position:relative;}
-        .branch-coverage iframe{width:100%;height:100%;border:0;filter:saturate(.8);}
-        .branch-coverage .cov-overlay{position:absolute;inset:0;pointer-events:none;z-index:2;}
-        .branch-coverage .cov-zone-label{position:absolute;bottom:8px;left:8px;background:rgba(198,40,40,.9);color:#fff;font-size:.65rem;font-weight:700;padding:4px 10px;border-radius:20px;z-index:3;letter-spacing:.5px;}
-        .branch-coverage .cov-legend{position:absolute;top:8px;right:8px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:6px 10px;border-radius:8px;z-index:3;font-size:.6rem;color:var(--text-mid);display:flex;align-items:center;gap:6px;}
+        /* LEAFLET COVERAGE MAP per branch */
+        .branch-coverage{margin-top:16px;border-radius:var(--radius);overflow:hidden;height:240px;border:1px solid var(--border-light);position:relative;}
+        .branch-coverage .leaflet-map{width:100%;height:100%;}
+        .branch-coverage .cov-zone-label{position:absolute;bottom:8px;left:8px;background:rgba(198,40,40,.92);color:#fff;font-size:.65rem;font-weight:700;padding:5px 12px;border-radius:20px;z-index:500;letter-spacing:.5px;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+        .branch-coverage .cov-legend{position:absolute;top:8px;right:8px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);padding:6px 10px;border-radius:8px;z-index:500;font-size:.6rem;color:var(--text-mid);display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,.1);}
         .branch-coverage .cov-legend .cov-swatch{width:12px;height:12px;border-radius:3px;background:rgba(198,40,40,.25);border:1.5px solid rgba(198,40,40,.6);}
 
         /* PAYMENT METHODS */
@@ -289,8 +290,7 @@
                     </div>
                 </div>
                 <div class="branch-coverage">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31800!2d-74.04!3d4.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco" loading="lazy"></iframe>
-                    <svg class="cov-overlay" viewBox="0 0 100 100" preserveAspectRatio="none"><rect x="25" y="5" width="50" height="55" rx="4" fill="rgba(198,40,40,.18)" stroke="rgba(198,40,40,.5)" stroke-width=".5" stroke-dasharray="2,1"/></svg>
+                    <div class="leaflet-map" id="map-sede1"></div>
                     <div class="cov-zone-label">Calles 93-185 &middot; Cra 5 a Autopista Norte</div>
                     <div class="cov-legend"><div class="cov-swatch"></div>Zona de cobertura</div>
                 </div>
@@ -323,8 +323,7 @@
                     </div>
                 </div>
                 <div class="branch-coverage">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d63600!2d-74.07!3d4.66!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco" loading="lazy"></iframe>
-                    <svg class="cov-overlay" viewBox="0 0 100 100" preserveAspectRatio="none"><rect x="20" y="10" width="55" height="75" rx="4" fill="rgba(198,40,40,.18)" stroke="rgba(198,40,40,.5)" stroke-width=".5" stroke-dasharray="2,1"/></svg>
+                    <div class="leaflet-map" id="map-sede2"></div>
                     <div class="cov-zone-label">Calles 19-127 &middot; Cra 2 a Cra 30</div>
                     <div class="cov-legend"><div class="cov-swatch"></div>Zona de cobertura</div>
                 </div>
@@ -358,8 +357,7 @@
                     </div>
                 </div>
                 <div class="branch-coverage">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31800!2d-74.07!3d4.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco" loading="lazy"></iframe>
-                    <svg class="cov-overlay" viewBox="0 0 100 100" preserveAspectRatio="none"><rect x="25" y="20" width="45" height="50" rx="4" fill="rgba(198,40,40,.18)" stroke="rgba(198,40,40,.5)" stroke-width=".5" stroke-dasharray="2,1"/></svg>
+                    <div class="leaflet-map" id="map-sede3"></div>
                     <div class="cov-zone-label">Calles 45-100 &middot; Cra 9A a Cra 30</div>
                     <div class="cov-legend"><div class="cov-swatch"></div>Zona de cobertura</div>
                 </div>
@@ -392,8 +390,7 @@
                     </div>
                 </div>
                 <div class="branch-coverage">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15900!2d-74.07!3d4.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco" loading="lazy"></iframe>
-                    <svg class="cov-overlay" viewBox="0 0 100 100" preserveAspectRatio="none"><rect x="22" y="15" width="50" height="60" rx="4" fill="rgba(198,40,40,.18)" stroke="rgba(198,40,40,.5)" stroke-width=".5" stroke-dasharray="2,1"/></svg>
+                    <div class="leaflet-map" id="map-sede4"></div>
                     <div class="cov-zone-label">Calles 19-53 &middot; Cra 2 a Cra 30</div>
                     <div class="cov-legend"><div class="cov-swatch"></div>Zona de cobertura</div>
                 </div>
@@ -584,6 +581,42 @@ if('IntersectionObserver' in window){
 }else{rvEls.forEach(el=>el.classList.add('v'));}
 let sTick=false;
 window.addEventListener('scroll',()=>{if(!sTick){sTick=true;requestAnimationFrame(()=>{rvEls.forEach(el=>{if(!el.classList.contains('v')&&el.getBoundingClientRect().top<window.innerHeight+50)el.classList.add('v');});sTick=false;});}});
+// Coverage maps with Leaflet
+function initMaps(){
+const tile='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+const attr='&copy; OpenStreetMap';
+const polyStyle={color:'#C62828',weight:2,opacity:.7,fillColor:'#C62828',fillOpacity:.15,dashArray:'6,4'};
+const pinIcon=L.divIcon({className:'',html:'<div style="width:14px;height:14px;background:#C62828;border:3px solid #FFD54F;border-radius:50%;box-shadow:0 0 8px rgba(198,40,40,.6);"></div>',iconSize:[14,14],iconAnchor:[7,7]});
+// Sede 1: Cra 10 #134-23 — Calles 93-185, Cra 5 a Autopista Norte
+const m1=L.map('map-sede1',{zoomControl:false,scrollWheelZoom:false,dragging:false,attributionControl:false}).setView([4.720,-74.053],12);
+L.tileLayer(tile,{attribution:attr}).addTo(m1);
+L.polygon([[4.682,-74.058],[4.682,-74.047],[4.758,-74.047],[4.758,-74.058]],polyStyle).addTo(m1);
+L.marker([4.720,-74.052],{icon:pinIcon}).addTo(m1).bindPopup('<b>Sede Cra 10 #134-23</b>');
+m1.fitBounds([[4.678,-74.062],[4.762,-74.043]]);
+// Sede 2: Calle 63 #7-54 — Calles 19-127, Cra 2 a Cra 30 (Av Suba)
+const m2=L.map('map-sede2',{zoomControl:false,scrollWheelZoom:false,dragging:false,attributionControl:false}).setView([4.660,-74.070],12);
+L.tileLayer(tile,{attribution:attr}).addTo(m2);
+L.polygon([[4.612,-74.050],[4.612,-74.090],[4.712,-74.090],[4.712,-74.050]],polyStyle).addTo(m2);
+L.marker([4.651,-74.063],{icon:pinIcon}).addTo(m2).bindPopup('<b>Sede Calle 63 #7-54</b>');
+m2.fitBounds([[4.608,-74.095],[4.716,-74.045]]);
+// Sede 3: Calle 63 #16A-30 — Calles 45-100, Cra 9A a Cra 30
+const m3=L.map('map-sede3',{zoomControl:false,scrollWheelZoom:false,dragging:false,attributionControl:false}).setView([4.662,-74.075],13);
+L.tileLayer(tile,{attribution:attr}).addTo(m3);
+L.polygon([[4.633,-74.065],[4.633,-74.090],[4.690,-74.090],[4.690,-74.065]],polyStyle).addTo(m3);
+L.marker([4.651,-74.072],{icon:pinIcon}).addTo(m3).bindPopup('<b>Sede Calle 63 #16A-30</b><br>Sede Principal');
+m3.fitBounds([[4.629,-74.095],[4.694,-74.060]]);
+// Sede 4: Calle 47 #8-51 — Calles 19-53, Cra 2 a Cra 30
+const m4=L.map('map-sede4',{zoomControl:false,scrollWheelZoom:false,dragging:false,attributionControl:false}).setView([4.626,-74.070],13);
+L.tileLayer(tile,{attribution:attr}).addTo(m4);
+L.polygon([[4.612,-74.050],[4.612,-74.090],[4.641,-74.090],[4.641,-74.050]],polyStyle).addTo(m4);
+L.marker([4.635,-74.067],{icon:pinIcon}).addTo(m4).bindPopup('<b>Sede Calle 47 #8-51</b>');
+m4.fitBounds([[4.608,-74.095],[4.645,-74.045]]);
+}
+// Init maps when they scroll into view
+const mapObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){initMaps();mapObs.disconnect();}});},{threshold:0.01});
+const firstMap=document.getElementById('map-sede1');
+if(firstMap)mapObs.observe(firstMap);
+
 // Smooth anchor scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
 </script>
