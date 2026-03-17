@@ -641,6 +641,152 @@
       letter-spacing: 1px;
     }
 
+    /* Before/After comparison */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .compare-side {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .compare-side img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .compare-side.before img {
+      filter: grayscale(1) brightness(0.85);
+    }
+
+    .compare-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .compare-side.before .compare-tag {
+      background: rgba(0,0,0,0.6);
+      color: #fafafa;
+    }
+
+    .compare-side.after .compare-tag {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .compare-caption {
+      padding: 14px 16px;
+      background: var(--bg-card);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .compare-caption strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+      font-size: 14px;
+    }
+
+    /* Delivery badge */
+    .delivery-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 10px 18px;
+      background: var(--green-dim);
+      border: 1px solid rgba(22,163,74,0.15);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .delivery-badge .clock {
+      font-size: 16px;
+    }
+
+    /* Policy box */
+    .policy-box {
+      margin-top: 20px;
+      padding: 20px 24px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(124,58,237,0.12);
+      border-radius: var(--radius-sm);
+    }
+
+    .policy-box h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--accent);
+      letter-spacing: -0.3px;
+    }
+
+    .policy-box p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .policy-box .policy-steps {
+      list-style: none;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .policy-box .policy-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .policy-box .policy-steps .step-badge {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .policy-box .policy-steps li strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 680px) {
+      .compare { grid-template-columns: 1fr; }
+    }
+
     /* Responsive */
     @media (max-width: 680px) {
       .page { padding: 24px 16px 60px; }
@@ -713,6 +859,42 @@
       </div>
     </section>
 
+    <!-- Before / After -->
+    <section class="section">
+      <div class="section-label">01 &mdash; Visi&oacute;n</div>
+      <h2 class="section-heading">Antes y despu&eacute;s</h2>
+      <p class="section-desc">
+        Una transformaci&oacute;n visual completa: del sitio actual a una presencia
+        digital que compita al nivel de los l&iacute;deres del sector.
+      </p>
+
+      <div class="compare">
+        <div class="compare-side before">
+          <span class="compare-tag">Actual</span>
+          <!-- Replace src with a real screenshot of quesosdistribell.com -->
+          <img src="https://image.thum.io/get/width/800/crop/520/https://quesosdistribell.com/" alt="Sitio actual de Distribell">
+          <div class="compare-caption">
+            <strong>quesosdistribell.com</strong>
+            Dise&ntilde;o desactualizado, sin enfoque B2B ni optimizaci&oacute;n SEO.
+          </div>
+        </div>
+        <div class="compare-side after">
+          <span class="compare-tag">Nuevo</span>
+          <!-- Replace src with a screenshot/mockup of the new design -->
+          <img src="https://image.thum.io/get/width/800/crop/520/https://luigyroso.github.io/distribell-propuesta/" alt="Nuevo dise&ntilde;o propuesto">
+          <div class="compare-caption">
+            <strong>Nuevo dise&ntilde;o propuesto</strong>
+            Imagen premium, estructura B2B y SEO desde el d&iacute;a uno.
+          </div>
+        </div>
+      </div>
+
+      <div class="delivery-badge">
+        <span class="clock">&#9201;</span>
+        Entrega estimada: 10&ndash;15 d&iacute;as h&aacute;biles
+      </div>
+    </section>
+
     <!-- Scope -->
     <section class="section">
       <div class="section-label">02 &mdash; Alcance</div>
@@ -725,8 +907,8 @@
       <div class="scope-grid">
         <div class="scope-card">
           <div class="scope-icon purple">&#9670;</div>
-          <h3>Redise&ntilde;o visual completo</h3>
-          <p>Nuevo tema, estructura de p&aacute;ginas, tipograf&iacute;a, paleta de colores e im&aacute;genes. Imagen premium, institucional y alineada con la marca.</p>
+          <h3>6 p&aacute;ginas redise&ntilde;adas</h3>
+          <p>Inicio, Nosotros, Productos, Sucursales, Contacto y Recetas. Nuevo tema, tipograf&iacute;a, paleta de colores e im&aacute;genes. Imagen premium, institucional y alineada con la marca.</p>
         </div>
         <div class="scope-card">
           <div class="scope-icon cyan">&#9672;</div>
@@ -802,13 +984,27 @@
         <div class="timeline-step">
           <div class="step-num">03</div>
           <div class="step-title">Revisi&oacute;n</div>
-          <div class="step-desc">Presentaci&oacute;n y 1 ronda de ajustes</div>
+          <div class="step-desc">Presentaci&oacute;n y 2 rondas de ajustes</div>
         </div>
         <div class="timeline-step">
           <div class="step-num">04</div>
           <div class="step-title">Entrega</div>
-          <div class="step-desc">Publicaci&oacute;n y verificaci&oacute;n final</div>
+          <div class="step-desc">Montaje en WordPress y publicaci&oacute;n final</div>
         </div>
+      </div>
+
+      <div class="policy-box">
+        <h4>Pol&iacute;tica de revisiones</h4>
+        <ul class="policy-steps">
+          <li>
+            <span class="step-badge">1</span>
+            <div><strong>Antes del montaje en WordPress</strong> se presentar&aacute; el dise&ntilde;o para revisi&oacute;n. Se incluyen <strong>2 rondas de cambios</strong> en esta etapa.</div>
+          </li>
+          <li>
+            <span class="step-badge">2</span>
+            <div><strong>Una vez montado en WordPress, no se aceptan cambios.</strong> El montaje se realiza &uacute;nicamente despu&eacute;s de la aprobaci&oacute;n definitiva del dise&ntilde;o por parte del cliente.</div>
+          </li>
+        </ul>
       </div>
     </section>
 
