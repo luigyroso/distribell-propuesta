@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pan de Queso Colombiano &mdash; Receta F&aacute;cil | Distribell</title>
+    <meta name="description" content="Receta fácil de pan de queso colombiano con queso campesino Distribell. 20 unidades en 35 minutos. Ingredientes con códigos de producto.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://distribell.com/recetas/pan-de-queso.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red-900:#7f1d1d;--red-800:#991b1b;--red-700:#b91c1c;
+            --red-600:#C62828;--red-500:#ef4444;
+            --gold-600:#F9A825;--gold-500:#FBC02D;--gold-400:#FFD54F;--gold-100:#FFF8E1;
+            --dark:#1a1a1a;--dark-warm:#2d1a1a;--dark-surface:#252525;
+            --warm-white:#FFF8F0;--cream:#FFFDF7;
+            --text:#1a1a1a;--text-mid:#4a4a4a;--text-muted:#888;
+            --white:#fff;--border:#e5e0db;--border-light:#f0ebe6;
+            --shadow-sm:0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md:0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg:0 12px 40px rgba(0,0,0,0.12);
+            --shadow-xl:0 24px 64px rgba(0,0,0,0.16);
+            --radius:14px;--radius-lg:22px;--radius-xl:30px;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overscroll-behavior:none;}
+        body{font-family:'DM Sans',-apple-system,sans-serif;color:var(--text);background:var(--white);line-height:1.6;overflow-x:hidden;}
+        img{max-width:100%;height:auto;display:block;}
+        .container{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,48px);width:100%;}
+
+        .rv{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1);}
+        .rv.v{opacity:1;transform:translateY(0);}
+        .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
+
+        .display{font-family:'Cormorant Garamond',serif;font-weight:700;line-height:1.05;letter-spacing:-.02em;}
+        .eyebrow{font-size:.68rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-600);display:inline-flex;align-items:center;gap:12px;margin-bottom:14px;}
+        .eyebrow::before{content:'';width:24px;height:1.5px;background:var(--gold-600);}
+
+        .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:60px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:all .35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;}
+        .btn::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,.12) 50%,transparent 60%);transform:translateX(-100%);transition:transform .6s;}
+        .btn:hover::after{transform:translateX(100%);}
+        .btn-red{background:var(--red-600);color:#fff;box-shadow:0 4px 20px rgba(198,40,40,.25);}
+        .btn-red:hover{background:var(--red-700);transform:translateY(-2px);box-shadow:0 8px 28px rgba(198,40,40,.35);}
+        .btn-wa{background:#25D366;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.25);}
+        .btn-wa:hover{background:#1eba59;transform:translateY(-2px);}
+        .btn-sm{padding:10px 22px;font-size:.82rem;}
+        .btn-lg{padding:18px 40px;font-size:1rem;}
+        .btn-outline{background:transparent;color:var(--red-600);border:1.5px solid var(--red-600);}
+        .btn-outline:hover{background:var(--red-600);color:#fff;transform:translateY(-2px);}
+
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:transform .4s cubic-bezier(.16,1,.3,1),background .4s,box-shadow .4s,padding .4s;padding:10px 0;}
+        nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);box-shadow:0 1px 0 rgba(0,0,0,.06);padding:0;}
+        nav.nav-hidden{transform:translateY(-100%);}
+        nav.nav-big{padding:14px 0;}
+        nav.nav-big .nav-logo img{height:72px;}
+        nav.nav-big .nav-inner{height:90px;}
+        nav:not(.scrolled) .nav-links a{color:rgba(255,255,255,.8);}
+        nav:not(.scrolled) .nav-links a:hover{color:#fff;}
+        nav:not(.scrolled) .nav-cta{background:var(--red-600);color:#fff!important;}
+        nav:not(.scrolled) .menu-toggle span{background:#fff;}
+        .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px;transition:height .4s cubic-bezier(.16,1,.3,1);}
+        .nav-logo{display:flex;align-items:center;text-decoration:none;}
+        .nav-logo img{height:56px;width:auto;transition:height .4s cubic-bezier(.16,1,.3,1);}
+        .nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+        .nav-links a{text-decoration:none;color:var(--text-mid);font-size:.85rem;font-weight:500;transition:color .2s;}
+        .nav-links a:hover{color:var(--red-600);}
+        .nav-cta{padding:10px 24px!important;font-size:.82rem!important;border-radius:60px;background:var(--red-600);color:#fff!important;font-weight:600!important;transition:all .3s!important;}
+        .nav-cta:hover{background:var(--red-700)!important;transform:translateY(-1px);}
+        .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+        .menu-toggle span{display:block;width:22px;height:1.5px;background:var(--text);margin:6px 0;transition:all .3s;border-radius:2px;}
+
+        .mob-menu{display:none;position:fixed;inset:0;background:rgba(255,255,255,.98);backdrop-filter:blur(24px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:20px;}
+        .mob-menu.active{display:flex;}
+        .mob-menu a{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--dark);text-decoration:none;}
+        .mob-menu a:hover{color:var(--red-600);}
+        .mob-menu .close-m{position:absolute;top:20px;right:24px;background:none;border:none;font-size:2rem;cursor:pointer;color:var(--text);}
+
+        .recipe-hero{position:relative;height:50vh;min-height:380px;display:flex;align-items:flex-end;overflow:hidden;background:var(--dark);}
+        .recipe-hero-bg{position:absolute;inset:0;z-index:0;}
+        .recipe-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.65;}
+        .recipe-hero-bg::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(26,26,26,.85) 0%,rgba(26,26,26,.3) 50%,rgba(26,26,26,.1) 100%);}
+        .recipe-hero-content{position:relative;z-index:2;color:#fff;padding:0 0 48px;}
+        .recipe-hero-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.6rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:8px;}
+        .recipe-hero-content h1 em{color:var(--gold-400);font-style:italic;}
+
+        .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.8rem;color:rgba(255,255,255,.6);margin-bottom:16px;flex-wrap:wrap;}
+        .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;}
+        .breadcrumb a:hover{color:#fff;}
+        .breadcrumb span.sep{color:rgba(255,255,255,.3);}
+
+        .recipe-badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+        .recipe-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(8px);border-radius:60px;padding:6px 16px;font-size:.78rem;font-weight:500;color:rgba(255,255,255,.85);}
+        .recipe-badge svg{width:16px;height:16px;fill:currentColor;opacity:.7;}
+
+        .recipe-section{padding:64px 0 80px;}
+        .recipe-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:48px;align-items:start;}
+
+        .ingredients-card{background:var(--cream);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:36px;position:sticky;top:100px;}
+        .ingredients-card h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;margin-bottom:20px;color:var(--dark);}
+        .ingredients-list{list-style:none;padding:0;}
+        .ingredients-list li{padding:10px 0;border-bottom:1px solid var(--border-light);font-size:.92rem;color:var(--text-mid);display:flex;align-items:baseline;gap:10px;}
+        .ingredients-list li:last-child{border-bottom:none;}
+        .ingredients-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold-600);flex-shrink:0;margin-top:6px;}
+        .ing-code{font-size:.72rem;font-weight:600;color:var(--red-600);background:rgba(198,40,40,.08);padding:2px 8px;border-radius:20px;white-space:nowrap;}
+
+        .steps-col h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;margin-bottom:24px;color:var(--dark);}
+        .step{display:flex;gap:20px;margin-bottom:28px;}
+        .step-num{width:40px;height:40px;border-radius:50%;background:var(--red-600);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;}
+        .step-text{font-size:.95rem;color:var(--text-mid);line-height:1.75;padding-top:8px;}
+
+        .tip-box{background:var(--gold-100);border:1px solid var(--gold-400);border-radius:var(--radius);padding:24px 28px;margin-top:36px;display:flex;gap:16px;align-items:flex-start;}
+        .tip-icon{width:36px;height:36px;border-radius:50%;background:var(--gold-600);color:var(--dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;font-size:.85rem;}
+        .tip-content h4{font-size:.85rem;font-weight:700;color:var(--dark);margin-bottom:4px;}
+        .tip-content p{font-size:.88rem;color:var(--text-mid);line-height:1.65;}
+
+        .cta-recipe{background:var(--dark);padding:56px 0;text-align:center;}
+        .cta-recipe h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;color:#fff;margin-bottom:8px;}
+        .cta-recipe p{color:rgba(255,255,255,.5);font-size:.95rem;margin-bottom:28px;}
+
+        .related-section{padding:64px 0;background:var(--warm-white);}
+        .related-section h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;text-align:center;margin-bottom:36px;}
+        .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;}
+        .related-card{background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius);padding:20px 24px;text-decoration:none;color:var(--text);transition:all .3s;display:flex;align-items:center;gap:12px;}
+        .related-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--red-600);}
+        .related-card .rc-icon{width:40px;height:40px;border-radius:50%;background:var(--gold-100);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+        .related-card .rc-name{font-weight:600;font-size:.88rem;}
+        .related-card .rc-sub{font-size:.75rem;color:var(--text-muted);}
+
+        footer{background:#0f0f0f;color:rgba(255,255,255,.45);padding:64px 0 28px;}
+        .ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+        .ft-brand img{height:56px;margin-bottom:14px;}
+        .ft-brand p{font-size:.85rem;line-height:1.7;}
+        .ft-col h4{color:rgba(255,255,255,.7);font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+        .ft-col a{display:block;color:rgba(255,255,255,.35);text-decoration:none;font-size:.85rem;margin-bottom:10px;transition:color .2s;}
+        .ft-col a:hover{color:rgba(255,255,255,.7);}
+        .ft-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:rgba(255,255,255,.2);}
+
+        .wa-float{position:fixed;bottom:24px;right:24px;z-index:900;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:all .3s;text-decoration:none;}
+        .wa-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.45);}
+        .wa-float svg{width:28px;height:28px;}
+        .wa-float::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,.3);animation:wa-p 2s ease-out infinite;}
+        @keyframes wa-p{0%{transform:scale(1);opacity:1;}100%{transform:scale(1.4);opacity:0;}}
+
+        @media(max-width:1024px){
+            .recipe-grid{grid-template-columns:1fr;gap:32px;}
+            .ingredients-card{position:static;}
+            .ft-grid{grid-template-columns:1fr 1fr;}
+        }
+        @media(max-width:768px){
+            .nav-links{display:none;}.menu-toggle{display:block;}
+            .recipe-hero{min-height:320px;}
+            .related-grid{grid-template-columns:1fr 1fr;}
+            .ft-grid{grid-template-columns:1fr;gap:28px;}
+            .ft-bottom{flex-direction:column;gap:8px;text-align:center;}
+        }
+        @media(max-width:480px){
+            .recipe-badges{gap:8px;}
+            .related-grid{grid-template-columns:1fr;}
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org",
+        "@type":"Recipe",
+        "name":"Pan de Queso Colombiano",
+        "description":"Receta facil de pan de queso colombiano con queso campesino Distribell. Listo en 35 minutos.",
+        "prepTime":"PT15M",
+        "cookTime":"PT20M",
+        "totalTime":"PT35M",
+        "recipeYield":"20 unidades",
+        "recipeCategory":"Panaderia colombiana",
+        "recipeCuisine":"Colombiana",
+        "recipeIngredient":["300g queso campesino rallado","200g almidon de yuca","100g harina de trigo","2 huevos","100ml leche tibia","50g mantequilla"],
+        "recipeInstructions":[
+            {"@type":"HowToStep","text":"Mezclar harinas con queso rallado."},
+            {"@type":"HowToStep","text":"Hacer hueco en centro, agregar huevos, leche y mantequilla."},
+            {"@type":"HowToStep","text":"Amasar hasta que no se pegue."},
+            {"@type":"HowToStep","text":"Formar bolitas."},
+            {"@type":"HowToStep","text":"Hornear a 180 grados C por 20 min."},
+            {"@type":"HowToStep","text":"Servir tibios."}
+        ]
+    }
+    </script>
+</head>
+<body>
+
+<nav id="navbar">
+    <div class="container nav-inner">
+        <a href="../index.html" class="nav-logo">
+            <img src="../logo-distribell.png" alt="Distribell Quesos y Quesos" onerror="this.style.display='none';this.parentElement.innerHTML+='<span style=&quot;font-family:Cormorant Garamond,serif;font-size:1.4rem;font-weight:700;color:var(--red-600)&quot;>DISTRIBELL</span>';">
+        </a>
+        <ul class="nav-links">
+            <li><a href="../nosotros.html">Nosotros</a></li>
+            <li><a href="../productos.html">Productos</a></li>
+            <li><a href="../sucursales.html">Sucursales</a></li>
+            <li><a href="../recetas.html">Recetas</a></li>
+            <li><a href="../contacto.html" class="nav-cta">Contacto</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+    <button class="close-m" id="closeMenu">&times;</button>
+    <a href="../index.html" onclick="closeM()">Inicio</a>
+    <a href="../nosotros.html" onclick="closeM()">Nosotros</a>
+    <a href="../productos.html" onclick="closeM()">Productos</a>
+    <a href="../sucursales.html" onclick="closeM()">Sucursales</a>
+    <a href="../recetas.html" onclick="closeM()">Recetas</a>
+    <a href="../contacto.html" class="btn btn-red" onclick="closeM()">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section class="recipe-hero">
+    <div class="recipe-hero-bg">
+        <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=1600&q=80" alt="Pan de queso colombiano reci&eacute;n horneado">
+    </div>
+    <div class="recipe-hero-content container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Inicio</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="../recetas.html">Recetas</a>
+            <span class="sep">&rsaquo;</span>
+            <span>Pan de Queso</span>
+        </nav>
+        <h1>Pan de Queso <em>Colombiano</em></h1>
+        <p style="color:rgba(255,255,255,.6);font-size:.95rem;max-width:540px;">Bolitas doradas de queso campesino. F&aacute;cil, r&aacute;pido y perfecto para acompa&ntilde;ar el caf&eacute;.</p>
+        <div class="recipe-badges">
+            <div class="recipe-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/></svg>
+                Prep: 15 min
+            </div>
+            <div class="recipe-badge">
+                <svg viewBox="0 0 24 24"><path d="M8.1 13.34l2.83-2.83L3.91 3.5a4.008 4.008 0 000 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/></svg>
+                Cocci&oacute;n: 20 min
+            </div>
+            <div class="recipe-badge">
+                <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                20 unidades
+            </div>
+            <div class="recipe-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                F&aacute;cil
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RECIPE CONTENT -->
+<section class="recipe-section">
+    <div class="container">
+        <div class="recipe-grid">
+            <!-- INGREDIENTS -->
+            <div class="ingredients-card rv">
+                <h2>Ingredientes</h2>
+                <ul class="ingredients-list">
+                    <li>300g queso campesino rallado <span class="ing-code">c&oacute;d. 101055</span></li>
+                    <li>200g almid&oacute;n de yuca</li>
+                    <li>100g harina de trigo</li>
+                    <li>2 huevos</li>
+                    <li>100ml leche tibia</li>
+                    <li>50g mantequilla</li>
+                </ul>
+            </div>
+
+            <!-- STEPS -->
+            <div class="steps-col">
+                <h2 class="rv">Preparaci&oacute;n</h2>
+
+                <div class="step rv rv-d1">
+                    <div class="step-num">1</div>
+                    <div class="step-text">Mezclar el almid&oacute;n de yuca y la harina de trigo con el queso campesino rallado en un recipiente grande.</div>
+                </div>
+                <div class="step rv rv-d2">
+                    <div class="step-num">2</div>
+                    <div class="step-text">Hacer un hueco en el centro de la mezcla. Agregar los huevos, la leche tibia y la mantequilla derretida.</div>
+                </div>
+                <div class="step rv rv-d3">
+                    <div class="step-num">3</div>
+                    <div class="step-text">Amasar con las manos hasta obtener una masa suave que no se pegue. Si est&aacute; muy seca, agregar un poco m&aacute;s de leche.</div>
+                </div>
+                <div class="step rv rv-d1">
+                    <div class="step-num">4</div>
+                    <div class="step-text">Formar bolitas uniformes del tama&ntilde;o de una pelota de golf.</div>
+                </div>
+                <div class="step rv rv-d2">
+                    <div class="step-num">5</div>
+                    <div class="step-text">Hornear a 180&deg;C por 20 minutos o hasta que est&eacute;n dorados y crujientes.</div>
+                </div>
+                <div class="step rv rv-d3">
+                    <div class="step-num">6</div>
+                    <div class="step-text">Servir tibios para disfrutar su textura suave por dentro y dorada por fuera.</div>
+                </div>
+
+                <!-- TIP -->
+                <div class="tip-box rv">
+                    <div class="tip-icon">!</div>
+                    <div class="tip-content">
+                        <h4>Tip Distribell</h4>
+                        <p>Usa <strong>Queso Campesino Cocido Kilo</strong> (c&oacute;d. 101055) para el mejor resultado. Ralla el queso bien fino para que se integre perfectamente con la masa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-recipe">
+    <div class="container">
+        <h3>Compra los ingredientes</h3>
+        <p>Haz tu pedido por WhatsApp y recibe todo en tu negocio.</p>
+        <a href="https://wa.me/573157921625?text=Hola%2C%20quiero%20los%20ingredientes%20para%20pan%20de%20queso%3A%20Queso%20Campesino%20101055" class="btn btn-wa btn-lg" target="_blank">
+            <svg viewBox="0 0 24 24" fill="#fff" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Pedir por WhatsApp
+        </a>
+    </div>
+</section>
+
+<!-- RELATED -->
+<section class="related-section">
+    <div class="container">
+        <h3>M&aacute;s Recetas Distribell</h3>
+        <div class="related-grid">
+            <a href="bunuelos.html" class="related-card">
+                <div class="rc-icon">&#127849;</div>
+                <div><div class="rc-name">Bu&ntilde;uelos</div><div class="rc-sub">Cl&aacute;sico navide&ntilde;o</div></div>
+            </a>
+            <a href="natilla.html" class="related-card">
+                <div class="rc-icon">&#127854;</div>
+                <div><div class="rc-name">Natilla</div><div class="rc-sub">Postre tradicional</div></div>
+            </a>
+            <a href="mantecada.html" class="related-card">
+                <div class="rc-icon">&#129473;</div>
+                <div><div class="rc-name">Mantecada</div><div class="rc-sub">Ponqu&eacute; casero</div></div>
+            </a>
+            <a href="pandebono.html" class="related-card">
+                <div class="rc-icon">&#127838;</div>
+                <div><div class="rc-name">Pandebono</div><div class="rc-sub">Valle&ntilde;o original</div></div>
+            </a>
+            <a href="almojabana.html" class="related-card">
+                <div class="rc-icon">&#129374;</div>
+                <div><div class="rc-name">Almoj&aacute;bana</div><div class="rc-sub">Boyacense tradicional</div></div>
+            </a>
+            <a href="pan-de-yuca.html" class="related-card">
+                <div class="rc-icon">&#127837;</div>
+                <div><div class="rc-name">Pan de Yuca</div><div class="rc-sub">Sin gluten</div></div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="ft-grid">
+            <div class="ft-brand">
+                <img src="../logo-distribell.png" alt="Distribell" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=&quot;font-family:Cormorant Garamond,serif;font-size:1.3rem;font-weight:700;color:rgba(255,255,255,.6)&quot;>DISTRIBELL</span><br>'+this.parentElement.innerHTML.split('<br>').slice(1).join('<br>');">
+                <p>Distribuci&oacute;n de productos alimenticios desde 1987. Quesos, l&aacute;cteos, c&aacute;rnicos, panader&iacute;a. Bogot&aacute;, Colombia.</p>
+            </div>
+            <div class="ft-col">
+                <h4>Canales</h4>
+                <a href="../nosotros.html">Nosotros</a>
+                <a href="../recetas.html">Recetas</a>
+                <a href="../contacto.html">Contacto</a>
+            </div>
+            <div class="ft-col">
+                <h4>Productos</h4>
+                <a href="../productos.html">Quesos</a>
+                <a href="../productos.html">L&aacute;cteos y Huevos</a>
+                <a href="../productos.html">C&aacute;rnicos</a>
+                <a href="../productos.html">Panader&iacute;a</a>
+            </div>
+            <div class="ft-col">
+                <h4>Contacto</h4>
+                <a href="https://wa.me/573157921625" target="_blank">WhatsApp: 315 792 1625</a>
+                <a href="../sucursales.html">Sede Calle 134</a>
+                <a href="../sucursales.html">Sede Calle 47</a>
+                <a href="#">Bogot&aacute;, Colombia</a>
+            </div>
+        </div>
+        <div class="ft-bottom">
+            <span>&copy; 2026 Distribell &mdash; Quesos y Quesos. Desde 1987.</span>
+            <span>Desarrollado por Luigy Roso</span>
+        </div>
+    </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/573157921625?text=Hola%2C%20quiero%20hacer%20un%20pedido" class="wa-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const nb=document.getElementById('navbar');
+let lastY=0,ticking=false;
+window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{const y=window.scrollY;const down=y>lastY&&y>100;
+nb.classList.toggle('scrolled',y>50);
+if(down){nb.classList.add('nav-hidden');nb.classList.remove('nav-big');}
+else{nb.classList.remove('nav-hidden');if(y>80)nb.classList.add('nav-big');else nb.classList.remove('nav-big');}
+lastY=y;ticking=false;});}});
+const mt=document.getElementById('menuToggle'),mm=document.getElementById('mobMenu');
+document.getElementById('closeMenu').addEventListener('click',closeM);
+mt.addEventListener('click',()=>{mm.classList.add('active');});
+function closeM(){mm.classList.remove('active');}
+const rvEls=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:0.01});
+    rvEls.forEach(el=>obs.observe(el));
+    setTimeout(()=>{rvEls.forEach(el=>{if(!el.classList.contains('v')){const r=el.getBoundingClientRect();if(r.top<window.innerHeight+50)el.classList.add('v');}});},400);
+}else{rvEls.forEach(el=>el.classList.add('v'));}
+let sTick=false;
+window.addEventListener('scroll',()=>{if(!sTick){sTick=true;requestAnimationFrame(()=>{rvEls.forEach(el=>{if(!el.classList.contains('v')&&el.getBoundingClientRect().top<window.innerHeight+50)el.classList.add('v');});sTick=false;});}});
+</script>
+</body>
+</html>

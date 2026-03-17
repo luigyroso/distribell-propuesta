@@ -139,20 +139,7 @@
             .recipes-grid{grid-template-columns:repeat(2,1fr);}
             .ft-grid{grid-template-columns:1fr 1fr;}
         }
-        /* RECIPE EXPANDABLE */
-        .recipe-detail{display:none;padding:20px 24px 24px;border-top:1px solid var(--border-light);background:var(--warm-white);}
-        .recipe-card.open .recipe-detail{display:block;}
-        .recipe-card.open{grid-column:1/-1;}
-        .recipe-detail h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--red-600);margin-bottom:8px;}
-        .recipe-detail ul{padding-left:18px;margin-bottom:16px;}
-        .recipe-detail li{font-size:.85rem;color:var(--text-mid);margin-bottom:4px;}
-        .recipe-detail ol{padding-left:18px;margin-bottom:16px;}
-        .recipe-detail ol li{font-size:.85rem;color:var(--text-mid);margin-bottom:6px;line-height:1.5;}
-        .recipe-detail .recipe-tip{background:var(--gold-100);border-left:3px solid var(--gold-600);padding:12px 16px;border-radius:0 8px 8px 0;font-size:.82rem;color:var(--text-mid);margin-top:12px;}
-        .recipe-toggle{cursor:pointer;}
-        .recipe-toggle .toggle-text::after{content:' +';font-weight:700;}
-        .recipe-card.open .recipe-toggle .toggle-text::after{content:' -';}
-        @media(max-width:768px){
+@media(max-width:768px){
             .nav-links{display:none;}.menu-toggle{display:block;}
             .recipes-grid{grid-template-columns:1fr;}
             .ft-grid{grid-template-columns:1fr;gap:28px;}
@@ -209,208 +196,66 @@
     <div class="container">
         <div class="recipes-grid">
 
-            <div class="recipe-card rv" id="bunuelos">
-                <div class="recipe-img"><img src="https://images.unsplash.com/photo-1609501676725-7186f017a4b7?w=600&q=80" alt="Bu&ntilde;uelos" loading="lazy"></div>
+            <div class="recipe-card rv">
+                <div class="recipe-img"><img src="https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=600&q=80" alt="Bu&ntilde;uelos Navide&ntilde;os" loading="lazy"></div>
                 <div class="recipe-body">
                     <h3>Bu&ntilde;uelos Navide&ntilde;os</h3>
                     <p>La receta tradicional colombiana para Navidad con queso fresco artesanal.</p>
-                    <button class="btn btn-outline btn-sm recipe-toggle" onclick="toggleRecipe(this)"><span class="toggle-text">Ver Receta</span></button>
-                </div>
-                <div class="recipe-detail">
-                    <h4>Ingredientes</h4>
-                    <ul>
-                        <li>500g de queso coste&ntilde;o molido (Distribell)</li>
-                        <li>250g de almid&oacute;n de yuca</li>
-                        <li>2 huevos</li>
-                        <li>3 cucharadas de az&uacute;car</li>
-                        <li>1 cucharadita de polvo de hornear</li>
-                        <li>Aceite para fre&iacute;r</li>
-                    </ul>
-                    <h4>Preparaci&oacute;n</h4>
-                    <ol>
-                        <li>Mezclar el queso molido con el almid&oacute;n de yuca hasta integrar bien.</li>
-                        <li>Agregar los huevos, el az&uacute;car y el polvo de hornear. Amasar hasta obtener una masa suave.</li>
-                        <li>Formar bolitas del tama&ntilde;o de una pelota de golf.</li>
-                        <li>Calentar aceite a temperatura media (no muy caliente para que doren parejo).</li>
-                        <li>Fre&iacute;r los bu&ntilde;uelos movi&eacute;ndolos constantemente hasta que est&eacute;n dorados por todos lados.</li>
-                        <li>Escurrir sobre papel absorbente y servir calientes.</li>
-                    </ol>
-                    <div class="recipe-tip">Tip Distribell: Usa nuestro Queso Coste&ntilde;o Molido (c&oacute;d. 102654) para el mejor resultado. El secreto est&aacute; en que el queso est&eacute; bien fresco.</div>
+                    <a href="recetas/bunuelos.html" class="btn btn-outline btn-sm">Ver Receta</a>
                 </div>
             </div>
 
-            <div class="recipe-card rv rv-d1" id="natilla">
-                <div class="recipe-img"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=80" alt="Natilla" loading="lazy"></div>
+            <div class="recipe-card rv rv-d1">
+                <div class="recipe-img"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80" alt="Natilla Navide&ntilde;a" loading="lazy"></div>
                 <div class="recipe-body">
                     <h3>Natilla Navide&ntilde;a</h3>
                     <p>El postre infaltable en la mesa colombiana de diciembre.</p>
-                    <button class="btn btn-outline btn-sm recipe-toggle" onclick="toggleRecipe(this)"><span class="toggle-text">Ver Receta</span></button>
-                </div>
-                <div class="recipe-detail">
-                    <h4>Ingredientes</h4>
-                    <ul>
-                        <li>1 paquete de harina para natilla (300g)</li>
-                        <li>1 litro de leche entera (Alpina o Colanta)</li>
-                        <li>1 panela raspada o 200g de az&uacute;car morena</li>
-                        <li>1 astilla de canela</li>
-                        <li>Clavos de olor al gusto</li>
-                        <li>Coco rallado para decorar</li>
-                    </ul>
-                    <h4>Preparaci&oacute;n</h4>
-                    <ol>
-                        <li>Disolver la harina de natilla en una taza de leche fr&iacute;a. Reservar.</li>
-                        <li>Hervir el resto de la leche con la panela, canela y clavos.</li>
-                        <li>Cuando hierva, agregar la mezcla de harina disuelta revolviendo constantemente.</li>
-                        <li>Cocinar a fuego medio sin dejar de revolver por 20-25 minutos hasta que espese.</li>
-                        <li>Verter en un molde engrasado y dejar enfriar. Decorar con coco rallado.</li>
-                    </ol>
-                    <div class="recipe-tip">Tip Distribell: Harina Natilla Colmaiz (c&oacute;d. 354255) + Leche Entera Colanta (c&oacute;d. 120810). Todo en un solo pedido.</div>
+                    <a href="recetas/natilla.html" class="btn btn-outline btn-sm">Ver Receta</a>
                 </div>
             </div>
 
-            <div class="recipe-card rv rv-d2" id="mantecada">
-                <div class="recipe-img"><img src="https://images.unsplash.com/photo-1558303005-0e2e0c851030?w=600&q=80" alt="Mantecada" loading="lazy"></div>
+            <div class="recipe-card rv rv-d2">
+                <div class="recipe-img"><img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=600&q=80" alt="Mantecada" loading="lazy"></div>
                 <div class="recipe-body">
                     <h3>Mantecada</h3>
                     <p>Esponjosa y dulce, perfecta con un caf&eacute; colombiano.</p>
-                    <button class="btn btn-outline btn-sm recipe-toggle" onclick="toggleRecipe(this)"><span class="toggle-text">Ver Receta</span></button>
-                </div>
-                <div class="recipe-detail">
-                    <h4>Ingredientes</h4>
-                    <ul>
-                        <li>250g de harina de trigo</li>
-                        <li>200g de az&uacute;car</li>
-                        <li>125g de mantequilla (Alpina o Colanta)</li>
-                        <li>3 huevos</li>
-                        <li>100ml de leche</li>
-                        <li>1 cucharadita de polvo de hornear</li>
-                        <li>Esencia de vainilla</li>
-                    </ul>
-                    <h4>Preparaci&oacute;n</h4>
-                    <ol>
-                        <li>Cremar la mantequilla con el az&uacute;car hasta que quede esponjosa.</li>
-                        <li>Agregar los huevos uno a uno, batiendo bien despu&eacute;s de cada uno.</li>
-                        <li>Incorporar la harina cernida con el polvo de hornear, alternando con la leche.</li>
-                        <li>Agregar la vainilla y mezclar suavemente.</li>
-                        <li>Verter en moldes de papel y hornear a 180&deg;C por 25-30 minutos.</li>
-                    </ol>
-                    <div class="recipe-tip">Tip Distribell: Mantequilla Alpina 250g (c&oacute;d. 178525) + Huevos Rojos AA (c&oacute;d. 127210). Productos frescos, mejor resultado.</div>
+                    <a href="recetas/mantecada.html" class="btn btn-outline btn-sm">Ver Receta</a>
                 </div>
             </div>
 
-            <div class="recipe-card rv" id="pandebono">
+            <div class="recipe-card rv">
                 <div class="recipe-img"><img src="https://images.unsplash.com/photo-1586444248879-bc604bc77fac?w=600&q=80" alt="Pandebono" loading="lazy"></div>
                 <div class="recipe-body">
                     <h3>Pandebono</h3>
                     <p>Crujiente por fuera, suave por dentro. Con queso coste&ntilde;o.</p>
-                    <button class="btn btn-outline btn-sm recipe-toggle" onclick="toggleRecipe(this)"><span class="toggle-text">Ver Receta</span></button>
-                </div>
-                <div class="recipe-detail">
-                    <h4>Ingredientes</h4>
-                    <ul>
-                        <li>250g de almid&oacute;n de yuca</li>
-                        <li>250g de queso coste&ntilde;o molido</li>
-                        <li>100g de cuajada fresca rallada</li>
-                        <li>1 huevo</li>
-                        <li>50g de mantequilla derretida</li>
-                        <li>Pizca de sal</li>
-                    </ul>
-                    <h4>Preparaci&oacute;n</h4>
-                    <ol>
-                        <li>Mezclar el almid&oacute;n con los quesos rallados y la sal.</li>
-                        <li>Agregar el huevo y la mantequilla derretida. Amasar hasta obtener masa homog&eacute;nea.</li>
-                        <li>Formar bolitas o rosquitas y colocar en bandeja engrasada.</li>
-                        <li>Hornear a 200&deg;C por 15-20 minutos hasta que est&eacute;n dorados.</li>
-                        <li>Servir reci&eacute;n salidos del horno.</li>
-                    </ol>
-                    <div class="recipe-tip">Tip Distribell: Queso Coste&ntilde;o Molido (c&oacute;d. 102654) + Cuajada Bloque (c&oacute;d. 102055) + Harina Pandebono Colmaiz (c&oacute;d. 353475).</div>
+                    <a href="recetas/pandebono.html" class="btn btn-outline btn-sm">Ver Receta</a>
                 </div>
             </div>
 
-            <div class="recipe-card rv rv-d1" id="almojabana">
+            <div class="recipe-card rv rv-d1">
                 <div class="recipe-img"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80" alt="Almoj&aacute;bana" loading="lazy"></div>
                 <div class="recipe-body">
                     <h3>Almoj&aacute;bana</h3>
                     <p>Tradici&oacute;n boyacense con queso cuajada fresco.</p>
-                    <button class="btn btn-outline btn-sm recipe-toggle" onclick="toggleRecipe(this)"><span class="toggle-text">Ver Receta</span></button>
-                </div>
-                <div class="recipe-detail">
-                    <h4>Ingredientes</h4>
-                    <ul>
-                        <li>500g de cuajada fresca (Distribell)</li>
-                        <li>250g de harina de almoj&aacute;bana</li>
-                        <li>100g de almid&oacute;n de yuca</li>
-                        <li>2 huevos</li>
-                        <li>50g de mantequilla</li>
-                        <li>Pizca de sal</li>
-                    </ul>
-                    <h4>Preparaci&oacute;n</h4>
-                    <ol>
-                        <li>Moler o rallar la cuajada fresca finamente.</li>
-                        <li>Mezclar con la harina, el almid&oacute;n y la sal.</li>
-                        <li>Agregar los huevos y la mantequilla derretida. Amasar bien.</li>
-                        <li>Formar bolitas ovaladas y colocar en bandeja con papel encerado.</li>
-                        <li>Hornear a 190&deg;C por 20-25 minutos hasta dorar.</li>
-                    </ol>
-                    <div class="recipe-tip">Tip Distribell: Cuajada Bloque Kilo (c&oacute;d. 102055) + Harina Almoj&aacute;bana Colmaiz (c&oacute;d. 353455). Pide por WhatsApp.</div>
+                    <a href="recetas/almojabana.html" class="btn btn-outline btn-sm">Ver Receta</a>
                 </div>
             </div>
 
-            <div class="recipe-card rv rv-d2" id="pandequeso">
+            <div class="recipe-card rv rv-d2">
                 <div class="recipe-img"><img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=600&q=80" alt="Pan de Queso" loading="lazy"></div>
                 <div class="recipe-body">
                     <h3>Pan de Queso</h3>
                     <p>Sencillo, delicioso y lleno de sabor a queso.</p>
-                    <button class="btn btn-outline btn-sm recipe-toggle" onclick="toggleRecipe(this)"><span class="toggle-text">Ver Receta</span></button>
-                </div>
-                <div class="recipe-detail">
-                    <h4>Ingredientes</h4>
-                    <ul>
-                        <li>300g de queso campesino rallado</li>
-                        <li>200g de almid&oacute;n de yuca</li>
-                        <li>100g de harina de trigo</li>
-                        <li>2 huevos</li>
-                        <li>100ml de leche tibia</li>
-                        <li>50g de mantequilla</li>
-                    </ul>
-                    <h4>Preparaci&oacute;n</h4>
-                    <ol>
-                        <li>Mezclar las harinas con el queso rallado.</li>
-                        <li>Hacer un hueco en el centro, agregar huevos, leche y mantequilla derretida.</li>
-                        <li>Amasar hasta que la masa no se pegue en las manos.</li>
-                        <li>Formar bolitas y colocar en bandeja engrasada.</li>
-                        <li>Hornear a 180&deg;C por 20 minutos. Servir tibios.</li>
-                    </ol>
-                    <div class="recipe-tip">Tip Distribell: Queso Campesino Cocido Kilo (c&oacute;d. 101055). Fresco del campo boyacense a tu cocina.</div>
+                    <a href="recetas/pan-de-queso.html" class="btn btn-outline btn-sm">Ver Receta</a>
                 </div>
             </div>
 
-            <div class="recipe-card rv" id="pandeyuca">
-                <div class="recipe-img"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=600&q=80" alt="Pan de Yuca" loading="lazy"></div>
+            <div class="recipe-card rv">
+                <div class="recipe-img"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80" alt="Pan de Yuca" loading="lazy"></div>
                 <div class="recipe-body">
                     <h3>Pan de Yuca</h3>
                     <p>Libre de gluten, con almid&oacute;n de yuca y queso.</p>
-                    <button class="btn btn-outline btn-sm recipe-toggle" onclick="toggleRecipe(this)"><span class="toggle-text">Ver Receta</span></button>
-                </div>
-                <div class="recipe-detail">
-                    <h4>Ingredientes</h4>
-                    <ul>
-                        <li>500g de almid&oacute;n de yuca</li>
-                        <li>250g de queso coste&ntilde;o rallado</li>
-                        <li>125g de mantequilla</li>
-                        <li>2 huevos</li>
-                        <li>Leche tibia (la necesaria)</li>
-                        <li>Pizca de sal y az&uacute;car</li>
-                    </ul>
-                    <h4>Preparaci&oacute;n</h4>
-                    <ol>
-                        <li>Mezclar el almid&oacute;n con el queso rallado y la sal.</li>
-                        <li>Agregar la mantequilla derretida y los huevos.</li>
-                        <li>Incorporar leche tibia poco a poco hasta lograr masa manejable.</li>
-                        <li>Formar palitos o bolitas alargadas.</li>
-                        <li>Hornear a 200&deg;C por 15-18 minutos. Deben quedar dorados por fuera y suaves por dentro.</li>
-                    </ol>
-                    <div class="recipe-tip">Tip Distribell: Queso Coste&ntilde;o Cu&ntilde;a Libra (c&oacute;d. 102653) + Harina Pandeyuca Colmaiz (c&oacute;d. 353465). &iexcl;Libre de gluten!</div>
+                    <a href="recetas/pan-de-yuca.html" class="btn btn-outline btn-sm">Ver Receta</a>
                 </div>
             </div>
 
@@ -491,8 +336,6 @@ const mt=document.getElementById('menuToggle'),mm=document.getElementById('mobMe
 document.getElementById('closeMenu').addEventListener('click',closeM);
 mt.addEventListener('click',()=>{mm.classList.add('active');});
 function closeM(){mm.classList.remove('active');}
-// Recipe toggle
-function toggleRecipe(btn){const card=btn.closest('.recipe-card');card.classList.toggle('open');if(card.classList.contains('open')){card.scrollIntoView({behavior:'smooth',block:'nearest'});}}
 // Scroll reveal
 const rvEls=document.querySelectorAll('.rv');
 if('IntersectionObserver' in window){

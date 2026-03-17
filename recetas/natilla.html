@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natilla Navide&ntilde;a &mdash; Receta Tradicional Colombiana | Distribell</title>
+    <meta name="description" content="Receta colombiana de natilla navideña con panela y canela. Receta tradicional paso a paso con productos Distribell. Fácil, 12 porciones en 40 minutos.">
+    <meta property="og:title" content="Natilla Navideña — Receta Colombiana | Distribell">
+    <meta property="og:description" content="Receta tradicional de natilla navideña colombiana. Paso a paso fácil con productos Distribell.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1200&q=80">
+    <link rel="canonical" href="https://distribell.com/recetas/natilla.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red-900:#7f1d1d;--red-800:#991b1b;--red-700:#b91c1c;
+            --red-600:#C62828;--red-500:#ef4444;
+            --gold-600:#F9A825;--gold-500:#FBC02D;--gold-400:#FFD54F;--gold-100:#FFF8E1;
+            --dark:#1a1a1a;--dark-warm:#2d1a1a;--dark-surface:#252525;
+            --warm-white:#FFF8F0;--cream:#FFFDF7;
+            --text:#1a1a1a;--text-mid:#4a4a4a;--text-muted:#888;
+            --white:#fff;--border:#e5e0db;--border-light:#f0ebe6;
+            --shadow-sm:0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md:0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg:0 12px 40px rgba(0,0,0,0.12);
+            --shadow-xl:0 24px 64px rgba(0,0,0,0.16);
+            --radius:14px;--radius-lg:22px;--radius-xl:30px;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overscroll-behavior:none;}
+        body{font-family:'DM Sans',-apple-system,sans-serif;color:var(--text);background:var(--white);line-height:1.6;overflow-x:hidden;}
+        img{max-width:100%;height:auto;display:block;}
+        .container{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,48px);width:100%;}
+        .rv{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1);}
+        .rv.v{opacity:1;transform:translateY(0);}
+        .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}
+        .display{font-family:'Cormorant Garamond',serif;font-weight:700;line-height:1.05;letter-spacing:-.02em;}
+        .eyebrow{font-size:.68rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-600);display:inline-flex;align-items:center;gap:12px;margin-bottom:14px;}
+        .eyebrow::before{content:'';width:24px;height:1.5px;background:var(--gold-600);}
+        .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:60px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:all .35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;}
+        .btn::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,.12) 50%,transparent 60%);transform:translateX(-100%);transition:transform .6s;}
+        .btn:hover::after{transform:translateX(100%);}
+        .btn-red{background:var(--red-600);color:#fff;box-shadow:0 4px 20px rgba(198,40,40,.25);}
+        .btn-red:hover{background:var(--red-700);transform:translateY(-2px);box-shadow:0 8px 28px rgba(198,40,40,.35);}
+        .btn-wa{background:#25D366;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.25);}
+        .btn-wa:hover{background:#1eba59;transform:translateY(-2px);}
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:transform .4s cubic-bezier(.16,1,.3,1),background .4s,box-shadow .4s,padding .4s;padding:10px 0;}
+        nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);box-shadow:0 1px 0 rgba(0,0,0,.06);padding:0;}
+        nav.nav-hidden{transform:translateY(-100%);}
+        nav.nav-big{padding:14px 0;}
+        nav.nav-big .nav-logo img{height:72px;}
+        nav.nav-big .nav-inner{height:90px;}
+        nav:not(.scrolled) .nav-links a{color:rgba(255,255,255,.8);}
+        nav:not(.scrolled) .nav-links a:hover{color:#fff;}
+        nav:not(.scrolled) .nav-cta{background:var(--red-600);color:#fff!important;}
+        nav:not(.scrolled) .menu-toggle span{background:#fff;}
+        .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px;transition:height .4s cubic-bezier(.16,1,.3,1);}
+        .nav-logo{display:flex;align-items:center;text-decoration:none;}
+        .nav-logo img{height:56px;width:auto;transition:height .4s cubic-bezier(.16,1,.3,1);}
+        .nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+        .nav-links a{text-decoration:none;color:var(--text-mid);font-size:.85rem;font-weight:500;transition:color .2s;}
+        .nav-links a:hover{color:var(--red-600);}
+        .nav-cta{padding:10px 24px!important;font-size:.82rem!important;border-radius:60px;background:var(--red-600);color:#fff!important;font-weight:600!important;transition:all .3s!important;}
+        .nav-cta:hover{background:var(--red-700)!important;transform:translateY(-1px);}
+        .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+        .menu-toggle span{display:block;width:22px;height:1.5px;background:var(--text);margin:6px 0;transition:all .3s;border-radius:2px;}
+        .mob-menu{display:none;position:fixed;inset:0;background:rgba(255,255,255,.98);backdrop-filter:blur(24px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:20px;}
+        .mob-menu.active{display:flex;}
+        .mob-menu a{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--dark);text-decoration:none;}
+        .mob-menu a:hover{color:var(--red-600);}
+        .mob-menu .close-m{position:absolute;top:20px;right:24px;background:none;border:none;font-size:2rem;cursor:pointer;color:var(--text);}
+        .recipe-hero{position:relative;height:50vh;min-height:380px;display:flex;align-items:flex-end;overflow:hidden;background:var(--dark);}
+        .recipe-hero .hero-bg{position:absolute;inset:0;z-index:0;}
+        .recipe-hero .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.7;}
+        .recipe-hero .hero-bg::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(26,26,26,.85) 0%,rgba(26,26,26,.3) 50%,rgba(26,26,26,.1) 100%);}
+        .recipe-hero .hero-content{position:relative;z-index:2;color:#fff;padding:0 0 48px;}
+        .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.8rem;color:rgba(255,255,255,.6);margin-bottom:16px;flex-wrap:wrap;}
+        .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;}
+        .breadcrumb a:hover{color:#fff;}
+        .breadcrumb .sep{color:rgba(255,255,255,.3);}
+        .recipe-badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;}
+        .recipe-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(8px);border-radius:60px;padding:8px 16px;font-size:.78rem;font-weight:500;color:rgba(255,255,255,.85);}
+        .recipe-badge svg{width:16px;height:16px;opacity:.7;}
+        .recipe-section{padding:clamp(48px,8vw,80px) 0;}
+        .recipe-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(32px,5vw,64px);}
+        .ingredients-card{background:var(--cream);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:clamp(28px,4vw,40px);position:sticky;top:100px;align-self:start;}
+        .ingredients-card h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;margin-bottom:24px;color:var(--dark);}
+        .ingredients-list{list-style:none;}
+        .ingredients-list li{padding:12px 0;border-bottom:1px solid var(--border-light);font-size:.92rem;color:var(--text-mid);display:flex;align-items:baseline;gap:10px;}
+        .ingredients-list li:last-child{border-bottom:none;}
+        .ingredients-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold-600);flex-shrink:0;margin-top:6px;}
+        .ingredient-code{font-size:.72rem;color:var(--text-muted);background:var(--border-light);padding:2px 8px;border-radius:20px;white-space:nowrap;}
+        .steps-content h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;margin-bottom:32px;color:var(--dark);}
+        .step{display:flex;gap:20px;margin-bottom:28px;}
+        .step-num{width:40px;height:40px;border-radius:50%;background:var(--red-600);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;}
+        .step-text{font-size:1rem;color:var(--text-mid);line-height:1.7;padding-top:8px;}
+        .tip-box{background:linear-gradient(135deg,var(--gold-100),#fff);border:1px solid var(--gold-400);border-radius:var(--radius-lg);padding:clamp(24px,3vw,32px);margin-top:40px;}
+        .tip-box h4{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+        .tip-box p{font-size:.9rem;color:var(--text-mid);line-height:1.7;}
+        .recipe-cta{background:var(--cream);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:clamp(32px,4vw,48px);text-align:center;margin-top:48px;}
+        .recipe-cta h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;margin-bottom:10px;}
+        .recipe-cta p{font-size:.95rem;color:var(--text-mid);margin-bottom:24px;}
+        .share-row{display:flex;align-items:center;gap:12px;margin-top:32px;}
+        .share-row span{font-size:.85rem;font-weight:600;color:var(--text-mid);}
+        .share-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;color:var(--text-mid);}
+        .share-btn:hover{background:var(--red-600);color:#fff;border-color:var(--red-600);}
+        .share-btn svg{width:18px;height:18px;}
+        .copied-msg{font-size:.78rem;color:var(--gold-600);font-weight:600;display:none;}
+        .related-section{padding:clamp(48px,8vw,80px) 0;background:var(--warm-white);}
+        .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px;}
+        .related-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-light);transition:all .3s;text-decoration:none;color:inherit;}
+        .related-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+        .related-card img{width:100%;height:180px;object-fit:cover;}
+        .related-card .rc-body{padding:20px;}
+        .related-card h4{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;margin-bottom:6px;}
+        .related-card p{font-size:.82rem;color:var(--text-muted);}
+        footer{background:#0f0f0f;color:rgba(255,255,255,.45);padding:64px 0 28px;}
+        .ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+        .ft-brand img{height:56px;margin-bottom:14px;}
+        .ft-brand p{font-size:.85rem;line-height:1.7;}
+        .ft-col h4{color:rgba(255,255,255,.7);font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+        .ft-col a{display:block;color:rgba(255,255,255,.35);text-decoration:none;font-size:.85rem;margin-bottom:10px;transition:color .2s;}
+        .ft-col a:hover{color:rgba(255,255,255,.7);}
+        .ft-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:rgba(255,255,255,.2);}
+        .wa-float{position:fixed;bottom:24px;right:24px;z-index:900;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:all .3s;text-decoration:none;}
+        .wa-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.45);}
+        .wa-float svg{width:28px;height:28px;}
+        .wa-float::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,.3);animation:wa-p 2s ease-out infinite;}
+        @keyframes wa-p{0%{transform:scale(1);opacity:1;}100%{transform:scale(1.4);opacity:0;}}
+        @media(max-width:1024px){
+            .recipe-grid{grid-template-columns:1fr;}
+            .ingredients-card{position:static;}
+            .related-grid{grid-template-columns:repeat(2,1fr);}
+            .ft-grid{grid-template-columns:1fr 1fr;}
+        }
+        @media(max-width:768px){
+            .nav-links{display:none;}.menu-toggle{display:block;}
+            .recipe-hero{height:45vh;min-height:320px;}
+            .related-grid{grid-template-columns:1fr;}
+            .ft-grid{grid-template-columns:1fr;gap:28px;}
+            .ft-bottom{flex-direction:column;gap:8px;text-align:center;}
+        }
+        @media(max-width:480px){
+            .recipe-badges{gap:8px;}
+            .recipe-badge{padding:6px 12px;font-size:.72rem;}
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Natilla Navideña",
+        "description": "Receta tradicional colombiana de natilla navideña con panela, canela y harina Colmaiz.",
+        "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1200&q=80",
+        "prepTime": "PT10M",
+        "cookTime": "PT30M",
+        "totalTime": "PT40M",
+        "recipeYield": "12 porciones",
+        "recipeCategory": "Postre",
+        "recipeCuisine": "Colombiana",
+        "author": {"@type": "Organization", "name": "Distribell — Quesos y Quesos"},
+        "recipeIngredient": [
+            "1 paquete harina natilla 300g",
+            "1 litro leche entera Colanta",
+            "1 panela raspada",
+            "1 astilla de canela",
+            "Clavos de olor",
+            "Coco rallado para decorar"
+        ],
+        "recipeInstructions": [
+            {"@type": "HowToStep", "text": "Disolver la harina de natilla en una taza de leche fría."},
+            {"@type": "HowToStep", "text": "Hervir el resto de la leche con panela, canela y clavos de olor."},
+            {"@type": "HowToStep", "text": "Agregar la mezcla disuelta revolviendo constantemente."},
+            {"@type": "HowToStep", "text": "Cocinar a fuego medio 20-25 minutos sin dejar de revolver."},
+            {"@type": "HowToStep", "text": "Verter en molde engrasado y dejar enfriar."},
+            {"@type": "HowToStep", "text": "Decorar con coco rallado antes de servir."}
+        ]
+    }
+    </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="container nav-inner">
+        <a href="../index.html" class="nav-logo">
+            <img src="../logo-distribell.png" alt="Distribell Quesos y Quesos" onerror="this.style.display='none';this.parentElement.innerHTML+='<span style=&quot;font-family:Cormorant Garamond,serif;font-size:1.4rem;font-weight:700;color:var(--red-600)&quot;>DISTRIBELL</span>';">
+        </a>
+        <ul class="nav-links">
+            <li><a href="../nosotros.html">Nosotros</a></li>
+            <li><a href="../productos.html">Productos</a></li>
+            <li><a href="../sucursales.html">Sucursales</a></li>
+            <li><a href="../recetas.html">Recetas</a></li>
+            <li><a href="../contacto.html" class="nav-cta">Contacto</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+    <button class="close-m" id="closeMenu">&times;</button>
+    <a href="../index.html" onclick="closeM()">Inicio</a>
+    <a href="../nosotros.html" onclick="closeM()">Nosotros</a>
+    <a href="../productos.html" onclick="closeM()">Productos</a>
+    <a href="../sucursales.html" onclick="closeM()">Sucursales</a>
+    <a href="../recetas.html" onclick="closeM()">Recetas</a>
+    <a href="../contacto.html" class="btn btn-red" onclick="closeM()">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section class="recipe-hero">
+    <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1600&q=80" alt="Natilla Navideña Colombiana">
+    </div>
+    <div class="hero-content container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Inicio</a>
+            <span class="sep">/</span>
+            <a href="../recetas.html">Recetas</a>
+            <span class="sep">/</span>
+            <span style="color:rgba(255,255,255,.9)">Natilla Navide&ntilde;a</span>
+        </nav>
+        <h1 class="display" style="font-size:clamp(2rem,4.5vw,3.4rem);color:#fff;">Natilla Navide&ntilde;a</h1>
+        <p style="font-size:1.05rem;color:rgba(255,255,255,.7);max-width:520px;margin-top:10px;">El postre que no puede faltar en ninguna mesa colombiana en diciembre. Cremosa, con panela y canela.</p>
+        <div class="recipe-badges">
+            <span class="recipe-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Prep: 10 min
+            </span>
+            <span class="recipe-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg>
+                Cocci&oacute;n: 30 min
+            </span>
+            <span class="recipe-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                12 porciones
+            </span>
+            <span class="recipe-badge" style="background:rgba(37,211,102,.15);border-color:rgba(37,211,102,.3);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                F&aacute;cil
+            </span>
+        </div>
+    </div>
+</section>
+
+<!-- RECIPE CONTENT -->
+<section class="recipe-section">
+    <div class="container">
+        <div class="recipe-grid">
+            <!-- INGREDIENTS -->
+            <div class="rv">
+                <div class="ingredients-card">
+                    <h3>Ingredientes</h3>
+                    <ul class="ingredients-list">
+                        <li>1 paquete harina natilla 300g <span class="ingredient-code">c&oacute;d. 354255</span></li>
+                        <li>1 litro leche entera Colanta <span class="ingredient-code">c&oacute;d. 120810</span></li>
+                        <li>1 panela raspada</li>
+                        <li>1 astilla de canela</li>
+                        <li>Clavos de olor</li>
+                        <li>Coco rallado para decorar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- STEPS -->
+            <div class="steps-content rv rv-d1">
+                <h3>Preparaci&oacute;n</h3>
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <p class="step-text">Disolver la harina de natilla en una taza de leche fr&iacute;a. Mezclar bien hasta que no queden grumos.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <p class="step-text">En una olla grande, hervir el resto de la leche con la panela raspada, la astilla de canela y los clavos de olor.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <p class="step-text">Cuando rompa hervor, agregar la mezcla disuelta revolviendo constantemente para evitar grumos.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <p class="step-text">Cocinar a fuego medio durante 20-25 minutos sin dejar de revolver. La natilla est&aacute; lista cuando se despega de la olla.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">5</div>
+                    <p class="step-text">Retirar canela y clavos. Verter en un molde engrasado con mantequilla. Dejar enfriar a temperatura ambiente.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">6</div>
+                    <p class="step-text">Decorar con coco rallado por encima. Refrigerar al menos 2 horas antes de servir para mejor textura.</p>
+                </div>
+
+                <!-- TIP BOX -->
+                <div class="tip-box">
+                    <h4>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-600)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        Tip Distribell
+                    </h4>
+                    <p>Usa <strong>Harina Natilla Colmaiz (c&oacute;d. 354255)</strong> para la textura perfecta y <strong>Leche Entera Colanta (c&oacute;d. 120810)</strong> para mayor cremosidad. La combinaci&oacute;n de estos dos productos garantiza una natilla firme y sabrosa.</p>
+                </div>
+
+                <!-- CTA -->
+                <div class="recipe-cta">
+                    <h3>Compr&aacute; los ingredientes</h3>
+                    <p>Ped&iacute; todo lo que necesit&aacute;s por WhatsApp y te lo llevamos.</p>
+                    <a href="https://wa.me/573157921625?text=Hola%2C%20quiero%20los%20ingredientes%20para%20natilla%20navide%C3%B1a.%20Harina%20Natilla%20(354255)%20%2B%20Leche%20Colanta%20(120810)" class="btn btn-wa" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+
+                <!-- SHARE -->
+                <div class="share-row">
+                    <span>Compartir:</span>
+                    <button class="share-btn" onclick="copyURL()" title="Copiar enlace">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    </button>
+                    <span class="copied-msg" id="copiedMsg">Enlace copiado</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RELATED RECIPES -->
+<section class="related-section">
+    <div class="container">
+        <span class="eyebrow">M&aacute;s recetas</span>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;">Tambi&eacute;n te puede gustar</h2>
+        <div class="related-grid">
+            <a href="bunuelos.html" class="related-card rv">
+                <img src="https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=600&q=80" alt="Buñuelos Navideños">
+                <div class="rc-body">
+                    <h4>Bu&ntilde;uelos Navide&ntilde;os</h4>
+                    <p>El complemento cl&aacute;sico de la natilla</p>
+                </div>
+            </a>
+            <a href="mantecada.html" class="related-card rv rv-d1">
+                <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=600&q=80" alt="Mantecada Colombiana">
+                <div class="rc-body">
+                    <h4>Mantecada Colombiana</h4>
+                    <p>Suave y esponjosa con mantequilla Alpina</p>
+                </div>
+            </a>
+            <a href="pandebono.html" class="related-card rv rv-d2">
+                <img src="https://images.unsplash.com/photo-1586444248879-bc604bc77fac?w=600&q=80" alt="Pandebono">
+                <div class="rc-body">
+                    <h4>Pandebono Valluno</h4>
+                    <p>Crujiente por fuera, suave y quesudo por dentro</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="ft-grid">
+            <div class="ft-brand">
+                <img src="../logo-distribell.png" alt="Distribell" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=&quot;font-family:Cormorant Garamond,serif;font-size:1.3rem;font-weight:700;color:rgba(255,255,255,.6)&quot;>DISTRIBELL</span><br>'+this.parentElement.innerHTML.split('<br>').slice(1).join('<br>');">
+                <p>Distribuci&oacute;n de productos alimenticios desde 1987. Quesos, l&aacute;cteos, c&aacute;rnicos, panader&iacute;a. Bogot&aacute;, Colombia.</p>
+            </div>
+            <div class="ft-col">
+                <h4>Canales</h4>
+                <a href="../nosotros.html">Nosotros</a>
+                <a href="../recetas.html">Recetas</a>
+                <a href="../contacto.html">Contacto</a>
+            </div>
+            <div class="ft-col">
+                <h4>Productos</h4>
+                <a href="../productos.html">Quesos</a>
+                <a href="../productos.html">L&aacute;cteos y Huevos</a>
+                <a href="../productos.html">C&aacute;rnicos</a>
+                <a href="../productos.html">Panader&iacute;a</a>
+            </div>
+            <div class="ft-col">
+                <h4>Contacto</h4>
+                <a href="https://wa.me/573157921625" target="_blank">WhatsApp: 315 792 1625</a>
+                <a href="../sucursales.html">Sede Calle 134</a>
+                <a href="../sucursales.html">Sede Calle 47</a>
+                <a href="#">Bogot&aacute;, Colombia</a>
+            </div>
+        </div>
+        <div class="ft-bottom">
+            <span>&copy; 2026 Distribell &mdash; Quesos y Quesos. Desde 1987.</span>
+            <span>Desarrollado por Luigy Roso</span>
+        </div>
+    </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/573157921625?text=Hola%2C%20quiero%20hacer%20un%20pedido" class="wa-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const nb=document.getElementById('navbar');
+let lastY=0,ticking=false;
+window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{const y=window.scrollY;const down=y>lastY&&y>100;
+nb.classList.toggle('scrolled',y>50);
+if(down){nb.classList.add('nav-hidden');nb.classList.remove('nav-big');}
+else{nb.classList.remove('nav-hidden');if(y>80)nb.classList.add('nav-big');else nb.classList.remove('nav-big');}
+lastY=y;ticking=false;});}});
+const mt=document.getElementById('menuToggle'),mm=document.getElementById('mobMenu');
+document.getElementById('closeMenu').addEventListener('click',closeM);
+mt.addEventListener('click',()=>{mm.classList.add('active');});
+function closeM(){mm.classList.remove('active');}
+const rvEls=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:0.01});
+    rvEls.forEach(el=>obs.observe(el));
+    setTimeout(()=>{rvEls.forEach(el=>{if(!el.classList.contains('v')){const r=el.getBoundingClientRect();if(r.top<window.innerHeight+50)el.classList.add('v');}});},400);
+}
+function copyURL(){navigator.clipboard.writeText(window.location.href).then(()=>{const m=document.getElementById('copiedMsg');m.style.display='inline';setTimeout(()=>{m.style.display='none';},2000);});}
+</script>
+</body>
+</html>
