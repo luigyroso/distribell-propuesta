@@ -90,7 +90,7 @@
         /* HERO */
         .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:var(--dark);}
         .hero-bg{position:absolute;inset:0;z-index:0;}
-        .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.35;}
+        .hero-bg video,.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.35;}
         .hero-bg::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(26,26,26,.95) 0%,rgba(45,26,26,.85) 40%,rgba(127,29,29,.5) 100%);}
         .hero-content{position:relative;z-index:2;color:#fff;padding:100px 0 60px;}
         .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(12px);border-radius:60px;padding:8px 20px 8px 12px;font-size:.76rem;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:28px;}
@@ -254,28 +254,30 @@
             <img src="logo-distribell.png" alt="Distribell Quesos y Quesos" onerror="this.style.display='none';this.parentElement.innerHTML+='<span style=&quot;font-family:Cormorant Garamond,serif;font-size:1.4rem;font-weight:700;color:var(--red-600)&quot;>DISTRIBELL</span>';">
         </a>
         <ul class="nav-links">
-            <li><a href="#canales">Canales</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#sucursales">Sucursales</a></li>
-            <li><a href="#contacto" class="nav-cta">Cotizar</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="sucursales.html">Sucursales</a></li>
+            <li><a href="recetas.html">Recetas</a></li>
+            <li><a href="contacto.html" class="nav-cta">Contacto</a></li>
         </ul>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
 </nav>
 <div class="mob-menu" id="mobMenu">
     <button class="close-m" id="closeMenu">&times;</button>
-    <a href="#canales" onclick="closeM()">Canales</a>
-    <a href="#productos" onclick="closeM()">Productos</a>
-    <a href="#nosotros" onclick="closeM()">Nosotros</a>
-    <a href="#sucursales" onclick="closeM()">Sucursales</a>
-    <a href="#contacto" class="btn btn-red" onclick="closeM()">Cotizar</a>
+    <a href="nosotros.html" onclick="closeM()">Nosotros</a>
+    <a href="productos.html" onclick="closeM()">Productos</a>
+    <a href="sucursales.html" onclick="closeM()">Sucursales</a>
+    <a href="recetas.html" onclick="closeM()">Recetas</a>
+    <a href="contacto.html" class="btn btn-red" onclick="closeM()">Contacto</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
     <div class="hero-bg">
-        <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=1600&q=80" alt="Quesos artesanales">
+        <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=1600&q=80">
+            <source src="https://assets.mixkit.co/videos/1195/1195-720.mp4" type="video/mp4">
+        </video>
     </div>
     <div class="container">
         <div class="hero-content">
@@ -529,22 +531,22 @@
             </div>
             <div class="ft-col">
                 <h4>Canales</h4>
-                <a href="#canales">HoReCa</a>
-                <a href="#canales">Retail / Tiendas</a>
-                <a href="#canales">Domicilios</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="recetas.html">Recetas</a>
+                <a href="contacto.html">Contacto</a>
             </div>
             <div class="ft-col">
                 <h4>Productos</h4>
-                <a href="#productos">Quesos</a>
-                <a href="#productos">L&aacute;cteos y Huevos</a>
-                <a href="#productos">C&aacute;rnicos</a>
-                <a href="#productos">Panader&iacute;a</a>
+                <a href="productos.html">Quesos</a>
+                <a href="productos.html">L&aacute;cteos y Huevos</a>
+                <a href="productos.html">C&aacute;rnicos</a>
+                <a href="productos.html">Panader&iacute;a</a>
             </div>
             <div class="ft-col">
                 <h4>Contacto</h4>
                 <a href="https://wa.me/573157921625" target="_blank">WhatsApp: 315 792 1625</a>
-                <a href="#sucursales">Sede Calle 134</a>
-                <a href="#sucursales">Sede Calle 47</a>
+                <a href="sucursales.html">Sede Calle 134</a>
+                <a href="sucursales.html">Sede Calle 47</a>
                 <a href="#">Bogot&aacute;, Colombia</a>
             </div>
         </div>

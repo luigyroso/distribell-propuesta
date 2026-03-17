@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cont&aacute;ctenos &mdash; Distribell &middot; Quesos y Quesos</title>
+    <meta name="description" content="Contáctenos. Distribell - Quesos y Quesos. Distribución institucional de alimentos en Bogotá desde 1987.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red-900:#7f1d1d;--red-800:#991b1b;--red-700:#b91c1c;
+            --red-600:#C62828;--red-500:#ef4444;
+            --gold-600:#F9A825;--gold-500:#FBC02D;--gold-400:#FFD54F;--gold-100:#FFF8E1;
+            --dark:#1a1a1a;--dark-warm:#2d1a1a;--dark-surface:#252525;
+            --warm-white:#FFF8F0;--cream:#FFFDF7;
+            --text:#1a1a1a;--text-mid:#4a4a4a;--text-muted:#888;
+            --white:#fff;--border:#e5e0db;--border-light:#f0ebe6;
+            --shadow-sm:0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md:0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg:0 12px 40px rgba(0,0,0,0.12);
+            --shadow-xl:0 24px 64px rgba(0,0,0,0.16);
+            --radius:14px;--radius-lg:22px;--radius-xl:30px;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+        body{font-family:'DM Sans',-apple-system,sans-serif;color:var(--text);background:var(--white);line-height:1.6;overflow-x:hidden;}
+        img{max-width:100%;height:auto;display:block;}
+        .container{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,48px);width:100%;}
+
+        /* REVEALS */
+        .rv{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1);}
+        .rv.v{opacity:1;transform:translateY(0);}
+        .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
+
+        /* TYPOGRAPHY */
+        .display{font-family:'Cormorant Garamond',serif;font-weight:700;line-height:1.05;letter-spacing:-.02em;}
+        .eyebrow{font-size:.68rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-600);display:inline-flex;align-items:center;gap:12px;margin-bottom:14px;}
+        .eyebrow::before{content:'';width:24px;height:1.5px;background:var(--gold-600);}
+        .s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.6rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;}
+        .s-desc{font-size:1.05rem;color:var(--text-mid);max-width:540px;line-height:1.75;margin-top:14px;}
+
+        /* BUTTONS */
+        .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:60px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:all .35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;}
+        .btn::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,.12) 50%,transparent 60%);transform:translateX(-100%);transition:transform .6s;}
+        .btn:hover::after{transform:translateX(100%);}
+        .btn-red{background:var(--red-600);color:#fff;box-shadow:0 4px 20px rgba(198,40,40,.25);}
+        .btn-red:hover{background:var(--red-700);transform:translateY(-2px);box-shadow:0 8px 28px rgba(198,40,40,.35);}
+        .btn-gold{background:var(--gold-600);color:var(--dark);box-shadow:0 4px 20px rgba(249,168,37,.2);}
+        .btn-gold:hover{background:var(--gold-500);transform:translateY(-2px);}
+        .btn-outline{background:transparent;color:var(--red-600);border:1.5px solid var(--red-600);}
+        .btn-outline:hover{background:var(--red-600);color:#fff;transform:translateY(-2px);}
+        .btn-white{background:rgba(255,255,255,.95);color:var(--dark);backdrop-filter:blur(8px);box-shadow:var(--shadow-md);}
+        .btn-white:hover{background:#fff;transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+        .btn-wa{background:#25D366;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.25);}
+        .btn-wa:hover{background:#1eba59;transform:translateY(-2px);}
+        .btn-sm{padding:10px 22px;font-size:.82rem;}
+        .btn-lg{padding:18px 40px;font-size:1rem;}
+
+        /* NAV */
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:transform .4s cubic-bezier(.16,1,.3,1),background .4s,box-shadow .4s,padding .4s;padding:10px 0;}
+        nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);box-shadow:0 1px 0 rgba(0,0,0,.06);padding:0;}
+        nav.nav-hidden{transform:translateY(-100%);}
+        nav.nav-big{padding:14px 0;}
+        nav.nav-big .nav-logo img{height:72px;}
+        nav.nav-big .nav-inner{height:90px;}
+        nav:not(.scrolled) .nav-links a{color:rgba(255,255,255,.8);}
+        nav:not(.scrolled) .nav-links a:hover{color:#fff;}
+        nav:not(.scrolled) .nav-cta{background:var(--red-600);color:#fff!important;}
+        nav:not(.scrolled) .menu-toggle span{background:#fff;}
+        .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px;transition:height .4s cubic-bezier(.16,1,.3,1);}
+        .nav-logo{display:flex;align-items:center;text-decoration:none;}
+        .nav-logo img{height:56px;width:auto;transition:height .4s cubic-bezier(.16,1,.3,1);}
+        .nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+        .nav-links a{text-decoration:none;color:var(--text-mid);font-size:.85rem;font-weight:500;transition:color .2s;}
+        .nav-links a:hover{color:var(--red-600);}
+        .nav-cta{padding:10px 24px!important;font-size:.82rem!important;border-radius:60px;background:var(--red-600);color:#fff!important;font-weight:600!important;transition:all .3s!important;}
+        .nav-cta:hover{background:var(--red-700)!important;transform:translateY(-1px);}
+        .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+        .menu-toggle span{display:block;width:22px;height:1.5px;background:var(--text);margin:6px 0;transition:all .3s;border-radius:2px;}
+
+        /* MOBILE MENU */
+        .mob-menu{display:none;position:fixed;inset:0;background:rgba(255,255,255,.98);backdrop-filter:blur(24px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:20px;}
+        .mob-menu.active{display:flex;}
+        .mob-menu a{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--dark);text-decoration:none;}
+        .mob-menu a:hover{color:var(--red-600);}
+        .mob-menu .close-m{position:absolute;top:20px;right:24px;background:none;border:none;font-size:2rem;cursor:pointer;color:var(--text);}
+
+        /* PAGE HERO */
+        .page-hero{position:relative;min-height:40vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:var(--dark);}
+        .page-hero-bg{position:absolute;inset:0;z-index:0;}
+        .page-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.3;}
+        .page-hero-bg::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(26,26,26,.95) 0%,rgba(45,26,26,.85) 40%,rgba(127,29,29,.5) 100%);}
+        .page-hero-content{position:relative;z-index:2;color:#fff;padding:120px 0 60px;}
+        .page-hero-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:-.02em;}
+        .page-hero-content p{font-size:clamp(1rem,1.5vw,1.15rem);color:rgba(255,255,255,.6);font-weight:300;}
+
+        /* CONTACT SECTION */
+        .contact-section{padding:clamp(60px,10vw,100px) 0;background:var(--warm-white);}
+        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+
+        /* FORM */
+        .contact-form{background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:40px;box-shadow:var(--shadow-md);}
+        .contact-form h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;margin-bottom:24px;color:var(--dark);}
+        .form-group{margin-bottom:20px;}
+        .form-group label{display:block;font-size:.82rem;font-weight:600;color:var(--text-mid);margin-bottom:6px;letter-spacing:.5px;}
+        .form-group input,.form-group textarea{width:100%;padding:14px 18px;border:1.5px solid var(--border);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:.92rem;color:var(--text);background:var(--warm-white);transition:all .3s;outline:none;}
+        .form-group input:focus,.form-group textarea:focus{border-color:var(--red-600);background:var(--white);box-shadow:0 0 0 3px rgba(198,40,40,.08);}
+        .form-group textarea{min-height:140px;resize:vertical;}
+        .form-group input::placeholder,.form-group textarea::placeholder{color:var(--text-muted);font-weight:400;}
+        .form-submit{margin-top:8px;}
+        .form-submit .btn{width:100%;justify-content:center;}
+
+        /* INFO CARDS */
+        .contact-info h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;margin-bottom:24px;color:var(--dark);}
+        .info-card{display:flex;align-items:flex-start;gap:16px;padding:20px;background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius);margin-bottom:14px;transition:all .3s;}
+        .info-card:hover{border-color:var(--red-600);box-shadow:var(--shadow-sm);transform:translateY(-2px);}
+        .info-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+        .info-icon.red{background:#fce4ec;}
+        .info-icon.green{background:#e8f5e9;}
+        .info-icon.blue{background:#e3f2fd;}
+        .info-icon.gold{background:var(--gold-100);}
+        .info-icon.purple{background:#f3e5f5;}
+        .info-card h4{font-size:.9rem;font-weight:700;color:var(--dark);margin-bottom:2px;}
+        .info-card p{font-size:.85rem;color:var(--text-mid);line-height:1.5;}
+        .info-card a{color:var(--red-600);text-decoration:none;font-weight:500;font-size:.85rem;transition:color .2s;}
+        .info-card a:hover{color:var(--red-700);}
+
+        /* MAP */
+        .map-section{padding:0 0 clamp(60px,10vw,100px);background:var(--warm-white);}
+        .map-wrap{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--border-light);}
+        .map-wrap iframe{width:100%;height:400px;border:0;display:block;}
+
+        /* FOOTER */
+        footer{background:#0f0f0f;color:rgba(255,255,255,.45);padding:64px 0 28px;}
+        .ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+        .ft-brand img{height:56px;margin-bottom:14px;}
+        .ft-brand p{font-size:.85rem;line-height:1.7;}
+        .ft-col h4{color:rgba(255,255,255,.7);font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+        .ft-col a{display:block;color:rgba(255,255,255,.35);text-decoration:none;font-size:.85rem;margin-bottom:10px;transition:color .2s;}
+        .ft-col a:hover{color:rgba(255,255,255,.7);}
+        .ft-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:rgba(255,255,255,.2);}
+
+        /* WA FLOAT */
+        .wa-float{position:fixed;bottom:24px;right:24px;z-index:900;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:all .3s;text-decoration:none;}
+        .wa-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.45);}
+        .wa-float svg{width:28px;height:28px;}
+        .wa-float::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,.3);animation:wa-p 2s ease-out infinite;}
+        @keyframes wa-p{0%{transform:scale(1);opacity:1;}100%{transform:scale(1.4);opacity:0;}}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .contact-grid{grid-template-columns:1fr;gap:40px;}
+            .ft-grid{grid-template-columns:1fr 1fr;}
+        }
+        @media(max-width:768px){
+            .nav-links{display:none;}.menu-toggle{display:block;}
+            .contact-form{padding:28px;}
+            .ft-grid{grid-template-columns:1fr;gap:28px;}
+            .ft-bottom{flex-direction:column;gap:8px;text-align:center;}
+            .map-wrap iframe{height:300px;}
+        }
+        @media(max-width:480px){
+            .contact-form{padding:20px;}
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="container nav-inner">
+        <a href="index.html" class="nav-logo">
+            <img src="logo-distribell.png" alt="Distribell Quesos y Quesos" onerror="this.style.display='none';this.parentElement.innerHTML+='<span style=&quot;font-family:Cormorant Garamond,serif;font-size:1.4rem;font-weight:700;color:var(--red-600)&quot;>DISTRIBELL</span>';">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="sucursales.html">Sucursales</a></li>
+            <li><a href="recetas.html">Recetas</a></li>
+            <li><a href="contacto.html" class="nav-cta">Contacto</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+    <button class="close-m" id="closeMenu">&times;</button>
+    <a href="index.html" onclick="closeM()">Inicio</a>
+    <a href="nosotros.html" onclick="closeM()">Nosotros</a>
+    <a href="productos.html" onclick="closeM()">Productos</a>
+    <a href="sucursales.html" onclick="closeM()">Sucursales</a>
+    <a href="recetas.html" onclick="closeM()">Recetas</a>
+    <a href="contacto.html" class="btn btn-red" onclick="closeM()">Contacto</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="page-hero-bg">
+        <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=1600&q=80" alt="Contacto Distribell">
+    </div>
+    <div class="container">
+        <div class="page-hero-content">
+            <h1 class="rv">Cont&aacute;ctenos</h1>
+            <p class="rv rv-d1">Estamos para servirle</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- LEFT: Form -->
+            <div class="contact-form rv">
+                <h3>Env&iacute;enos un mensaje</h3>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Su nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Tel&eacute;fono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="300 123 4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="&iquest;En qu&eacute; podemos ayudarle?" required></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-red btn-lg">Enviar mensaje</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- RIGHT: Info -->
+            <div class="contact-info rv rv-d1">
+                <h3>Informaci&oacute;n de contacto</h3>
+
+                <div class="info-card">
+                    <div class="info-icon red">&#128205;</div>
+                    <div>
+                        <h4>Sede Principal</h4>
+                        <p>Calle 63 No. 16A-30, Bogot&aacute;</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon blue">&#128222;</div>
+                    <div>
+                        <h4>Tel&eacute;fono</h4>
+                        <p><a href="tel:+5716089732">(+57 1) 608 9732</a> / <a href="tel:+5717568180">756 8180</a></p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon green">&#128172;</div>
+                    <div>
+                        <h4>WhatsApp</h4>
+                        <p><a href="https://wa.me/573157921625" target="_blank">315 792 1625</a></p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon gold">&#9993;</div>
+                    <div>
+                        <h4>Email</h4>
+                        <p><a href="mailto:comercial@quesosdistribell.com">comercial@quesosdistribell.com</a></p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon purple">&#128247;</div>
+                    <div>
+                        <h4>Facebook</h4>
+                        <p><a href="https://www.facebook.com/quesosyquesosdistribel" target="_blank">Quesos y Quesos Distribell</a></p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon purple">&#128248;</div>
+                    <div>
+                        <h4>Instagram</h4>
+                        <p><a href="https://www.instagram.com/quesosyquesos_distribell" target="_blank">@quesosyquesos_distribell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section">
+    <div class="container">
+        <div class="map-wrap rv">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6!2d-74.065!3d4.658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCalle+63+16A-30%2C+Bogot%C3%A1%2C+Colombia!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="ft-grid">
+            <div class="ft-brand">
+                <img src="logo-distribell.png" alt="Distribell" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=&quot;font-family:Cormorant Garamond,serif;font-size:1.3rem;font-weight:700;color:rgba(255,255,255,.6)&quot;>DISTRIBELL</span><br>'+this.parentElement.innerHTML.split('<br>').slice(1).join('<br>');">
+                <p>Distribuci&oacute;n de productos alimenticios desde 1987. Quesos, l&aacute;cteos, c&aacute;rnicos, panader&iacute;a. Bogot&aacute;, Colombia.</p>
+            </div>
+            <div class="ft-col">
+                <h4>P&aacute;ginas</h4>
+                <a href="index.html">Inicio</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="productos.html">Productos</a>
+                <a href="sucursales.html">Sucursales</a>
+                <a href="recetas.html">Recetas</a>
+            </div>
+            <div class="ft-col">
+                <h4>Productos</h4>
+                <a href="productos.html">Quesos</a>
+                <a href="productos.html">L&aacute;cteos y Huevos</a>
+                <a href="productos.html">C&aacute;rnicos</a>
+                <a href="productos.html">Panader&iacute;a</a>
+            </div>
+            <div class="ft-col">
+                <h4>Contacto</h4>
+                <a href="https://wa.me/573157921625" target="_blank">WhatsApp: 315 792 1625</a>
+                <a href="tel:+5716089732">(+57 1) 608 9732</a>
+                <a href="mailto:comercial@quesosdistribell.com">comercial@quesosdistribell.com</a>
+                <a href="#">Bogot&aacute;, Colombia</a>
+            </div>
+        </div>
+        <div class="ft-bottom">
+            <span>&copy; 2026 Distribell &mdash; Quesos y Quesos. Desde 1987.</span>
+            <span>Desarrollado por Luigy Roso</span>
+        </div>
+    </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/573157921625?text=Hola%2C%20quiero%20hacer%20un%20pedido" class="wa-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Nav scroll direction
+const nb=document.getElementById('navbar');
+let lastY=0,ticking=false;
+window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{const y=window.scrollY;const down=y>lastY&&y>100;
+nb.classList.toggle('scrolled',y>50);
+if(down){nb.classList.add('nav-hidden');nb.classList.remove('nav-big');}
+else{nb.classList.remove('nav-hidden');if(y>80)nb.classList.add('nav-big');else nb.classList.remove('nav-big');}
+lastY=y;ticking=false;});}});
+// Mobile menu
+const mt=document.getElementById('menuToggle'),mm=document.getElementById('mobMenu');
+document.getElementById('closeMenu').addEventListener('click',closeM);
+mt.addEventListener('click',()=>{mm.classList.add('active');});
+function closeM(){mm.classList.remove('active');}
+// Scroll reveal
+const rvEls=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:0.01});
+    rvEls.forEach(el=>obs.observe(el));
+    setTimeout(()=>{rvEls.forEach(el=>{if(!el.classList.contains('v')){const r=el.getBoundingClientRect();if(r.top<window.innerHeight+50)el.classList.add('v');}});},400);
+}else{rvEls.forEach(el=>el.classList.add('v'));}
+let sTick=false;
+window.addEventListener('scroll',()=>{if(!sTick){sTick=true;requestAnimationFrame(()=>{rvEls.forEach(el=>{if(!el.classList.contains('v')&&el.getBoundingClientRect().top<window.innerHeight+50)el.classList.add('v');});sTick=false;});}});
+// Smooth anchor scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+</script>
+</body>
+</html>
