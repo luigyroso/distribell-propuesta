@@ -130,9 +130,13 @@
 
         /* MARCAS */
         .marcas{padding:clamp(80px,12vw,140px) 0;background:var(--white);}
-        .marcas-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
-        .marca-chip{display:inline-flex;align-items:center;padding:10px 20px;background:var(--bg);border:1px solid var(--border);border-radius:60px;font-size:.82rem;font-weight:500;color:var(--text);transition:all .3s;white-space:nowrap;}
-        .marca-chip:hover{border-color:var(--gold);background:var(--gold-100);transform:translateY(-2px);}
+        .marcas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;}
+        .marca-card{display:flex;align-items:center;justify-content:center;padding:20px 16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-card);min-height:80px;transition:all .3s;}
+        .marca-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.06);}
+        .marca-card img{max-height:40px;max-width:110px;width:auto;height:auto;object-fit:contain;filter:grayscale(40%);opacity:.8;transition:all .3s;}
+        .marca-card:hover img{filter:grayscale(0);opacity:1;}
+        .marca-card .marca-text{font-size:.8rem;font-weight:600;color:var(--text-mid);text-align:center;line-height:1.2;}
+        .marca-card:hover .marca-text{color:var(--text);}
         .marcas-note{text-align:center;margin-top:32px;font-size:.85rem;color:var(--text-muted);}
 
         /* CTA */
@@ -364,38 +368,38 @@
             <p class="s-desc">Trabajamos con las marcas más reconocidas de Colombia y el mundo para garantizar la mejor calidad.</p>
         </div>
         <div class="marcas-grid rv">
-            <span class="marca-chip">Coca-Cola</span>
-            <span class="marca-chip">Grupo Bimbo</span>
-            <span class="marca-chip">Grupo Nutresa</span>
-            <span class="marca-chip">Colanta</span>
-            <span class="marca-chip">Alpina</span>
-            <span class="marca-chip">Alquería</span>
-            <span class="marca-chip">Zenú</span>
-            <span class="marca-chip">Kraft</span>
-            <span class="marca-chip">Levapan</span>
-            <span class="marca-chip">Postobón</span>
-            <span class="marca-chip">Casa Luker</span>
-            <span class="marca-chip">Diana</span>
-            <span class="marca-chip">Alimentos Polar</span>
-            <span class="marca-chip">Team Foods</span>
-            <span class="marca-chip">Tabasco</span>
-            <span class="marca-chip">Colavita</span>
-            <span class="marca-chip">Harinera del Valle</span>
-            <span class="marca-chip">3 Castillos</span>
-            <span class="marca-chip">Arroz Federal</span>
-            <span class="marca-chip">Darnel</span>
-            <span class="marca-chip">Vlasic</span>
-            <span class="marca-chip">Kari</span>
-            <span class="marca-chip">Castilac</span>
-            <span class="marca-chip">Brasileña</span>
-            <span class="marca-chip">Hunt's</span>
-            <span class="marca-chip">Clamato</span>
-            <span class="marca-chip">Del Casino</span>
-            <span class="marca-chip">Pomar</span>
-            <span class="marca-chip">Sal Marina Natusal</span>
-            <span class="marca-chip">Bary</span>
-            <span class="marca-chip">Susanita</span>
-            <span class="marca-chip">El Águila</span>
+            <div class="marca-card"><img src="logos/coca-cola.svg" alt="Coca-Cola"></div>
+            <div class="marca-card"><img src="logos/bimbo.svg" alt="Grupo Bimbo"></div>
+            <div class="marca-card"><span class="marca-text">Grupo<br>Nutresa</span></div>
+            <div class="marca-card"><span class="marca-text">Colanta</span></div>
+            <div class="marca-card"><img src="logos/alpina.png" alt="Alpina"></div>
+            <div class="marca-card"><img src="logos/alqueria.svg" alt="Alquería"></div>
+            <div class="marca-card"><img src="logos/zenu.svg" alt="Zenú"></div>
+            <div class="marca-card"><span class="marca-text">Kraft</span></div>
+            <div class="marca-card"><img src="logos/levapan.png" alt="Levapan"></div>
+            <div class="marca-card"><img src="logos/postobon.png" alt="Postobón"></div>
+            <div class="marca-card"><img src="logos/casaluker.svg" alt="Casa Luker"></div>
+            <div class="marca-card"><img src="logos/diana.png" alt="Diana"></div>
+            <div class="marca-card"><span class="marca-text">Alimentos<br>Polar</span></div>
+            <div class="marca-card"><img src="logos/team.svg" alt="Alianza Team"></div>
+            <div class="marca-card"><img src="logos/tabasco.png" alt="Tabasco"></div>
+            <div class="marca-card"><img src="logos/colavita.png" alt="Colavita"></div>
+            <div class="marca-card"><img src="logos/hv.png" alt="Harinera del Valle"></div>
+            <div class="marca-card"><img src="logos/3castillos.png" alt="3 Castillos"></div>
+            <div class="marca-card"><img src="logos/federal.png" alt="Arroz Federal"></div>
+            <div class="marca-card"><img src="logos/darnel.png" alt="Darnel"></div>
+            <div class="marca-card"><img src="logos/vlasic.png" alt="Vlasic"></div>
+            <div class="marca-card"><span class="marca-text">Kari</span></div>
+            <div class="marca-card"><span class="marca-text">Castilac</span></div>
+            <div class="marca-card"><span class="marca-text">Brasileña</span></div>
+            <div class="marca-card"><img src="logos/hunts.png" alt="Hunt's"></div>
+            <div class="marca-card"><span class="marca-text">Clamato</span></div>
+            <div class="marca-card"><img src="logos/delcasino.svg" alt="Del Casino"></div>
+            <div class="marca-card"><img src="logos/pomar.png" alt="Pomar"></div>
+            <div class="marca-card"><span class="marca-text">Sal Marina<br>Natusal</span></div>
+            <div class="marca-card"><span class="marca-text">Bary</span></div>
+            <div class="marca-card"><img src="logos/susanita.png" alt="Susanita"></div>
+            <div class="marca-card"><span class="marca-text">El Águila</span></div>
         </div>
         <p class="marcas-note rv">Y muchas más. Pregunta por disponibilidad de marcas específicas.</p>
     </div>
