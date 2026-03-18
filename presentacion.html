@@ -133,8 +133,10 @@
         .marcas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;}
         .marca-card{display:flex;align-items:center;justify-content:center;padding:20px 16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-card);min-height:80px;transition:all .3s;}
         .marca-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.06);}
-        .marca-card img{max-height:40px;max-width:110px;width:auto;height:auto;object-fit:contain;filter:grayscale(40%);opacity:.8;transition:all .3s;}
+        .marca-card img{max-height:44px;max-width:116px;width:auto;height:auto;object-fit:contain;filter:grayscale(30%);opacity:.85;transition:all .3s;}
         .marca-card:hover img{filter:grayscale(0);opacity:1;}
+        .marca-card.has-bg{border-radius:var(--r-card);overflow:hidden;}
+        .marca-card.has-bg img{max-height:56px;max-width:140px;border-radius:8px;}
         .marca-card .marca-text{font-size:.8rem;font-weight:600;color:var(--text-mid);text-align:center;line-height:1.2;}
         .marca-card:hover .marca-text{color:var(--text);}
         .marcas-note{text-align:center;margin-top:32px;font-size:.85rem;color:var(--text-muted);}
@@ -369,18 +371,18 @@
         </div>
         <div class="marcas-grid rv">
             <div class="marca-card"><img src="logos/coca-cola.svg" alt="Coca-Cola"></div>
-            <div class="marca-card"><img src="logos/bimbo.svg" alt="Grupo Bimbo"></div>
-            <div class="marca-card"><span class="marca-text">Grupo<br>Nutresa</span></div>
-            <div class="marca-card"><span class="marca-text">Colanta</span></div>
+            <div class="marca-card"><img src="logos/bimbo.png" alt="Grupo Bimbo"></div>
+            <div class="marca-card"><img src="logos/nutresa.png" alt="Grupo Nutresa"></div>
+            <div class="marca-card"><img src="logos/colanta.png" alt="Colanta"></div>
             <div class="marca-card"><img src="logos/alpina.png" alt="Alpina"></div>
-            <div class="marca-card"><img src="logos/alqueria.svg" alt="Alquería"></div>
-            <div class="marca-card"><img src="logos/zenu.svg" alt="Zenú"></div>
-            <div class="marca-card"><span class="marca-text">Kraft</span></div>
+            <div class="marca-card has-bg"><img src="logos/alqueria.png" alt="Alquería"></div>
+            <div class="marca-card"><img src="logos/zenu.png" alt="Zenú"></div>
+            <div class="marca-card"><img src="logos/kraft.png" alt="Kraft"></div>
             <div class="marca-card"><img src="logos/levapan.png" alt="Levapan"></div>
             <div class="marca-card"><img src="logos/postobon.png" alt="Postobón"></div>
             <div class="marca-card"><img src="logos/casaluker.svg" alt="Casa Luker"></div>
             <div class="marca-card"><img src="logos/diana.png" alt="Diana"></div>
-            <div class="marca-card"><span class="marca-text">Alimentos<br>Polar</span></div>
+            <div class="marca-card has-bg"><img src="logos/polar.png" alt="Alimentos Polar"></div>
             <div class="marca-card"><img src="logos/team.svg" alt="Alianza Team"></div>
             <div class="marca-card"><img src="logos/tabasco.png" alt="Tabasco"></div>
             <div class="marca-card"><img src="logos/colavita.png" alt="Colavita"></div>
@@ -389,17 +391,17 @@
             <div class="marca-card"><img src="logos/federal.png" alt="Arroz Federal"></div>
             <div class="marca-card"><img src="logos/darnel.png" alt="Darnel"></div>
             <div class="marca-card"><img src="logos/vlasic.png" alt="Vlasic"></div>
-            <div class="marca-card"><span class="marca-text">Kari</span></div>
-            <div class="marca-card"><span class="marca-text">Castilac</span></div>
-            <div class="marca-card"><span class="marca-text">Brasileña</span></div>
+            <div class="marca-card has-bg"><img src="logos/kari.png" alt="Kari"></div>
+            <div class="marca-card"><img src="logos/castilac.png" alt="Castilac"></div>
+            <div class="marca-card"><img src="logos/brasilena.png" alt="Brasileña"></div>
             <div class="marca-card"><img src="logos/hunts.png" alt="Hunt's"></div>
-            <div class="marca-card"><span class="marca-text">Clamato</span></div>
+            <div class="marca-card"><img src="logos/clamato.png" alt="Clamato"></div>
             <div class="marca-card"><img src="logos/delcasino.svg" alt="Del Casino"></div>
             <div class="marca-card"><img src="logos/pomar.png" alt="Pomar"></div>
-            <div class="marca-card"><span class="marca-text">Sal Marina<br>Natusal</span></div>
-            <div class="marca-card"><span class="marca-text">Bary</span></div>
+            <div class="marca-card"><img src="logos/natusal.png" alt="Sal Marina Natusal"></div>
+            <div class="marca-card"><img src="logos/bary.png" alt="Bary"></div>
             <div class="marca-card"><img src="logos/susanita.png" alt="Susanita"></div>
-            <div class="marca-card"><span class="marca-text">El Águila</span></div>
+            <div class="marca-card"><img src="logos/elaguila.png" alt="El Águila"></div>
         </div>
         <p class="marcas-note rv">Y muchas más. Pregunta por disponibilidad de marcas específicas.</p>
     </div>
